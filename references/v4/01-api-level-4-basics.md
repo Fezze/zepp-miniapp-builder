@@ -17,7 +17,7 @@ The official `API_LEVEL 4.0` feature page highlights these families:
 
 - Flex layout support for widgets
 - widget getter/setter property access
-- new UI widgets and methods such as system keyboard support
+- new UI widgets and methods such as system keyboard support through `createKeyboard()`
 - app performance statistics via `getPerformance`
 - utility helpers for `ArrayBuffer` and string conversion
 - App Service `start(..., reload)` support for persistence across system-running-state changes
@@ -32,7 +32,7 @@ The official `API_LEVEL 4.0` feature page highlights these families:
 
 - `VIRTUAL_CONTAINER`
 - widget getter/setter direct property access
-- `SMART_KEYBOARD`
+- `SYSTEM_KEYBOARD` / `createKeyboard()`
 - `openInspector`
 - `getPerformance`
 - `createSysTimer`
@@ -50,11 +50,16 @@ The official `4.2` new-features page currently highlights:
 - workout additions
 - a `uuid` return value on `getDeviceInfo()`
 
+Treat custom keyboard work as `4.2+`. The current system-keyboard docs expose `inputType.JSKB`, and the dedicated `keyboard` API plus custom-keyboard guide cover switching, settings integration, and enablement flow.
+
 ## Official references
 
 - API_LEVEL 4.0 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-40/
 - API_LEVEL 4.2 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-42/
 - API_LEVEL Compatibility: https://docs.zepp.com/docs/v2/guides/framework/device/compatibility/
+- SYSTEM_KEYBOARD: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SYSTEM_KEYBOARD/
+- Keyboard API: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/keyboard/
+- Custom Keyboard intro: https://docs.zepp.com/docs/guides/keyboard/intro/
 - stringToBuffer: https://docs.zepp.com/docs/reference/device-app-api/newAPI/utils/stringToBuffer/
 - bufferToString: https://docs.zepp.com/docs/reference/device-app-api/newAPI/utils/bufferToString/
 - App Service `start`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/app-service/start/

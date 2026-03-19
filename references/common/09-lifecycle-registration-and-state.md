@@ -26,11 +26,14 @@
 
 ## App Service lifecycle
 
+- App Service exists only from `API_LEVEL 3.0`.
 - App Service files register with `AppService(...)`.
 - `onInit(params)` runs when the service starts.
 - `onDestroy()` runs when the service exits.
 - Start or stop continuous services from the Device App with `@zos/app-service`.
 - Exit the currently running service from inside the service with `exit()`.
+
+For `1.0` and `2.x` targets, skip App Service lifecycle design entirely and keep the flow in Device App or Side Service surfaces.
 
 ## State-sharing patterns
 

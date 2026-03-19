@@ -37,6 +37,8 @@ Important interpretation:
 - `configVersion` controls manifest/schema expectations.
 - `runtime.apiVersion` controls runtime capability.
 - `targets` controls platform/device targeting and module registration.
+- older repos may still use `configVersion: "v2"` and other pre-`v3` manifest conventions
+- screen adaptation guidance applies only to `app.json v3+`
 
 ## Registration and lifecycle basics
 
@@ -68,7 +70,7 @@ Use `zeus build` as the minimum compile gate before handoff.
 
 ## Coding defaults
 
-- Use Zepp APIs such as `@zos/ui`, `@zos/utils`, `@zos/sensor`, `@zos/media`, `@zos/router`, not browser DOM APIs.
+- Use the Zepp API generation that matches the target codebase: `hmUI` / `hmApp` / `hmBle` style globals for `1.0`-era device code, `@zos/*` modules for `2.0+`, never browser DOM APIs.
 - Prefer explicit widget creation via `hmUI.createWidget(...)` or the corresponding `@zos/ui` helpers.
 - Use `px(...)` and layout values designed for watch screens.
 - Keep copy in i18n resources when practical.
@@ -83,8 +85,12 @@ Use `zeus build` as the minimum compile gate before handoff.
 ## Useful official references
 
 - Quick Start: https://docs.zepp.com/docs/guides/quick-start/
+- Zepp OS 1.0 Device App intro: https://docs.zepp.com/docs/1.0/guides/framework/device/intro/
+- Zepp OS 1.0 Mini Program Configuration: https://docs.zepp.com/docs/1.0/reference/app-json/
 - Mini Program Configuration: https://docs.zepp.com/docs/reference/app-json/
+- 2.0 API Introduction: https://docs.zepp.com/docs/guides/version-info/new-api/
 - CLI overview: https://docs.zepp.com/docs/guides/tools/cli/overview/
+- Screen adaptation Specification: https://docs.zepp.com/docs/guides/framework/device/screen-adaption/
 - Device info: https://docs.zepp.com/docs/reference/device-app-api/newAPI/device/getDeviceInfo/
 - Register mini program: https://docs.zepp.com/docs/guides/framework/device/app/
 - App constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/App/

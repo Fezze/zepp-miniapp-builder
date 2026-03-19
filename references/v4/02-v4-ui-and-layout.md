@@ -49,16 +49,30 @@ Use it for:
 - overlap in Flex containers
 - debugging container geometry
 
-## `SMART_KEYBOARD`
+## System keyboard and custom keyboard APIs
 
-`SMART_KEYBOARD` is a `4.0+` system-level input path.
+Treat Zepp keyboard input as three distinct paths:
 
-Use it when:
+- `KEYBOARD` is the older in-page widget and starts at `3.0`
+- `SYSTEM_KEYBOARD` / `createKeyboard()` is the `4.0+` system-level input path
+- `keyboard` API plus `inputType.JSKB` are `4.2+` custom-keyboard integration features
+
+Use `createKeyboard()` when:
 
 - the app needs structured text input
 - a full-screen system keyboard is preferable to custom tap-grid input
 
-Check the project's UX and target devices before making text input a required path.
+Use custom-keyboard APIs only when all of these are true:
+
+- the target runtime is confirmed at `4.2+`
+- the device and region support the keyboard scenario you depend on
+- the UX can tolerate system settings enablement because only one custom keyboard widget can be enabled at a time
+
+Important distinctions:
+
+- do not confuse `KEYBOARD` with the system keyboard flow
+- older docs may still refer to the system keyboard page as `SMART_KEYBOARD`
+- `keyboard.isEnabled()`, `keyboard.isSelected()`, and `keyboard.gotoSettings()` belong to the `4.2+` custom-keyboard workflow
 
 ## V4 layout workflow
 
@@ -72,6 +86,7 @@ Check the project's UX and target devices before making text input a required pa
 ## Official references
 
 - API_LEVEL 4.0 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-40/
+- KEYBOARD: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/KEYBOARD/
 - VIRTUAL_CONTAINER: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/VIRTUAL_CONTAINER/
 - Widget layout properties for Flex layout: https://docs.zepp.com/docs/guides/framework/device/layout/
 - Widget Getter/Setter Features: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter/
@@ -79,4 +94,6 @@ Check the project's UX and target devices before making text input a required pa
 - updateLayoutStyle: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/updateLayoutStyle/
 - deleteWidget: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/deleteWidget/
 - openInspector: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/openInspector/
-- SMART_KEYBOARD: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SMART_KEYBOARD/
+- SYSTEM_KEYBOARD: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SYSTEM_KEYBOARD/
+- Keyboard API: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/keyboard/
+- Custom Keyboard intro: https://docs.zepp.com/docs/guides/keyboard/intro/

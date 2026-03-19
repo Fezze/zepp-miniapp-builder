@@ -13,6 +13,8 @@ Zepp tasks are version-sensitive. Choose the compatibility profile before decidi
 5. If that is missing, fall back to `runtime.apiVersion.minVersion`.
 6. Parse the chosen version numerically as `major.minor`.
 
+If the repo clearly uses `hmUI`, `hmApp`, `hmBle`, or other `1.0` globals, treat it as a legacy codebase even before proposing `@zos/*` rewrites.
+
 ## Compatibility profiles
 
 ### `legacy`
@@ -21,7 +23,8 @@ Use when the effective API level is below `4.0`.
 
 - Avoid features marked `API_LEVEL 4.0+`.
 - Prefer the older widget access pattern using `getProperty` and `setProperty`.
-- Do not assume Flex layout, `VIRTUAL_CONTAINER`, `SMART_KEYBOARD`, `openInspector`, `getPerformance`, or `createSysTimer`.
+- Inside `legacy`, distinguish `1.0`, `2.x`, and `3.x` before choosing APIs.
+- Do not assume Flex layout, `VIRTUAL_CONTAINER`, system keyboard support through `createKeyboard()`, `openInspector`, `getPerformance`, or `createSysTimer`.
 - Load:
   - [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md)
   - [legacy/02-migration-notes.md](legacy/02-migration-notes.md)
@@ -69,6 +72,7 @@ When you start helping on a Zepp task, explicitly state:
 - detected `configVersion`
 - detected effective API level
 - selected profile: `legacy`, `v4`, or `forward`
+- if `legacy`, the narrower sub-range: `1.0`, `2.x`, or `3.x`
 - any feature you plan to use that needs `4.0+` or newer
 
 ## Official references

@@ -8,10 +8,17 @@ For traceability from each official document into skill files, see [docs-mapping
 
 - Intro: https://docs.zepp.com/docs/intro/
 - Quick Start: https://docs.zepp.com/docs/guides/quick-start/
+- Zepp OS 1.0 Device App intro: https://docs.zepp.com/docs/1.0/guides/framework/device/intro/
+- Zepp OS 1.0 Mini Program Configuration: https://docs.zepp.com/docs/1.0/reference/app-json/
 - Mini Program Configuration (`app.json`): https://docs.zepp.com/docs/reference/app-json/
+- 2.0 API Introduction: https://docs.zepp.com/docs/guides/version-info/new-api/
 - API_LEVEL Compatibility: https://docs.zepp.com/docs/v2/guides/framework/device/compatibility/
 - API version selection: https://docs.zepp.com/docs/v2/guides/version-info/version-choose/
 - Migration guide: https://docs.zepp.com/docs/v2/guides/version-info/migration-guide/
+- API_LEVEL 2.0 New Features: https://docs.zepp.com/docs/guides/version-info/new-features/
+- API_LEVEL 2.1 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-21/
+- API_LEVEL 3.0 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-30/
+- API_LEVEL 3.5 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-35/
 - API_LEVEL 4.0 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-40/
 - API_LEVEL 4.2 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-42/
 
@@ -37,6 +44,7 @@ For traceability from each official document into skill files, see [docs-mapping
 - Page constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/Page/
 - getCurrentPage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/getCurrentPage/
 - Routing guide: https://docs.zepp.com/docs/guides/framework/device/router/
+- Cross-page communications: https://docs.zepp.com/docs/guides/best-practice/cross-page-communications/
 - App Service guide: https://docs.zepp.com/docs/guides/framework/device/app-service/
 - AppService constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/AppService/
 - App Service `start`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/app-service/start/
@@ -64,6 +72,11 @@ For traceability from each official document into skill files, see [docs-mapping
 - FILL_RECT: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/FILL_RECT/
 - ARC: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/ARC/
 - CANVAS: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CANVAS/
+- KEYBOARD: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/KEYBOARD/
+- SYSTEM_KEYBOARD (`createKeyboard`): https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SYSTEM_KEYBOARD/
+- Keyboard API (`keyboard`): https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/keyboard/
+- Custom Keyboard intro: https://docs.zepp.com/docs/guides/keyboard/intro/
+- Screen adaptation Specification: https://docs.zepp.com/docs/guides/framework/device/screen-adaption/
 - VIRTUAL_CONTAINER: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/VIRTUAL_CONTAINER/
 - Widget layout properties for Flex layout: https://docs.zepp.com/docs/guides/framework/device/layout/
 - Widget getter/setter: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter/
@@ -74,7 +87,6 @@ For traceability from each official document into skill files, see [docs-mapping
 - Router `push`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/router/push/
 - Gesture interaction: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/onGesture/
 - Digital crown interaction: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/onDigitalCrown/
-- SMART_KEYBOARD: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SMART_KEYBOARD/
 - IMG_ANIM: https://docs.zepp.com/docs/v2/reference/device-app-api/newAPI/ui/widget/IMG_ANIM/
 
 ## Sensors, display, media, and notifications

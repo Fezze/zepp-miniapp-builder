@@ -23,9 +23,21 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/06-testing-validation.md](common/06-testing-validation.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
   Notes: baseline development workflow and non-DOM runtime posture.
 
+- `https://docs.zepp.com/docs/1.0/guides/framework/device/intro/`
+  Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md)
+  Notes: `1.0`-era global-module model such as `hmUI`, `hmApp`, and `hmBle`.
+
+- `https://docs.zepp.com/docs/1.0/reference/app-json/`
+  Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md)
+  Notes: older manifest shape and `v2`-era configuration fields.
+
 - `https://docs.zepp.com/docs/reference/app-json/`
   Mapped into: [00-version-routing.md](00-version-routing.md), [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md)
   Notes: `configVersion`, `runtime.apiVersion`, permissions, targets, and manifest interpretation.
+
+- `https://docs.zepp.com/docs/guides/version-info/new-api/`
+  Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md)
+  Notes: `2.0` API model, ESM module split, and migration framing away from globals.
 
 - `https://docs.zepp.com/docs/v2/guides/framework/device/compatibility/`
   Mapped into: [00-version-routing.md](00-version-routing.md), [docs-index.md](docs-index.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md), [forward/01-forward-compatibility-workflow.md](forward/01-forward-compatibility-workflow.md)
@@ -38,6 +50,22 @@ This file is for traceability, not for repeating the full content of the documen
 - `https://docs.zepp.com/docs/v2/guides/version-info/migration-guide/`
   Mapped into: [docs-index.md](docs-index.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md)
   Notes: migration framing and `gettext -> getText` context.
+
+- `https://docs.zepp.com/docs/guides/version-info/new-features/`
+  Mapped into: [docs-index.md](docs-index.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md)
+  Notes: `2.0` feature wave and the `1.0` to `2.0` compatibility break.
+
+- `https://docs.zepp.com/docs/guides/version-info/new-features-21/`
+  Mapped into: [docs-index.md](docs-index.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md)
+  Notes: `2.1` additions such as geolocation, barometer, and time/system info improvements.
+
+- `https://docs.zepp.com/docs/guides/version-info/new-features-30/`
+  Mapped into: [docs-index.md](docs-index.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md)
+  Notes: `3.0` additions such as App Service, Canvas, media, BLE central, file transfer, and system notifications.
+
+- `https://docs.zepp.com/docs/guides/version-info/new-features-35/`
+  Mapped into: [docs-index.md](docs-index.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md)
+  Notes: `3.5` additions such as Workout Extension and targeted UI/sensor/BLE improvements.
 
 - `https://docs.zepp.com/docs/guides/version-info/new-features-40/`
   Mapped into: [00-version-routing.md](00-version-routing.md), [docs-index.md](docs-index.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md), [v4/03-v4-debugging-and-performance.md](v4/03-v4-debugging-and-performance.md), [forward/01-forward-compatibility-workflow.md](forward/01-forward-compatibility-workflow.md)
@@ -125,11 +153,11 @@ This file is for traceability, not for repeating the full content of the documen
 
 - `https://docs.zepp.com/docs/guides/framework/device/app-service/`
   Mapped into: [docs-index.md](docs-index.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
-  Notes: App Service capability model and constraints.
+  Notes: App Service capability model, constraints, and `3.0+` availability.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/AppService/`
   Mapped into: [docs-index.md](docs-index.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
-  Notes: `AppService()` registration and lifecycle.
+  Notes: `AppService()` registration and lifecycle from `API_LEVEL 3.0`.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/app-service/start/`
   Mapped into: [docs-index.md](docs-index.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md)
@@ -200,7 +228,7 @@ This file is for traceability, not for repeating the full content of the documen
   Notes: shortcut-card sizing control.
 
 - `https://docs.zepp.com/docs/guides/best-practice/cross-page-communications/`
-  Mapped into: [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md)
+  Mapped into: [docs-index.md](docs-index.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md)
   Notes: cross-page and cross-surface state-sharing patterns.
 
 ## UI, Layout, and Interaction
@@ -261,9 +289,25 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
   Notes: optional non-touch input surface.
 
-- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SMART_KEYBOARD/`
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/KEYBOARD/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md)
+  Notes: classic in-page keyboard widget starting at `3.0`, distinct from system keyboard APIs.
+
+- `https://docs.zepp.com/docs/guides/framework/device/screen-adaption/`
+  Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md)
+  Notes: `3.0` screen-type adaptation flow and its `app.json v3+` requirement.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SYSTEM_KEYBOARD/`
+  Mapped into: [docs-index.md](docs-index.md), [00-version-routing.md](00-version-routing.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md)
+  Notes: `4.0+` system keyboard support through `createKeyboard()`, with `inputType.JSKB` gated to `4.2`.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/keyboard/`
   Mapped into: [docs-index.md](docs-index.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md)
-  Notes: `4.0+` system keyboard support.
+  Notes: dedicated `4.2+` custom-keyboard control surface for input, switching, and settings integration.
+
+- `https://docs.zepp.com/docs/guides/keyboard/intro/`
+  Mapped into: [docs-index.md](docs-index.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md)
+  Notes: `4.2+` custom keyboard overview, settings enablement flow, and region/device caveats.
 
 - `https://docs.zepp.com/docs/v2/reference/device-app-api/newAPI/ui/widget/IMG_ANIM/`
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md)

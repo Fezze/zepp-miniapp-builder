@@ -25,6 +25,7 @@ Zepp mini-apps can span several surfaces. Keep responsibilities separate.
 ### App Service
 
 - Runs on the watch without a visible UI page.
+- Starts at `API_LEVEL 3.0`; do not propose it for `1.0` or `2.x` targets.
 - Useful for background workflows, timers, reminders, or notification-triggered actions.
 - Supports two broad modes:
   - single execution triggered by alarms, notifications, or system events
@@ -59,7 +60,7 @@ For companion widgets and shortcut cards, real-time BLE display should still be 
 - Put visible watch UI in Device App pages.
 - Put persistent phone-side preferences in Settings App.
 - Put cross-surface sync logic in Side Service.
-- Put background watch-only logic in App Service.
+- Put background watch-only logic in App Service only when the runtime target is `3.0+`.
 - Use SecondaryWidget or AppWidget only when the target device supports them and the UX fits glanceable or entry-point behavior.
 
 ## Practical architecture choices
@@ -98,6 +99,7 @@ Good for:
 
 ## App Service constraints that affect architecture
 
+- App Service starts at `API_LEVEL 3.0`.
 - Continuous App Service requires `device:os.bg_service`.
 - Continuous App Service also needs runtime permission flow in addition to manifest permission.
 - Single-execution App Service is recommended when it fits the use case because it uses fewer resources.
