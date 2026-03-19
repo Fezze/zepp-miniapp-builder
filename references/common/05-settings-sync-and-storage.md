@@ -15,6 +15,16 @@ Examples:
 - user toggles
 - launch preferences
 
+### Phone-owned auth and secrets
+
+If a Zepp project depends on Huami, Zepp, or other OAuth-style account authorization:
+
+- run the auth flow in the phone-native layer or backend, not in Device App pages
+- treat `accessToken`, `refreshToken`, `region`, package-registration data, and signature checks as phone-side or backend concerns
+- do not persist long-lived secrets in watch-local storage unless the project has an explicit and reviewed reason
+- send only minimal derived data to the watch, such as account profile snapshots, short-lived session state, or API results already authorized on the phone side
+- plan for phone-side failure modes such as invalid signature or registration, target app not installed, unsupported target version, login required, and network failure
+
 Important `settingsStorage` behavior:
 
 - values are persisted in the Zepp App

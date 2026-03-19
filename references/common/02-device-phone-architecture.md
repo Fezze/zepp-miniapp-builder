@@ -104,6 +104,13 @@ Good for:
 - send updates over `messaging.peerSocket`
 - answer explicit sync requests
 - optionally transfer files to the device app
+- keep phone-native auth or OAuth flows outside the watch runtime; bridge only the resulting account snapshot, token-derived data, or authorized actions into the Device App
+
+### Phone-native auth boundary
+
+- If an integration depends on a native Android or iOS auth SDK, keep the authorization flow in the companion-native layer or backend, not in `page/`.
+- Treat package registration, signature validation, installed-target checks, login state, and token refresh as phone-side or backend concerns.
+- The watch should receive only the minimum derived state it needs, such as profile info, authorized feature flags, or fetched API results.
 
 ## App Service constraints that affect architecture
 
