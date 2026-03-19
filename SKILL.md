@@ -74,7 +74,7 @@ Load these files directly as needed.
 - [references/common/10-secondary-widgets-and-shortcuts.md](references/common/10-secondary-widgets-and-shortcuts.md): `SecondaryWidget`, `AppWidget`, widget/card constraints, and cross-surface communication
 - [references/common/11-skill-maintenance-and-update.md](references/common/11-skill-maintenance-and-update.md): self-update workflow for docs refresh and newly discovered Zepp information
 - [references/common/12-workout-extension.md](references/common/12-workout-extension.md): `data-widget`, `DataWidget`, `SPORT_DATA`, and workout-extension constraints
-- [references/common/13-zml-library-patterns.md](references/common/13-zml-library-patterns.md): `@zeppos/zml` wrappers, communication helpers, and safe version guidance
+- [references/common/13-zml-library-patterns.md](references/common/13-zml-library-patterns.md): `@zeppos/zml` wrappers, plugin-composed transport, settings and file-transfer helpers, and doc-quality caveats
 
 ### V4 Profile
 

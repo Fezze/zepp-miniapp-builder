@@ -40,7 +40,7 @@ It then loads targeted references for architecture, Zeus CLI workflow, UI/widget
 - `references/common/12-workout-extension.md`
   Workout Extension guidance for `data-widget`, `DataWidget`, and `SPORT_DATA`.
 - `references/common/13-zml-library-patterns.md`
-  Guidance for ZML-based projects that use `@zeppos/zml` wrappers and communication helpers.
+  Guidance for ZML-based projects that use `@zeppos/zml` wrappers, side-assisted transport, settings hooks, and file-transfer helpers.
 - `references/v4/`
   `4.x`-specific APIs and workflow notes.
 - `references/legacy/`
