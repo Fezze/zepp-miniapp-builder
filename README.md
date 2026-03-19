@@ -5,6 +5,7 @@
 It is designed for work on:
 
 - Device App pages
+- Workout Extension surfaces
 - Settings App surfaces
 - Side Service code
 - App Service workflows
@@ -19,7 +20,7 @@ The skill starts from `app.json`, separates `configVersion` from `runtime.apiVer
 - `v4` for `4.x`
 - `forward` for major versions above `4`
 
-It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, App Service, companion widgets, and version-specific APIs.
+It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, App Service, companion widgets, workout extensions, and version-specific APIs.
 
 ## Repository structure
 
@@ -35,6 +36,8 @@ It then loads targeted references for architecture, Zeus CLI workflow, UI/widget
   Traceability register showing which official Zepp docs were mapped into which skill files.
 - `references/common/`
   Reusable guidance shared by all version profiles.
+- `references/common/12-workout-extension.md`
+  Workout Extension guidance for `data-widget`, `DataWidget`, and `SPORT_DATA`.
 - `references/v4/`
   `4.x`-specific APIs and workflow notes.
 - `references/legacy/`

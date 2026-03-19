@@ -38,7 +38,8 @@ Assume `4.0+` features are unavailable unless the project deliberately raises th
 - App Service, system notifications, Canvas, media, BLE central, and file transfer are `3.0+`
 - `KEYBOARD` is available from `3.0`, but system keyboard support through `createKeyboard()` is still `4.0+`
 - screen adaptation is a `3.0` era feature and requires `app.json v3+`
-- `3.5` adds Workout Extension and a smaller set of UI, sensor, and BLE improvements
+- Workout Extension arrives in the `3.5` feature wave, but the documented implementation floor for `DataWidget` and `SPORT_DATA` is `3.6+`
+- `SystemSounds` is also a `3.6+` API, not a generic pre-v4 baseline
 
 ## Common legacy traps
 
@@ -76,6 +77,10 @@ When recommending an upgrade, say so explicitly instead of silently using a newe
 - API_LEVEL 2.1 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-21/
 - API_LEVEL 3.0 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-30/
 - API_LEVEL 3.5 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-35/
+- Workout Extension quick start: https://docs.zepp.com/docs/guides/workout-extension/quick-start/
+- DataWidget constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/DataWidget/
 - KEYBOARD: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/KEYBOARD/
+- SPORT_DATA: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SPORT_DATA/
+- SystemSounds: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/SystemSounds/
 - Screen adaptation Specification: https://docs.zepp.com/docs/guides/framework/device/screen-adaption/
 - Mini Program Configuration: https://docs.zepp.com/docs/reference/app-json/

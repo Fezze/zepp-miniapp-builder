@@ -1,6 +1,6 @@
 ---
 name: zepp-miniapp-builder
-description: Build, debug, and evolve version-aware Zepp OS mini-apps, including Device App pages, Settings App surfaces, Side Service code, App Service workflows, sensor-driven apps, and games. Use this skill when a task involves Zepp app.json/runtime compatibility, @zos APIs, hmUI widgets, Zeus CLI workflow, watch/phone data flow, simulator or real-device debugging, or adapting code to legacy, v4, or future API_LEVEL targets.
+description: Build, debug, and evolve version-aware Zepp OS mini-apps, including Device App pages, Workout Extension surfaces, Settings App surfaces, Side Service code, App Service workflows, sensor-driven apps, and games. Use this skill when a task involves Zepp app.json/runtime compatibility, `data-widget` or workout extension work, @zos APIs, hmUI widgets, Zeus CLI workflow, watch/phone data flow, simulator or real-device debugging, or adapting code to legacy, v4, or future API_LEVEL targets.
 ---
 
 # Zepp Miniapp Builder
@@ -10,7 +10,7 @@ description: Build, debug, and evolve version-aware Zepp OS mini-apps, including
 Use this skill for Zepp OS mini-app work that touches:
 
 - `app.json` and compatibility decisions
-- `page/`, `app-side/`, `setting/`, or `app-service/`
+- `page/`, `data-widget/`, `app-side/`, `setting/`, or `app-service/`
 - `@zos/*` modules, `hmUI`, widgets, sensors, or device interactions
 - Zeus CLI workflow, simulator, preview, bridge, build, and device validation
 - i18n, storage, phone-to-watch sync, or version-aware feature selection
@@ -71,6 +71,7 @@ Load these files directly as needed.
 - [references/common/09-lifecycle-registration-and-state.md](references/common/09-lifecycle-registration-and-state.md): `App`, `Page`, `AppService`, storage lifetimes, and runtime state sharing
 - [references/common/10-secondary-widgets-and-shortcuts.md](references/common/10-secondary-widgets-and-shortcuts.md): `SecondaryWidget`, `AppWidget`, widget/card constraints, and cross-surface communication
 - [references/common/11-skill-maintenance-and-update.md](references/common/11-skill-maintenance-and-update.md): self-update workflow for docs refresh and newly discovered Zepp information
+- [references/common/12-workout-extension.md](references/common/12-workout-extension.md): `data-widget`, `DataWidget`, `SPORT_DATA`, and workout-extension constraints
 
 ### V4 Profile
 
@@ -105,6 +106,8 @@ Load these files directly as needed.
   Read `01-project-basics`, `02-device-phone-architecture`, and `09-lifecycle-registration-and-state`.
 - Companion widgets or shortcut cards:
   Read `10-secondary-widgets-and-shortcuts` before proposing UI or BLE behavior.
+- Workout Extension or `data-widget` work:
+  Read `12-workout-extension`; add `05-settings-sync-and-storage` when `app-side` sync is involved.
 - Skill maintenance, docs refresh, or newly discovered Zepp behavior:
   Read `11-skill-maintenance-and-update`, then update the affected reference files, `docs-index.md`, and `docs-mapping-register.md`.
 - Legacy support:

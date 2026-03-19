@@ -27,7 +27,7 @@ The official migration guide gives several high-value patterns:
 ## Upgrade ladder after `2.x`
 
 - move to `3.0` when the requested feature depends on App Service, Canvas, media, BLE central, file transfer, system notifications, or the screen-adaptation scheme
-- move to `3.5` when the requested feature depends on Workout Extension
+- move to `3.6` when the requested feature depends on Workout Extension, `DataWidget`, `SPORT_DATA`, or `SystemSounds`
 - move to `4.x` when the requested feature depends on Flex layout, system keyboard support, widget getter/setter access, or performance APIs
 
 ## Migration tool
@@ -66,3 +66,6 @@ The official migration guide gives several high-value patterns:
 - API_LEVEL 2.0 New Features: https://docs.zepp.com/docs/guides/version-info/new-features/
 - API_LEVEL 3.0 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-30/
 - API_LEVEL 3.5 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-35/
+- Workout Extension quick start: https://docs.zepp.com/docs/guides/workout-extension/quick-start/
+- DataWidget constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/DataWidget/
+- SystemSounds: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/SystemSounds/

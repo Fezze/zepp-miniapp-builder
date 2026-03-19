@@ -49,7 +49,7 @@ Important BLE limitation:
 
 - register widget/card modules in `app.json`
 - localize widget/card names through the documented `i18n` fields
-- for API levels above `3.0`, provide preview images where required by the docs
+- for Zepp OS `3.0+`, provide a static preview image for widget edit mode; square-screen previews need rounded corners
 - use `getAppWidgetSize()` and `setAppWidgetSize()` when shortcut-card sizing matters
 
 ## Debugging note
@@ -65,3 +65,4 @@ Important BLE limitation:
 - setAppWidgetSize: https://docs.zepp.com/docs/v2/reference/device-app-api/newAPI/ui/setAppWidgetSize/
 - Cross-page communications: https://docs.zepp.com/docs/guides/best-practice/cross-page-communications/
 - Device Basic Information: https://docs.zepp.com/docs/reference/related-resources/device-list/
+- Widget design guide: https://docs.zepp.com/docs/designs/customization/widget/

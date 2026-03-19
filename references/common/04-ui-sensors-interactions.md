@@ -44,7 +44,8 @@ Use when the app depends on angular velocity rather than held tilt angle.
 
 ## Audio and feedback
 
-- `Buzzer` and `SystemSounds` live under `@zos/sensor`
+- `Buzzer` lives under `@zos/sensor`
+- `SystemSounds` also lives under `@zos/sensor`, but it starts at `API_LEVEL 3.6`
 - check capability before use
 - for deterministic in-app audio, use `@zos/media` with bundled files
 - confirm system-mode and sound-setting interactions during debugging
@@ -70,6 +71,8 @@ Use when the app depends on angular velocity rather than held tilt angle.
 - CANVAS: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CANVAS/
 - KEYBOARD: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/KEYBOARD/
 - IMG_ANIM: https://docs.zepp.com/docs/v2/reference/device-app-api/newAPI/ui/widget/IMG_ANIM/
+- Buzzer: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/Buzzer/
+- SystemSounds: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/SystemSounds/
 - Screen adaptation Specification: https://docs.zepp.com/docs/guides/framework/device/screen-adaption/
 - deleteWidget: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/deleteWidget/
 - Router `push`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/router/push/

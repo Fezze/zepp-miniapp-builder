@@ -31,7 +31,7 @@ This file keeps generalized Zepp-specific notes that are broadly reusable. Each 
 
 ## Audio
 
-- Official doc: `Buzzer` and `SystemSounds` are part of `@zos/sensor`; capability and system settings affect whether feedback is actually audible. Source: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/ and https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/SystemSounds/ and https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/Buzzer/
+- Official doc: `Buzzer` and `SystemSounds` are part of `@zos/sensor`, but `SystemSounds` starts at `API_LEVEL 3.6`; capability and system settings affect whether feedback is actually audible. Source: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/ and https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/SystemSounds/ and https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/Buzzer/
 - Official doc: System sound output can still be suppressed by system modes such as DND, sleep, theater, or power-saving states. Source: https://docs.zepp.com/docs/reference/device-app-api/newAPI/settings/getSystemMode/
 - Official doc: For deterministic in-app playback, prefer `@zos/media` with bundled files and validate media lifecycle behavior. Source: https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/
 

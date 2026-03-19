@@ -13,6 +13,7 @@ Open these files before changing anything:
 ## Core Zepp surfaces
 
 - `page/`: Device App pages rendered on the watch
+- `data-widget/`: Workout Extension entry surface rendered inside the Workout system app
 - `app-side/`: phone-side Side Service logic
 - `setting/`: phone-side Settings App UI
 - `app-service/`: background watch logic without a visible page
@@ -44,8 +45,10 @@ Important interpretation:
 
 - `App()` must be called exactly once in `app.js`.
 - Each page file must call `Page()` exactly once.
+- Each Workout Extension entry file must call `DataWidget()` exactly once when the project includes `data-widget`.
 - Each App Service file must call `AppService()` exactly once.
 - Every device page path must be registered in `targets.*.module.page.pages`.
+- Workout Extension registration uses `targets.*.module.data-widget.widgets`.
 - Settings App registration uses `AppSettingsPage(...)` and has a single `build` lifecycle.
 
 Useful instance helpers:
@@ -89,6 +92,8 @@ Use `zeus build` as the minimum compile gate before handoff.
 - Zepp OS 1.0 Mini Program Configuration: https://docs.zepp.com/docs/1.0/reference/app-json/
 - Mini Program Configuration: https://docs.zepp.com/docs/reference/app-json/
 - 2.0 API Introduction: https://docs.zepp.com/docs/guides/version-info/new-api/
+- Workout Extension quick start: https://docs.zepp.com/docs/guides/workout-extension/quick-start/
+- DataWidget constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/DataWidget/
 - CLI overview: https://docs.zepp.com/docs/guides/tools/cli/overview/
 - Screen adaptation Specification: https://docs.zepp.com/docs/guides/framework/device/screen-adaption/
 - Device info: https://docs.zepp.com/docs/reference/device-app-api/newAPI/device/getDeviceInfo/

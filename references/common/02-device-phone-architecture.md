@@ -31,6 +31,13 @@ Zepp mini-apps can span several surfaces. Keep responsibilities separate.
   - single execution triggered by alarms, notifications, or system events
   - continuous running started from the Device App
 
+### Workout Extension
+
+- Runs inside the system Workout app as a plugin-style surface.
+- Treat `API_LEVEL 3.6` as the safe runtime floor for actual implementation.
+- Uses `data-widget/` entries and `DataWidget(...)`, not normal `Page(...)` registration.
+- Fits workout-context UI and sport-data plugins, not general navigation or home-entry flows.
+
 ### SecondaryWidget and AppWidget
 
 - Optional watch companion surfaces that belong to the mini-app.
@@ -61,6 +68,7 @@ For companion widgets and shortcut cards, real-time BLE display should still be 
 - Put persistent phone-side preferences in Settings App.
 - Put cross-surface sync logic in Side Service.
 - Put background watch-only logic in App Service only when the runtime target is `3.0+`.
+- Put workout-context plugins in Workout Extension only when the target runtime is `3.6+`.
 - Use SecondaryWidget or AppWidget only when the target device supports them and the UX fits glanceable or entry-point behavior.
 
 ## Practical architecture choices
@@ -120,6 +128,8 @@ Good for:
 - BLE: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ble/
 - App Service guide: https://docs.zepp.com/docs/guides/framework/device/app-service/
 - AppService constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/AppService/
+- Workout Extension quick start: https://docs.zepp.com/docs/guides/workout-extension/quick-start/
+- DataWidget constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/DataWidget/
 - Register SecondaryWidget and Shortcut Cards: https://docs.zepp.com/docs/guides/framework/device/secondary-widget/
 - SecondaryWidget constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/SecondaryWidget/
 - AppWidget constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/AppWidget/

@@ -62,6 +62,9 @@ For traceability from each official document into skill files, see [docs-mapping
 - Register SecondaryWidget and Shortcut Cards: https://docs.zepp.com/docs/guides/framework/device/secondary-widget/
 - SecondaryWidget constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/SecondaryWidget/
 - AppWidget constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/AppWidget/
+- Workout Extension intro: https://docs.zepp.com/docs/guides/workout-extension/intro/
+- Workout Extension quick start: https://docs.zepp.com/docs/guides/workout-extension/quick-start/
+- DataWidget constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/DataWidget/
 - getAppWidgetSize: https://docs.zepp.com/docs/v2/reference/device-app-api/newAPI/ui/getAppWidgetSize/
 - setAppWidgetSize: https://docs.zepp.com/docs/v2/reference/device-app-api/newAPI/ui/setAppWidgetSize/
 
@@ -73,6 +76,7 @@ For traceability from each official document into skill files, see [docs-mapping
 - ARC: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/ARC/
 - CANVAS: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CANVAS/
 - KEYBOARD: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/KEYBOARD/
+- SPORT_DATA: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SPORT_DATA/
 - SYSTEM_KEYBOARD (`createKeyboard`): https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SYSTEM_KEYBOARD/
 - Keyboard API (`keyboard`): https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/keyboard/
 - Custom Keyboard intro: https://docs.zepp.com/docs/guides/keyboard/intro/
@@ -107,6 +111,7 @@ For traceability from each official document into skill files, see [docs-mapping
 ## App/runtime utilities
 
 - `getPackageInfo`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/app/getPackageInfo/
+- `getSportData`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/app-access/getSportData/
 - `getPerformance`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/app/getPerformance/
 - `createSysTimer`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/timer/createSysTimer/
 - `bufferToString`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/utils/bufferToString/
@@ -121,6 +126,7 @@ For traceability from each official document into skill files, see [docs-mapping
 - Multilingual Mapping: https://docs.zepp.com/docs/v2/reference/related-resources/language-list/
 - Languages design guide: https://docs.zepp.com/docs/designs/internationalization/languages/
 - App icon design spec: https://docs.zepp.com/docs/designs/visual/icons/
+- Widget design guide: https://docs.zepp.com/docs/designs/customization/widget/
 - App icon FAQ: https://docs.zepp.com/docs/guides/faq/icon-faq/
 
 ## Testing and code organization

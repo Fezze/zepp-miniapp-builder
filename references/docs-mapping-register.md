@@ -65,7 +65,7 @@ This file is for traceability, not for repeating the full content of the documen
 
 - `https://docs.zepp.com/docs/guides/version-info/new-features-35/`
   Mapped into: [docs-index.md](docs-index.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md)
-  Notes: `3.5` additions such as Workout Extension and targeted UI/sensor/BLE improvements.
+  Notes: `3.5` feature wave including Workout Extension introduction and targeted UI/sensor/BLE improvements.
 
 - `https://docs.zepp.com/docs/guides/version-info/new-features-40/`
   Mapped into: [00-version-routing.md](00-version-routing.md), [docs-index.md](docs-index.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md), [v4/03-v4-debugging-and-performance.md](v4/03-v4-debugging-and-performance.md), [forward/01-forward-compatibility-workflow.md](forward/01-forward-compatibility-workflow.md)
@@ -219,6 +219,18 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md)
   Notes: shortcut-card constructor and lifecycle surface.
 
+- `https://docs.zepp.com/docs/guides/workout-extension/intro/`
+  Mapped into: [docs-index.md](docs-index.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/12-workout-extension.md](common/12-workout-extension.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md)
+  Notes: Workout Extension as a plugin surface in the Workout system app and its `3.5` introduction framing.
+
+- `https://docs.zepp.com/docs/guides/workout-extension/quick-start/`
+  Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/12-workout-extension.md](common/12-workout-extension.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md)
+  Notes: safe `3.6+` runtime floor, `data-widget` module shape, widget count limit, lifecycle, and UI restrictions.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/DataWidget/`
+  Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/12-workout-extension.md](common/12-workout-extension.md)
+  Notes: `DataWidget()` constructor and lifecycle from `API_LEVEL 3.6`.
+
 - `https://docs.zepp.com/docs/v2/reference/device-app-api/newAPI/ui/getAppWidgetSize/`
   Mapped into: [docs-index.md](docs-index.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md)
   Notes: shortcut-card sizing reference.
@@ -293,6 +305,10 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md)
   Notes: classic in-page keyboard widget starting at `3.0`, distinct from system keyboard APIs.
 
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SPORT_DATA/`
+  Mapped into: [docs-index.md](docs-index.md), [common/12-workout-extension.md](common/12-workout-extension.md)
+  Notes: purpose-built `3.6+` workout-data widget for Workout Extension UIs.
+
 - `https://docs.zepp.com/docs/guides/framework/device/screen-adaption/`
   Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md)
   Notes: `3.0` screen-type adaptation flow and its `app.json v3+` requirement.
@@ -328,12 +344,12 @@ This file is for traceability, not for repeating the full content of the documen
   Notes: angular velocity and sensor differentiation.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/Buzzer/`
-  Mapped into: [docs-index.md](docs-index.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
   Notes: buzzer capability and settings caveats.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/SystemSounds/`
-  Mapped into: [docs-index.md](docs-index.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
-  Notes: system sound behavior and mute-state caveats.
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md)
+  Notes: `3.6+` system sound behavior and mute-state caveats.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/app/queryPermission/`
   Mapped into: [docs-index.md](docs-index.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
@@ -368,6 +384,10 @@ This file is for traceability, not for repeating the full content of the documen
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/app/getPackageInfo/`
   Mapped into: [docs-index.md](docs-index.md)
   Notes: package/runtime inspection reference retained in the index.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/app-access/getSportData/`
+  Mapped into: [docs-index.md](docs-index.md), [common/12-workout-extension.md](common/12-workout-extension.md)
+  Notes: real-time workout data access for extension logic beyond `SPORT_DATA`.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/app/getPerformance/`
   Mapped into: [docs-index.md](docs-index.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md), [v4/03-v4-debugging-and-performance.md](v4/03-v4-debugging-and-performance.md)
@@ -416,6 +436,10 @@ This file is for traceability, not for repeating the full content of the documen
 - `https://docs.zepp.com/docs/designs/internationalization/languages/`
   Mapped into: [docs-index.md](docs-index.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md)
   Notes: language-design guidance.
+
+- `https://docs.zepp.com/docs/designs/customization/widget/`
+  Mapped into: [docs-index.md](docs-index.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md)
+  Notes: widget preview-image requirements, rounded corners on square screens, and edit-mode expectations.
 
 - `https://docs.zepp.com/docs/designs/visual/icons/`
   Mapped into: [docs-index.md](docs-index.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md)
