@@ -58,6 +58,11 @@ Important `LocalStorage` behavior:
 - is available in modern class form as `new LocalStorage()`
 - stores key-value pairs locally on the watch
 
+### Library-level storage layers
+
+- If the repo imports `@silver-zepp/easy-storage`, read `14-easy-storage-library-patterns` before replacing it with official storage APIs.
+- Treat `@silver-zepp/easy-storage` as a filesystem-based library layer with its own lifecycle rules such as `SaveAndQuit()` and `databaseClose()`, not as a synonym for official `LocalStorage` or `SessionStorage`.
+
 ## Sync path
 
 Common runtime flow:

@@ -10,6 +10,7 @@ It is designed for work on:
 - Side Service code
 - App Service workflows
 - ZML-based wrappers and messaging helpers
+- easy-storage persistence helpers and storage-model tradeoffs
 - sensor-driven apps and games
 - Zepp API compatibility across `legacy`, `v4`, and `forward` profiles
 
@@ -21,7 +22,7 @@ The skill starts from `app.json`, separates `configVersion` from `runtime.apiVer
 - `v4` for `4.x`
 - `forward` for major versions above `4`
 
-It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, App Service, companion widgets, workout extensions, ZML wrappers, and version-specific APIs.
+It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, App Service, companion widgets, workout extensions, ZML wrappers, easy-storage patterns, and version-specific APIs.
 
 ## Repository structure
 
@@ -41,6 +42,8 @@ It then loads targeted references for architecture, Zeus CLI workflow, UI/widget
   Workout Extension guidance for `data-widget`, `DataWidget`, and `SPORT_DATA`.
 - `references/common/13-zml-library-patterns.md`
   Guidance for ZML-based projects that use `@zeppos/zml` wrappers, side-assisted transport, settings hooks, and file-transfer helpers.
+- `references/common/14-easy-storage-library-patterns.md`
+  Guidance for projects that use `@silver-zepp/easy-storage` for filesystem-backed storage, async persistence, or time-series data.
 - `references/v4/`
   `4.x`-specific APIs and workflow notes.
 - `references/legacy/`
@@ -96,3 +99,4 @@ Library-specific guidance can live in topic references without being added to th
 - The current baseline is Zepp API `4.x`, but the routing is version-aware.
 - Official Zepp docs are the preferred source for capability checks and version-sensitive behavior.
 - ZML guidance is included as an optional library layer for repos that already depend on `@zeppos/zml`.
+- easy-storage guidance is included as an optional library layer for repos that already depend on `@silver-zepp/easy-storage`.
