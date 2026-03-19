@@ -1,0 +1,7 @@
+interface:
+  display_name: "Zepp Miniapp Builder"
+  short_description: "Build and debug version-aware Zepp mini-apps"
+  default_prompt: "Use $zepp-miniapp-builder to build or debug a version-aware Zepp OS mini-app."
+
+policy:
+  allow_implicit_invocation: true
