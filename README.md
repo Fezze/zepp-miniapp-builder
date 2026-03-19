@@ -9,6 +9,7 @@ It is designed for work on:
 - Settings App surfaces
 - Side Service code
 - App Service workflows
+- ZML-based wrappers and messaging helpers
 - sensor-driven apps and games
 - Zepp API compatibility across `legacy`, `v4`, and `forward` profiles
 
@@ -20,7 +21,7 @@ The skill starts from `app.json`, separates `configVersion` from `runtime.apiVer
 - `v4` for `4.x`
 - `forward` for major versions above `4`
 
-It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, App Service, companion widgets, workout extensions, and version-specific APIs.
+It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, App Service, companion widgets, workout extensions, ZML wrappers, and version-specific APIs.
 
 ## Repository structure
 
@@ -38,6 +39,8 @@ It then loads targeted references for architecture, Zeus CLI workflow, UI/widget
   Reusable guidance shared by all version profiles.
 - `references/common/12-workout-extension.md`
   Workout Extension guidance for `data-widget`, `DataWidget`, and `SPORT_DATA`.
+- `references/common/13-zml-library-patterns.md`
+  Guidance for ZML-based projects that use `@zeppos/zml` wrappers and communication helpers.
 - `references/v4/`
   `4.x`-specific APIs and workflow notes.
 - `references/legacy/`
@@ -85,8 +88,11 @@ When triggered, the intended behavior is:
 
 If a normal Zepp task uncovers new verified information that materially improves the skill, the skill should update itself before finishing whenever the skill repo or installed copy is writable.
 
+Library-specific guidance can live in topic references without being added to the official Zepp docs index, as long as the official-doc traceability files stay reserved for actual Zepp documentation.
+
 ## Notes
 
 - The skill is English-first for better reuse across projects.
 - The current baseline is Zepp API `4.x`, but the routing is version-aware.
 - Official Zepp docs are the preferred source for capability checks and version-sensitive behavior.
+- ZML guidance is included as an optional library layer for repos that already depend on `@zeppos/zml`.

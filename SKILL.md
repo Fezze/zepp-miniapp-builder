@@ -1,6 +1,6 @@
 ---
 name: zepp-miniapp-builder
-description: Build, debug, and evolve version-aware Zepp OS mini-apps, including Device App pages, Workout Extension surfaces, Settings App surfaces, Side Service code, App Service workflows, sensor-driven apps, and games. Use this skill when a task involves Zepp app.json/runtime compatibility, `data-widget` or workout extension work, @zos APIs, hmUI widgets, Zeus CLI workflow, watch/phone data flow, simulator or real-device debugging, or adapting code to legacy, v4, or future API_LEVEL targets.
+description: Build, debug, and evolve version-aware Zepp OS mini-apps, including Device App pages, Workout Extension surfaces, Settings App surfaces, Side Service code, App Service workflows, ZML-based wrappers, sensor-driven apps, and games. Use this skill when a task involves Zepp app.json/runtime compatibility, `data-widget` or workout extension work, `@zeppos/zml` wrapper patterns, @zos APIs, hmUI widgets, Zeus CLI workflow, watch/phone data flow, simulator or real-device debugging, or adapting code to legacy, v4, or future API_LEVEL targets.
 ---
 
 # Zepp Miniapp Builder
@@ -11,6 +11,7 @@ Use this skill for Zepp OS mini-app work that touches:
 
 - `app.json` and compatibility decisions
 - `page/`, `data-widget/`, `app-side/`, `setting/`, or `app-service/`
+- `@zeppos/zml` wrappers such as `BaseApp`, `BasePage`, or `BaseSideService`
 - `@zos/*` modules, `hmUI`, widgets, sensors, or device interactions
 - Zeus CLI workflow, simulator, preview, bridge, build, and device validation
 - i18n, storage, phone-to-watch sync, or version-aware feature selection
@@ -42,6 +43,7 @@ Read [references/00-version-routing.md](references/00-version-routing.md) first 
 
 - Use Zepp APIs, not browser DOM APIs.
 - Prefer explicit widget-based UI through `hmUI.createWidget(...)` or `@zos/ui` helpers.
+- When a repo uses `@zeppos/zml`, treat it as a wrapper over normal Zepp surfaces rather than a separate runtime model.
 - Verify API support on the official page for the specific widget or module, especially for `API_LEVEL 4.0+` additions.
 - Validate types and enum names against local `@zeppos/device-types` when available.
 - For unstable or future-facing features, confirm docs before coding.
@@ -72,6 +74,7 @@ Load these files directly as needed.
 - [references/common/10-secondary-widgets-and-shortcuts.md](references/common/10-secondary-widgets-and-shortcuts.md): `SecondaryWidget`, `AppWidget`, widget/card constraints, and cross-surface communication
 - [references/common/11-skill-maintenance-and-update.md](references/common/11-skill-maintenance-and-update.md): self-update workflow for docs refresh and newly discovered Zepp information
 - [references/common/12-workout-extension.md](references/common/12-workout-extension.md): `data-widget`, `DataWidget`, `SPORT_DATA`, and workout-extension constraints
+- [references/common/13-zml-library-patterns.md](references/common/13-zml-library-patterns.md): `@zeppos/zml` wrappers, communication helpers, and safe version guidance
 
 ### V4 Profile
 
@@ -108,6 +111,8 @@ Load these files directly as needed.
   Read `10-secondary-widgets-and-shortcuts` before proposing UI or BLE behavior.
 - Workout Extension or `data-widget` work:
   Read `12-workout-extension`; add `05-settings-sync-and-storage` when `app-side` sync is involved.
+- ZML-based app structure or messaging helpers:
+  Read `13-zml-library-patterns`; add `02-device-phone-architecture` when phone or side-service responsibilities matter.
 - Skill maintenance, docs refresh, or newly discovered Zepp behavior:
   Read `11-skill-maintenance-and-update`, then update the affected reference files, `docs-index.md`, and `docs-mapping-register.md`.
 - Legacy support:
