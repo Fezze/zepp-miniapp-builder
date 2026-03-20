@@ -24,6 +24,11 @@ Zepp device pages are widget-driven, not DOM-driven.
 - Treat digital crown input as optional unless target hardware guarantees it.
 - Use `deleteWidget(...)` when tearing down dynamic widget trees instead of assuming stale widgets disappear automatically.
 
+## BLE device interactions
+
+- Watch-side BLE master flows need explicit version and permission checks; do not assume a page can talk to peripherals without `device:os.ble`.
+- If the repo uses `@silver-zepp/easy-ble`, load `16-easy-ble-library-patterns` instead of copying sample manifests or raw `hmBle.mst*` usage blindly.
+
 ## Sensors
 
 ### Accelerometer

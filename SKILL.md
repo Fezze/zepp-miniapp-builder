@@ -1,6 +1,6 @@
 ---
 name: zepp-miniapp-builder
-description: Build, debug, and evolve version-aware Zepp OS mini-apps, including Device App pages, Workout Extension surfaces, Settings App surfaces, Side Service code, App Service workflows, ZML-based wrappers, easy-storage persistence models, visual logger relay patterns, sensor-driven apps, and games. Use this skill when a task involves Zepp app.json/runtime compatibility, `data-widget` or workout extension work, `@zeppos/zml` wrapper patterns, `@silver-zepp/easy-storage` persistence choices, `@silver-zepp/vis-log` debugging overlays, @zos APIs, hmUI widgets, Zeus CLI workflow, watch/phone data flow, simulator or real-device debugging, or adapting code to legacy, v4, or future API_LEVEL targets.
+description: Build, debug, and evolve version-aware Zepp OS mini-apps, including Device App pages, Workout Extension surfaces, Settings App surfaces, Side Service code, App Service workflows, ZML-based wrappers, easy-storage persistence models, visual logger relay patterns, easy-ble master patterns, sensor-driven apps, and games. Use this skill when a task involves Zepp app.json/runtime compatibility, `data-widget` or workout extension work, `@zeppos/zml` wrapper patterns, `@silver-zepp/easy-storage` persistence choices, `@silver-zepp/vis-log` debugging overlays, `@silver-zepp/easy-ble` BLE-master flows, @zos APIs, hmUI widgets, Zeus CLI workflow, watch/phone data flow, simulator or real-device debugging, or adapting code to legacy, v4, or future API_LEVEL targets.
 ---
 
 # Zepp Miniapp Builder
@@ -14,6 +14,7 @@ Use this skill for Zepp OS mini-app work that touches:
 - `@zeppos/zml` wrappers such as `BaseApp`, `BasePage`, or `BaseSideService`
 - `@silver-zepp/easy-storage` models such as `EasyStorageAsync`, `EasyFlashStorage`, or `EasyTSDB`
 - `@silver-zepp/vis-log` overlays or `setting` / `app-side` relay debugging
+- `@silver-zepp/easy-ble` wrappers around watch-side BLE master flows
 - `@zos/*` modules, `hmUI`, widgets, sensors, or device interactions
 - Zeus CLI workflow, simulator, preview, bridge, build, and device validation
 - i18n, storage, phone-to-watch sync, or version-aware feature selection
@@ -48,6 +49,7 @@ Read [references/00-version-routing.md](references/00-version-routing.md) first 
 - When a repo uses `@zeppos/zml`, treat it as a wrapper over normal Zepp surfaces rather than a separate runtime model.
 - When a repo uses `@silver-zepp/easy-storage`, treat it as a library over `@zos/fs`; keep storage-model choice, lifecycle flushes, and `device:os.local_storage` requirements explicit.
 - When a repo uses `@silver-zepp/vis-log`, treat it as a debug overlay and relay helper, not as an official logging surface; keep `page`, `app-side`, and `setting` wiring explicit.
+- When a repo uses `@silver-zepp/easy-ble`, treat it as a wrapper over `@zos/ble`; keep `device:os.ble`, callback-backed queue behavior, and teardown via `quit()` explicit.
 - Verify API support on the official page for the specific widget or module, especially for `API_LEVEL 4.0+` additions.
 - Validate types and enum names against local `@zeppos/device-types` when available.
 - For unstable or future-facing features, confirm docs before coding.
@@ -81,6 +83,7 @@ Load these files directly as needed.
 - [references/common/13-zml-library-patterns.md](references/common/13-zml-library-patterns.md): `@zeppos/zml` wrappers, plugin-composed transport, settings and file-transfer helpers, and doc-quality caveats
 - [references/common/14-easy-storage-library-patterns.md](references/common/14-easy-storage-library-patterns.md): `@silver-zepp/easy-storage` model selection, lifecycle guardrails, and source-level cautions
 - [references/common/15-visual-logger-library-patterns.md](references/common/15-visual-logger-library-patterns.md): `@silver-zepp/vis-log` overlays, AppSide and AppSettings relay wiring, and placement caveats
+- [references/common/16-easy-ble-library-patterns.md](references/common/16-easy-ble-library-patterns.md): `@silver-zepp/easy-ble` master-flow routing, queue contracts, permission hygiene, and backend caveats
 
 ### V4 Profile
 
@@ -123,6 +126,8 @@ Load these files directly as needed.
   Read `14-easy-storage-library-patterns`; add `05-settings-sync-and-storage` when deciding what should stay in RAM, filesystem storage, or phone-owned sync state.
 - `@silver-zepp/vis-log` or on-device debug overlay work:
   Read `15-visual-logger-library-patterns`; add `08-runtime-gotchas` when the real problem is missing `setting/` visibility or relay-based debugging on hardware.
+- `@silver-zepp/easy-ble` or watch-side BLE master work:
+  Read `16-easy-ble-library-patterns`; add `04-ui-sensors-interactions` for page and BLE context, and `10-secondary-widgets-and-shortcuts` before promising BLE behavior from widget or card surfaces.
 - Skill maintenance, docs refresh, or newly discovered Zepp behavior:
   Read `11-skill-maintenance-and-update`, then update the affected reference files, `docs-index.md`, and `docs-mapping-register.md`.
 - Legacy support:
