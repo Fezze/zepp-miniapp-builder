@@ -5,6 +5,7 @@
 - Use `getText` from `@zos/i18n` for device-side/widget i18n in modern Zepp projects.
 - Keep translatable strings in language resources where practical.
 - Prefer English as the design fallback when no language match is available.
+- If the repo uses `@silver-zepp/polyglot`, load `17-polyglot-library-patterns` instead of treating it like plain static `@zos/i18n`; Polyglot adds a generated-assets workflow, runtime switching, and its own storage-backed language state.
 
 ## `app.json` i18n
 
@@ -25,6 +26,7 @@ Locale keys must match the documented language mapping for Zepp mini-program con
 
 - keep app names localized in `app.json`
 - keep static assets in `assets/`
+- when a repo uses Polyglot, generated runtime translations normally live under `assets/raw/polyglot/translations/`
 - validate icon files against the Zepp icon design spec
 - use frame-sequence assets with `IMG_ANIM` for GIF-like animation
 
