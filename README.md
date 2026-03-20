@@ -11,6 +11,7 @@ It is designed for work on:
 - App Service workflows
 - ZML-based wrappers and messaging helpers
 - easy-storage persistence helpers and storage-model tradeoffs
+- visual logger overlays and relay-based debugging
 - sensor-driven apps and games
 - Zepp API compatibility across `legacy`, `v4`, and `forward` profiles
 
@@ -22,7 +23,7 @@ The skill starts from `app.json`, separates `configVersion` from `runtime.apiVer
 - `v4` for `4.x`
 - `forward` for major versions above `4`
 
-It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, App Service, companion widgets, workout extensions, ZML wrappers, easy-storage patterns, and version-specific APIs.
+It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, App Service, companion widgets, workout extensions, ZML wrappers, easy-storage patterns, visual logger relay patterns, and version-specific APIs.
 
 ## Repository structure
 
@@ -44,6 +45,8 @@ It then loads targeted references for architecture, Zeus CLI workflow, UI/widget
   Guidance for ZML-based projects that use `@zeppos/zml` wrappers, side-assisted transport, settings hooks, and file-transfer helpers.
 - `references/common/14-easy-storage-library-patterns.md`
   Guidance for projects that use `@silver-zepp/easy-storage` for filesystem-backed storage, async persistence, or time-series data.
+- `references/common/15-visual-logger-library-patterns.md`
+  Guidance for projects that use `@silver-zepp/vis-log` for on-device debug overlays, AppSide relay logging, or Settings App visibility on hardware.
 - `references/v4/`
   `4.x`-specific APIs and workflow notes.
 - `references/legacy/`
@@ -100,3 +103,4 @@ Library-specific guidance can live in topic references without being added to th
 - Official Zepp docs are the preferred source for capability checks and version-sensitive behavior.
 - ZML guidance is included as an optional library layer for repos that already depend on `@zeppos/zml`.
 - easy-storage guidance is included as an optional library layer for repos that already depend on `@silver-zepp/easy-storage`.
+- visual logger guidance is included as an optional library layer for repos that already depend on `@silver-zepp/vis-log`.

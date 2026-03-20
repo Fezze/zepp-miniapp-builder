@@ -40,6 +40,7 @@ This file keeps generalized Zepp-specific notes that are broadly reusable. Each 
 - Official doc: Simulator debugging does not currently support breakpoints; use logs and built-in debug panels. Source: https://docs.zepp.com/docs/guides/tools/simulator/dev/
 - Official doc: Simulator debug panels can mock sensor values, which is useful before real-device deployment. Source: https://docs.zepp.com/docs/guides/tools/simulator/dev/
 - Official doc: Zepp App developer mode exposes Device App and Side Service logs, while Settings App logs are not available there. Source: https://docs.zepp.com/docs/guides/tools/zepp-app/
+- Verified field note: `@silver-zepp/vis-log` can work around missing `setting/` console visibility by writing debug entries through `settingsStorage`, relaying them in `app-side`, and rendering them on a device page overlay. This is a library-specific workaround, not an official Zepp logging surface.
 - Verified field note: `zeus build` may pick up non-hidden test trees as inputs in some setups. Keeping tests under a hidden root such as `.test/` reduces the chance of bundling unsupported test dependencies into the app build.
 - Official doc: Companion widgets and shortcut cards should use `try/catch` in lifecycle handlers during debugging because JS errors can leave the simulator stuck. Source: https://docs.zepp.com/docs/guides/framework/device/secondary-widget/
 
