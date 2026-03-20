@@ -85,6 +85,10 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/03-dev-build-preview-bridge.md](common/03-dev-build-preview-bridge.md)
   Notes: command families such as `create`, `login`, and config commands.
 
+- `https://docs.zepp.com/docs/guides/tools/simulator/download/`
+  Mapped into: [docs-index.md](docs-index.md), [common/03-dev-build-preview-bridge.md](common/03-dev-build-preview-bridge.md)
+  Notes: simulator download matrix and current binary availability; docs updated on 2026-03-20 with `2.1.0` builds.
+
 - `https://docs.zepp.com/docs/guides/tools/simulator/dev/`
   Mapped into: [docs-index.md](docs-index.md), [common/03-dev-build-preview-bridge.md](common/03-dev-build-preview-bridge.md), [common/06-testing-validation.md](common/06-testing-validation.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md), [v4/03-v4-debugging-and-performance.md](v4/03-v4-debugging-and-performance.md)
   Notes: simulator debugging, sensor mocking, and no-breakpoint reminder.

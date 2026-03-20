@@ -26,6 +26,7 @@ For traceability from each official document into skill files, see [docs-mapping
 
 - CLI overview: https://docs.zepp.com/docs/guides/tools/cli/overview/
 - Zeus CLI commands: https://docs.zepp.com/docs/guides/tools/cli/
+- Simulator downloads: https://docs.zepp.com/docs/guides/tools/simulator/download/
 - Simulator development/debugging: https://docs.zepp.com/docs/guides/tools/simulator/dev/
 - Quick Start simulator run: https://docs.zepp.com/docs/guides/quick-start/simulator-dev/
 - Preview on a watch: https://docs.zepp.com/docs/guides/quick-start/preview/

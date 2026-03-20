@@ -47,6 +47,18 @@ Use this for most iteration on:
 - storage behavior
 - many non-device-specific logic changes
 
+### Simulator install or update
+
+When the task involves installing or upgrading the Zepp OS Simulator, check the official download page instead of assuming an older binary set.
+
+As of 2026-03-20, the official docs list Simulator `2.1.0` downloads for:
+
+- macOS `arm64`
+- macOS `x64`
+- Windows `x64`
+- Linux `amd64`
+- Linux `arm64`
+
 ### Package build
 
 ```bash
@@ -124,6 +136,7 @@ Historically documented behavior:
 
 - CLI overview: https://docs.zepp.com/docs/guides/tools/cli/overview/
 - Zeus CLI commands: https://docs.zepp.com/docs/guides/tools/cli/
+- Simulator downloads: https://docs.zepp.com/docs/guides/tools/simulator/download/
 - Quick Start simulator run: https://docs.zepp.com/docs/guides/quick-start/simulator-dev/
 - Preview on a watch: https://docs.zepp.com/docs/guides/quick-start/preview/
 - Simulator dev/debugging: https://docs.zepp.com/docs/guides/tools/simulator/dev/
