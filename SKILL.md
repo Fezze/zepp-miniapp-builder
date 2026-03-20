@@ -1,6 +1,6 @@
 ---
 name: zepp-miniapp-builder
-description: Build, debug, and evolve version-aware Zepp OS mini-apps, including Device App pages, Workout Extension surfaces, Settings App surfaces, Side Service code, App Service workflows, ZML-based wrappers, easy-storage persistence models, visual logger relay patterns, easy-ble master patterns, polyglot localization workflows, sensor-driven apps, and games. Use this skill when a task involves Zepp app.json/runtime compatibility, `data-widget` or workout extension work, `@zeppos/zml` wrapper patterns, `@silver-zepp/easy-storage` persistence choices, `@silver-zepp/vis-log` debugging overlays, `@silver-zepp/easy-ble` BLE-master flows, `@silver-zepp/polyglot` localization workflows, @zos APIs, hmUI widgets, Zeus CLI workflow, watch/phone data flow, simulator or real-device debugging, or adapting code to legacy, v4, or future API_LEVEL targets.
+description: Build, debug, and evolve version-aware Zepp OS mini-apps, including Device App pages, Workout Extension surfaces, Settings App surfaces, Side Service code, App Service workflows, ZML-based wrappers, easy-storage persistence models, visual logger relay patterns, easy-ble master patterns, polyglot localization workflows, easy-media audio workflows, sensor-driven apps, and games. Use this skill when a task involves Zepp app.json/runtime compatibility, `data-widget` or workout extension work, `@zeppos/zml` wrapper patterns, `@silver-zepp/easy-storage` persistence choices, `@silver-zepp/vis-log` debugging overlays, `@silver-zepp/easy-ble` BLE-master flows, `@silver-zepp/polyglot` localization workflows, `@silver-zepp/easy-media` playback or recording helpers, @zos APIs, hmUI widgets, Zeus CLI workflow, watch/phone data flow, simulator or real-device debugging, or adapting code to legacy, v4, or future API_LEVEL targets.
 ---
 
 # Zepp Miniapp Builder
@@ -16,6 +16,7 @@ Use this skill for Zepp OS mini-app work that touches:
 - `@silver-zepp/vis-log` overlays or `setting` / `app-side` relay debugging
 - `@silver-zepp/easy-ble` wrappers around watch-side BLE master flows
 - `@silver-zepp/polyglot` runtime localization and translation-generation workflow
+- `@silver-zepp/easy-media` playback or recording wrappers over `@zos/media`
 - `@zos/*` modules, `hmUI`, widgets, sensors, or device interactions
 - Zeus CLI workflow, simulator, preview, bridge, build, and device validation
 - i18n, storage, phone-to-watch sync, or version-aware feature selection
@@ -52,6 +53,7 @@ Read [references/00-version-routing.md](references/00-version-routing.md) first 
 - When a repo uses `@silver-zepp/vis-log`, treat it as a debug overlay and relay helper, not as an official logging surface; keep `page`, `app-side`, and `setting` wiring explicit.
 - When a repo uses `@silver-zepp/easy-ble`, treat it as a wrapper over `@zos/ble`; keep `device:os.ble`, callback-backed queue behavior, and teardown via `quit()` explicit.
 - When a repo uses `@silver-zepp/polyglot`, treat it as a combined CLI-plus-runtime localization layer; keep generated asset paths, `device:os.local_storage`, and the no-App-Side limitation explicit.
+- When a repo uses `@silver-zepp/easy-media`, treat it as a wrapper over `@zos/media`; keep `3.0+` targeting, full asset paths, page teardown, and source-level API drift explicit.
 - Verify API support on the official page for the specific widget or module, especially for `API_LEVEL 4.0+` additions.
 - Validate types and enum names against local `@zeppos/device-types` when available.
 - For unstable or future-facing features, confirm docs before coding.
@@ -87,6 +89,7 @@ Load these files directly as needed.
 - [references/common/15-visual-logger-library-patterns.md](references/common/15-visual-logger-library-patterns.md): `@silver-zepp/vis-log` overlays, AppSide and AppSettings relay wiring, and placement caveats
 - [references/common/16-easy-ble-library-patterns.md](references/common/16-easy-ble-library-patterns.md): `@silver-zepp/easy-ble` master-flow routing, queue contracts, permission hygiene, and backend caveats
 - [references/common/17-polyglot-library-patterns.md](references/common/17-polyglot-library-patterns.md): `@silver-zepp/polyglot` CLI workflow, runtime localization behavior, widget/page usage, and source-level caveats
+- [references/common/18-easy-media-library-patterns.md](references/common/18-easy-media-library-patterns.md): `@silver-zepp/easy-media` playback and recorder wrappers, queue behavior, fail detection, and source-level caveats
 
 ### V4 Profile
 
@@ -133,6 +136,8 @@ Load these files directly as needed.
   Read `16-easy-ble-library-patterns`; add `04-ui-sensors-interactions` for page and BLE context, and `10-secondary-widgets-and-shortcuts` before promising BLE behavior from widget or card surfaces.
 - `@silver-zepp/polyglot`, generated translation assets, or runtime language switching:
   Read `17-polyglot-library-patterns`; add `07-i18n-config-and-assets` for locale and manifest context, and `10-secondary-widgets-and-shortcuts` when translated strings must also work in widget or card surfaces.
+- `@silver-zepp/easy-media`, short audio playback, or recorder wrapper work:
+  Read `18-easy-media-library-patterns`; add `04-ui-sensors-interactions` for audio context and `08-runtime-gotchas` when speaker availability, media fallback, or device-specific behavior matters.
 - Skill maintenance, docs refresh, or newly discovered Zepp behavior:
   Read `11-skill-maintenance-and-update`, then update the affected reference files, `docs-index.md`, and `docs-mapping-register.md`.
 - Legacy support:

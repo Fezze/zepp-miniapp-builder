@@ -53,6 +53,7 @@ Use when the app depends on angular velocity rather than held tilt angle.
 - `SystemSounds` also lives under `@zos/sensor`, but it starts at `API_LEVEL 3.6`
 - check capability before use
 - for deterministic in-app audio, use `@zos/media` with bundled files
+- if the repo uses `@silver-zepp/easy-media`, load `18-easy-media-library-patterns` instead of assuming the README matches the actual wrapper behavior
 - confirm system-mode and sound-setting interactions during debugging
 
 ## Notifications and background flows
