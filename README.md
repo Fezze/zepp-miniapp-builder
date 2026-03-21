@@ -29,6 +29,14 @@ The skill starts from `app.json`, separates `configVersion` from `runtime.apiVer
 
 It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, official design-system/Figma handoff, App Service, companion widgets, workout extensions, ZML wrappers, easy-storage patterns, visual logger relay patterns, easy-ble master patterns, polyglot localization workflows, easy-media audio workflows, and version-specific APIs.
 
+## Recent practical improvements
+
+The skill has been tightened based on real project work and repeated Zepp delivery pain points:
+
+- stronger toolchain guidance for `API 4.0` scaffolding, target-based icons, `setting/index.js` shims, Zeus build gotchas, and using `zeus create` templates as a secondary source of truth
+- stronger Settings App guidance for larger CRUD flows, `settingsStorage` string-only hygiene, idempotent seeds, `domain storage` versus `UI state storage`, and Node-testable pure-domain modules
+- stronger phone-watch bridge guidance, clearer `peerSocket` phone-side boundaries, practical `REQUEST_BOOTSTRAP` / `PUSH_*` / `UPSERT_HISTORY_ENTRY` / `ACK_HISTORY_ENTRY` baseline patterns, sync storage baselines, and `hmUI` refresh caveats
+
 ## Repository structure
 
 - `SKILL.md`
