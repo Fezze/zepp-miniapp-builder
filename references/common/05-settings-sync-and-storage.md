@@ -153,6 +153,17 @@ For a first sync-capable watch baseline, a pragmatic key split is:
 - `sync_meta_v1` for cursors, timestamps, bootstrap flags, and ack bookkeeping
 - delay `active_session_v1` until resume semantics are explicitly designed and tested
 
+## Active session and history semantics
+
+When a feature evolves from simple sync into on-watch execution:
+
+- add `active_session_v1` only after the product defines what resume means for an expired or interrupted timed step
+- persist enough reducer state and timestamps to recompute elapsed on resume; avoid designs that require replaying missed ticks
+- let one history-finalization path decide how `completed`, `aborted`, and partial-step runs are written
+- decide up front whether an interrupted current step counts as completed, partial, skipped, or neither, and derive `completedSteps` from that rule instead of ad hoc UI math
+- compute deviation from persisted timestamps and planned durations, not from the number of visible timer ticks that happened while a page was open
+- if an expired step should wait for explicit confirmation rather than auto-advance, make that a named reducer state such as `waiting_for_confirm` instead of an implicit UI flag
+
 ## File transfer
 
 If the app needs downloadable assets or content packs, consider the transfer-file path between Side Service and Device App instead of hard-coding everything into the package.

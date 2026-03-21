@@ -93,6 +93,7 @@ For traceability from each official document into skill files, see [docs-mapping
 - deleteWidget: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/deleteWidget/
 - openInspector: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/openInspector/
 - Router `push`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/router/push/
+- Router `replace`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/router/replace/
 - Gesture interaction: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/onGesture/
 - Digital crown interaction: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/onDigitalCrown/
 - IMG_ANIM: https://docs.zepp.com/docs/v2/reference/device-app-api/newAPI/ui/widget/IMG_ANIM/

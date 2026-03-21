@@ -67,6 +67,26 @@ Still required when changes depend on:
 - test domain rules such as create, update, delete, summary rebuild, and history retention without any Zepp runtime imports
 - treat runtime adapters as the place for `AppSettingsPage`, `messaging.peerSocket`, `hmUI`, or `@zos/*`, not the domain layer itself
 
+## Runtime execution test matrix
+
+For timed watch flows, keep the reducer and engine under direct test with cases such as:
+
+- `start -> tick -> complete`
+- `start -> abort`
+- `start -> background gap -> resume`
+- timer expiry while the page is inactive or the screen state changes
+- expired-step behavior that should auto-advance versus enter `waiting_for_confirm`
+- partial-step abort that still has to finalize history deterministically
+- finalization rules for `completed`, `aborted`, and mixed partial sessions
+
+Recommended assertions:
+
+- reducer state after each event, not only final UI text
+- derived `completedSteps`, current-step status, and deviation values
+- timestamp-based resume behavior with no dependency on replaying every missed tick
+- timer teardown leaves no duplicate loop, duplicate feedback cue, or double-finalization path
+- page-shell tests with mocked runtime verify whichever refresh strategy the repo chose: in-place widget updates, `replace(...)`, or an event-bus/store signal
+
 ## Practical guardrails
 
 - simulator validation does not replace real-device sensor testing

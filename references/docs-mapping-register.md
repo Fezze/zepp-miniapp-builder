@@ -163,6 +163,10 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
   Notes: page navigation and route params.
 
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/router/replace/`
+  Mapped into: [docs-index.md](docs-index.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
+  Notes: full page replacement as an explicit rebuild path for non-reactive page flows.
+
 - `https://docs.zepp.com/docs/guides/framework/device/app-service/`
   Mapped into: [docs-index.md](docs-index.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
   Notes: App Service capability model, constraints, and `3.0+` availability.
@@ -410,8 +414,8 @@ This file is for traceability, not for repeating the full content of the documen
   Notes: performance stats and runtime inspection in `4.0+`.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/timer/createSysTimer/`
-  Mapped into: [docs-index.md](docs-index.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md), [v4/03-v4-debugging-and-performance.md](v4/03-v4-debugging-and-performance.md)
-  Notes: system timer API in `4.0+`.
+  Mapped into: [docs-index.md](docs-index.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md), [v4/03-v4-debugging-and-performance.md](v4/03-v4-debugging-and-performance.md)
+  Notes: system timer API in `4.0+` and the off-screen progression semantics it implies.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/utils/bufferToString/`
   Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md)

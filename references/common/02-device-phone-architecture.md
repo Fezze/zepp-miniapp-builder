@@ -102,6 +102,22 @@ Good for:
 - user preferences edited from the phone
 - settings that should survive reinstall or app restarts on the phone side
 
+### Watch runtime execution baseline
+
+For production-shaped timed or guided flows on the watch, a practical split is:
+
+- `watch-store` for the current in-memory runtime snapshot that visible pages read from
+- `recipe-engine` for pure step expansion, step lookup, and next-step selection
+- `session-reducer` for pure transitions such as `start`, `tick`, `confirm`, `abort`, `resume`, and `sync_update`
+- thin page adapters for widget creation, visible refresh, and timer setup or teardown
+- one history-finalization boundary that converts the finished runtime state into durable history rows
+
+Recommended rule:
+
+- keep elapsed-time math, auto-advance rules, resume rules, and history semantics in pure modules, not inline inside page widget callbacks
+- let the page layer own only visible-widget updates, navigation, and timer lifecycle
+- introduce persisted `active_session_v1` only when resume semantics are explicitly designed; before that, prefer in-memory runtime plus durable history output
+
 ### Side Service responsibilities
 
 - listen for `settingsStorage` changes
