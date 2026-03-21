@@ -19,6 +19,9 @@ This file keeps generalized Zepp-specific notes that are broadly reusable. Each 
 ## UI rendering
 
 - Official doc: `CANVAS` exists in current docs, but support is API- and implementation-sensitive. Check the widget page and runtime compatibility before relying on advanced paths. Source: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CANVAS/
+- Official doc: page UI is built through the `Page` lifecycle rather than DOM-style reactivity; `build()` is a lifecycle step, not a reactive binding system. Source: https://docs.zepp.com/docs/guides/framework/device/page/ and https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/Page/
+- Verified field note: updating shared cache after sync does not automatically rerender an already-open `hmUI` page. Use next-navigation rebuild when delayed visibility is fine, or add an explicit refresh hook when visible widgets must change immediately.
+- Verified field note: cache-only plus rebuild-on-next-navigation is usually enough for background sync or hidden data; immediate on-screen sync needs a deliberate redraw path.
 - Verified field note: Method presence on a canvas object does not guarantee visible output on every device runtime. Capability probing plus fallback rendering paths is safer than assuming one draw method always works.
 - Verified field note: Thin `drawArc` or `drawRect` rendering can behave like a no-op on some runtimes. Keep a fallback path using line segments or simpler primitives when rendering must be reliable.
 - Verified field note: `canvas.clear()` may leave stale graphics in some redraw/reset flows. Recreating the `CANVAS` widget can be safer than relying on in-place clear alone.

@@ -55,6 +55,11 @@ Still required when changes depend on:
 - keep visual and semantic snapshot layers separate if the project uses rendering-heavy output
 - run `zeus build` even when tests pass
 
+## Practical Node and shared-module guardrails
+
+- in shared modules imported by Node-based ESM tests, prefer explicit `.js` import specifiers
+- keep runtime-specific codecs or transport adapters separate from pure logic so tests can import normalization and state code without pulling `@zos/*`
+
 ## Practical guardrails
 
 - simulator validation does not replace real-device sensor testing

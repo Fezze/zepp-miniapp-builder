@@ -144,12 +144,12 @@ This file is for traceability, not for repeating the full content of the documen
   Notes: app-global in-memory state access.
 
 - `https://docs.zepp.com/docs/guides/framework/device/page/`
-  Mapped into: [docs-index.md](docs-index.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
-  Notes: page registration and lifecycle shape.
+  Mapped into: [docs-index.md](docs-index.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
+  Notes: page registration, lifecycle shape, and where `build()` sits in rendering.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/Page/`
-  Mapped into: [docs-index.md](docs-index.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
-  Notes: `Page()` constructor and lifecycle.
+  Mapped into: [docs-index.md](docs-index.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
+  Notes: `Page()` constructor, lifecycle callbacks, and page-build context.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/getCurrentPage/`
   Mapped into: [docs-index.md](docs-index.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
@@ -188,7 +188,7 @@ This file is for traceability, not for repeating the full content of the documen
   Notes: `AppSettingsPage`, `build(props)`, and reactive settings lifecycle.
 
 - `https://docs.zepp.com/docs/guides/framework/side-service/register/`
-  Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
+  Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
   Notes: `AppSideService`, companion lifecycle hooks, and the phone-side service entry surface.
 
 - `https://docs.zepp.com/docs/reference/app-settings-api/settings-storage/`
@@ -197,7 +197,7 @@ This file is for traceability, not for repeating the full content of the documen
 
 - `https://docs.zepp.com/docs/reference/side-service-api/messaging/`
   Mapped into: [docs-index.md](docs-index.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
-  Notes: Side Service to Device App messaging.
+  Notes: Side Service `peerSocket` messaging and companion-to-device transport.
 
 - `https://docs.zepp.com/docs/reference/side-service-api/transfer-file/`
   Mapped into: [docs-index.md](docs-index.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)

@@ -54,12 +54,17 @@ Preferred flow:
 ```text
 Settings App
   -> settingsStorage
-  -> Side Service
-  -> messaging.peerSocket
+  -> Side Service (phone)
+  -> messaging.peerSocket (phone-side bridge)
   -> Device App
 ```
 
-BLE can be part of the watch-side integration when the runtime design requires it.
+Important boundary:
+
+- treat `messaging.peerSocket` as the companion-side sync bridge in this architecture
+- do not blur phone-side `peerSocket` sync with watch-side hardware bridges
+- if the watch runtime must talk to external hardware or a custom transport, keep that bridge in the Device App layer, typically through watch-side BLE APIs
+
 For companion widgets and shortcut cards, real-time BLE display should still be initialized from the main page layer, not assumed inside the widget surface.
 
 ## When to use each surface

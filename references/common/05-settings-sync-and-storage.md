@@ -70,12 +70,12 @@ Common runtime flow:
 ```text
 Settings App
   -> settingsStorage
-  -> Side Service
-  -> messaging.peerSocket
+  -> Side Service (phone)
+  -> messaging.peerSocket (phone-side bridge)
   -> Device App
 ```
 
-If the watch-side design uses BLE integration, that bridge belongs to the device runtime architecture, not to the Settings App directly.
+If the watch-side design uses BLE integration, that bridge belongs to the device runtime architecture, not to the Settings App directly. Keep the companion sync path and the watch-side BLE path as separate layers even when the same feature uses both.
 
 ## Design guidance
 
@@ -91,6 +91,26 @@ If the watch-side design uses BLE integration, that bridge belongs to the device
 - use one normalization function for encode/decode if the project has a shared module
 - define how live updates affect active runtime behavior
 - if the repo targets API `4.0+`, consider `stringToBuffer` and `bufferToString` helpers for ArrayBuffer-based payloads
+
+## Practical API `4.0` baseline
+
+For a minimal watch-to-phone sync loop on `4.0+`, one useful convention is:
+
+- treat the names below as a recommended pattern, not official Zepp terminology
+- have the watch request a bootstrap snapshot with `REQUEST_BOOTSTRAP`
+- let the phone side answer with one or more `PUSH_*` messages for the current snapshot or catalog slices
+- use `UPSERT_HISTORY_ENTRY` for device-originated durable records
+- answer those writes with `ACK_HISTORY_ENTRY` after the phone side persists or reconciles them
+- keep the watch-side codec narrow: `stringToBuffer`, `bufferToString`, and one shared contract module
+
+## Stage 4 storage baseline
+
+For a first sync-capable watch baseline, a pragmatic key split is:
+
+- `catalog_cache_v1` for the last normalized catalog or reference snapshot
+- `last_result_v1` for the last meaningful rendered or fetched result snapshot
+- `sync_meta_v1` for cursors, timestamps, bootstrap flags, and ack bookkeeping
+- delay `active_session_v1` until resume semantics are explicitly designed and tested
 
 ## File transfer
 
