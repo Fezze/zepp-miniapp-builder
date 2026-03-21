@@ -144,7 +144,7 @@ For a minimal watch-to-phone sync loop on `4.0+`, one useful convention is:
 - answer those writes with `ACK_HISTORY_ENTRY` after the phone side persists or reconciles them
 - keep the watch-side codec narrow: `stringToBuffer`, `bufferToString`, and one shared contract module
 
-## Stage 4 storage baseline
+## Sync storage baseline
 
 For a first sync-capable watch baseline, a pragmatic key split is:
 
