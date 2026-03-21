@@ -7,6 +7,7 @@ Zepp device pages are widget-driven, not DOM-driven.
 - Build UI with `hmUI.createWidget(...)` or `@zos/ui`.
 - Size and position for watch screens.
 - Use `px(...)` from `@zos/utils` when the project relies on design-width scaling.
+- If the task starts from official Zepp Figma libraries, match the nearest system family first; for circular list pages that often means roughly `104px` compact rows, `121px` multiline rows, `184px` title or footer shells, and about `8px` between stacked list items.
 
 ## Useful widgets and drawing primitives
 
@@ -23,6 +24,7 @@ Zepp device pages are widget-driven, not DOM-driven.
 - Use `onGesture` and `offGesture` carefully because gesture registration is page-scoped.
 - Treat digital crown input as optional unless target hardware guarantees it.
 - Use `deleteWidget(...)` when tearing down dynamic widget trees instead of assuming stale widgets disappear automatically.
+- When the UI behaves like a system tool such as a picker, slider, keypad, or calculator-style selector, prefer the matching official design-library pattern over ad hoc circular geometry.
 
 ## BLE device interactions
 

@@ -56,6 +56,8 @@ Read [references/00-version-routing.md](references/00-version-routing.md) first 
 - When a repo uses `@silver-zepp/polyglot`, treat it as a combined CLI-plus-runtime localization layer; keep generated asset paths, `device:os.local_storage`, and the no-App-Side limitation explicit.
 - When a repo uses `@silver-zepp/easy-media`, treat it as a wrapper over `@zos/media`; keep `3.0+` targeting, full asset paths, page teardown, and source-level API drift explicit.
 - When a task starts from official Zepp Figma libraries or templates, treat them as official design-system input; keep screen shape, safe area, text overflow, and accessibility rules explicit instead of copying static mockup coordinates blindly.
+- When a task includes a design URL and the environment offers a design connector, MCP server, or similar design-inspection tool, use it for targeted inspection of the relevant page or node before falling back to stored guidance alone.
+- Do not block on one specific design tool. If no connector is available, continue with the stored design guidance, exported screenshots, copied measurements, or user-provided details.
 - Verify API support on the official page for the specific widget or module, especially for `API_LEVEL 4.0+` additions.
 - Validate types and enum names against local `@zeppos/device-types` when available.
 - For unstable or future-facing features, confirm docs before coding.
@@ -143,6 +145,7 @@ Load these files directly as needed.
   Read `18-easy-media-library-patterns`; add `04-ui-sensors-interactions` for audio context and `08-runtime-gotchas` when speaker availability, media fallback, or device-specific behavior matters.
 - Design handoff, official Zepp Figma libraries, or widget/card design review:
   Read `19-design-system-and-figma-patterns`; add `10-secondary-widgets-and-shortcuts` for widget/card surfaces and `07-i18n-config-and-assets` for text, icon, and asset-export rules.
+  If a live design connector is available, inspect only the specific design page or node that matters to the task instead of crawling the whole library.
 - Skill maintenance, docs refresh, or newly discovered Zepp behavior:
   Read `11-skill-maintenance-and-update`, then update the affected reference files, `docs-index.md`, and `docs-mapping-register.md`.
 - Legacy support:
