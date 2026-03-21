@@ -23,6 +23,10 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/06-testing-validation.md](common/06-testing-validation.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
   Notes: baseline development workflow and non-DOM runtime posture.
 
+- `https://docs.zepp.com/docs/guides/architecture/folder-structure/`
+  Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/03-dev-build-preview-bridge.md](common/03-dev-build-preview-bridge.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
+  Notes: default file layout such as `setting/index.js`, `app-side/index.js`, and the main project surfaces.
+
 - `https://docs.zepp.com/docs/1.0/guides/framework/device/intro/`
   Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md)
   Notes: `1.0`-era global-module model such as `hmUI`, `hmApp`, and `hmBle`.
@@ -33,7 +37,7 @@ This file is for traceability, not for repeating the full content of the documen
 
 - `https://docs.zepp.com/docs/reference/app-json/`
   Mapped into: [00-version-routing.md](00-version-routing.md), [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md)
-  Notes: `configVersion`, `runtime.apiVersion`, permissions, targets, and manifest interpretation.
+  Notes: `app.vender`, `configVersion`, `runtime.apiVersion`, permissions, targets, target-platform shape keys, and manifest interpretation.
 
 - `https://docs.zepp.com/docs/guides/version-info/new-api/`
   Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md)
@@ -50,6 +54,10 @@ This file is for traceability, not for repeating the full content of the documen
 - `https://docs.zepp.com/docs/v2/guides/version-info/migration-guide/`
   Mapped into: [docs-index.md](docs-index.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md)
   Notes: migration framing and `gettext -> getText` context.
+
+- `https://docs.zepp.com/docs/guides/best-practice/code-adaptations-for-new-devices/`
+  Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/03-dev-build-preview-bridge.md](common/03-dev-build-preview-bridge.md)
+  Notes: target-key resource folders, per-target asset layout, and official multi-device adaptation examples.
 
 - `https://docs.zepp.com/docs/guides/version-info/new-features/`
   Mapped into: [docs-index.md](docs-index.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md)
@@ -178,6 +186,10 @@ This file is for traceability, not for repeating the full content of the documen
 - `https://docs.zepp.com/docs/guides/framework/app-settings/register/`
   Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
   Notes: `AppSettingsPage`, `build(props)`, and reactive settings lifecycle.
+
+- `https://docs.zepp.com/docs/guides/framework/side-service/register/`
+  Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
+  Notes: `AppSideService`, companion lifecycle hooks, and the phone-side service entry surface.
 
 - `https://docs.zepp.com/docs/reference/app-settings-api/settings-storage/`
   Mapped into: [docs-index.md](docs-index.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
@@ -315,7 +327,7 @@ This file is for traceability, not for repeating the full content of the documen
 
 - `https://docs.zepp.com/docs/guides/framework/device/screen-adaption/`
   Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md)
-  Notes: `3.0` screen-type adaptation flow and its `app.json v3+` requirement.
+  Notes: `3.0` screen-type adaptation flow, `st` shorthand such as `r`/`s`/`b`, and its `app.json v3+` requirement.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SYSTEM_KEYBOARD/`
   Mapped into: [docs-index.md](docs-index.md), [00-version-routing.md](00-version-routing.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md)

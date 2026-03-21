@@ -8,6 +8,7 @@ For traceability from each official document into skill files, see [docs-mapping
 
 - Intro: https://docs.zepp.com/docs/intro/
 - Quick Start: https://docs.zepp.com/docs/guides/quick-start/
+- Folder Structure: https://docs.zepp.com/docs/guides/architecture/folder-structure/
 - Zepp OS 1.0 Device App intro: https://docs.zepp.com/docs/1.0/guides/framework/device/intro/
 - Zepp OS 1.0 Mini Program Configuration: https://docs.zepp.com/docs/1.0/reference/app-json/
 - Mini Program Configuration (`app.json`): https://docs.zepp.com/docs/reference/app-json/
@@ -15,6 +16,7 @@ For traceability from each official document into skill files, see [docs-mapping
 - API_LEVEL Compatibility: https://docs.zepp.com/docs/v2/guides/framework/device/compatibility/
 - API version selection: https://docs.zepp.com/docs/v2/guides/version-info/version-choose/
 - Migration guide: https://docs.zepp.com/docs/v2/guides/version-info/migration-guide/
+- Code adaptations for more Zepp OS devices: https://docs.zepp.com/docs/guides/best-practice/code-adaptations-for-new-devices/
 - API_LEVEL 2.0 New Features: https://docs.zepp.com/docs/guides/version-info/new-features/
 - API_LEVEL 2.1 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-21/
 - API_LEVEL 3.0 New Features: https://docs.zepp.com/docs/guides/version-info/new-features-30/
@@ -52,6 +54,7 @@ For traceability from each official document into skill files, see [docs-mapping
 - App Service `stop`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/app-service/stop/
 - App Service `exit`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/app-service/exit/
 - Register Settings App: https://docs.zepp.com/docs/guides/framework/app-settings/register/
+- Register for Side Service: https://docs.zepp.com/docs/guides/framework/side-service/register/
 - Settings Storage API: https://docs.zepp.com/docs/reference/app-settings-api/settings-storage/
 - Side Service Messaging API: https://docs.zepp.com/docs/reference/side-service-api/messaging/
 - Transfer file: https://docs.zepp.com/docs/reference/side-service-api/transfer-file/

@@ -23,6 +23,10 @@ zeus create my-app
 
 Use this when the task is scaffolding a new Zepp app rather than editing an existing repo.
 
+### Template reality check
+
+When docs are ambiguous about file layout or generated scaffolding, create a scratch app with `zeus create` and compare the template output with the current official docs. Treat Zeus templates as secondary truth for toolchain expectations, not as a replacement for docs.
+
 ### Login when preview flow needs it
 
 ```bash
@@ -85,6 +89,13 @@ zeus config set <key>=<value>
 
 Use this when the task involves CLI environment setup rather than app code.
 
+## Zeus build gotchas
+
+Current `@zeppos/zpm` error strings surface a few practical toolchain assumptions:
+
+- `The icon in app.json is empty or the image does not exist`: re-check `app.icon`, file existence, and target asset layout under `assets/<target>/icon.png` before debugging unrelated UI code.
+- `setting/index.js does not exist`: verify the configured Settings App entry path resolves to a real JS file. If the implementation is authored in `index.jsx`, add a tiny `index.js` shim or point the manifest at the actual entry file.
+
 ## Bridge workflow
 
 Start bridge mode in the project root:
@@ -135,7 +146,9 @@ Historically documented behavior:
 ## Official references
 
 - CLI overview: https://docs.zepp.com/docs/guides/tools/cli/overview/
+- Folder Structure: https://docs.zepp.com/docs/guides/architecture/folder-structure/
 - Zeus CLI commands: https://docs.zepp.com/docs/guides/tools/cli/
+- Code adaptations for more Zepp OS devices: https://docs.zepp.com/docs/guides/best-practice/code-adaptations-for-new-devices/
 - Simulator downloads: https://docs.zepp.com/docs/guides/tools/simulator/download/
 - Quick Start simulator run: https://docs.zepp.com/docs/guides/quick-start/simulator-dev/
 - Preview on a watch: https://docs.zepp.com/docs/guides/quick-start/preview/

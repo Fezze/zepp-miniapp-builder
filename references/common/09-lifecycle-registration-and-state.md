@@ -17,6 +17,14 @@
 - `onDestroy()` is the place for cleanup.
 - Use `getCurrentPage()` when code needs the current page instance.
 
+## Side Service lifecycle
+
+- Side Service uses `AppSideService(...)`.
+- The common companion entry path is `app-side/index.js`, though the exact path is configured in `app.json`.
+- `onInit()` is the companion startup hook.
+- `onRun()` is the active companion hook.
+- `onDestroy()` is the companion cleanup hook.
+
 ## Settings App lifecycle
 
 - Settings App uses `AppSettingsPage(...)`.
@@ -60,6 +68,8 @@ Choose the narrowest shared-state tool that fits the task:
 - Page constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/Page/
 - getCurrentPage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/getCurrentPage/
 - Register Settings App: https://docs.zepp.com/docs/guides/framework/app-settings/register/
+- Register for Side Service: https://docs.zepp.com/docs/guides/framework/side-service/register/
+- Folder Structure: https://docs.zepp.com/docs/guides/architecture/folder-structure/
 - AppService constructor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/global/AppService/
 - App Service `start`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/app-service/start/
 - App Service `stop`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/app-service/stop/
