@@ -185,7 +185,7 @@ This file is for traceability, not for repeating the full content of the documen
 
 - `https://docs.zepp.com/docs/guides/framework/app-settings/register/`
   Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
-  Notes: `AppSettingsPage`, `build(props)`, and reactive settings lifecycle.
+  Notes: `AppSettingsPage`, `build(props)`, reactive settings lifecycle, and the one-root settings surface model.
 
 - `https://docs.zepp.com/docs/guides/framework/side-service/register/`
   Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
@@ -193,7 +193,7 @@ This file is for traceability, not for repeating the full content of the documen
 
 - `https://docs.zepp.com/docs/reference/app-settings-api/settings-storage/`
   Mapped into: [docs-index.md](docs-index.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
-  Notes: companion-side settings persistence and change flow.
+  Notes: companion-side settings persistence, string-valued storage, and change-flow behavior.
 
 - `https://docs.zepp.com/docs/reference/side-service-api/messaging/`
   Mapped into: [docs-index.md](docs-index.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
@@ -495,4 +495,4 @@ This file is for traceability, not for repeating the full content of the documen
 
 - `https://docs.zepp.com/docs/v2/guides/best-practice/code-organization/`
   Mapped into: [docs-index.md](docs-index.md), [common/06-testing-validation.md](common/06-testing-validation.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
-  Notes: pure-JS testability and code-organization guidance.
+  Notes: pure-JS testability, runtime-free domain modules, and code-organization guidance.

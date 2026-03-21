@@ -33,6 +33,13 @@ Important `settingsStorage` behavior:
 - Side Service can listen to `change` events
 - Settings App is already reactive, so explicit listeners are primarily a Side Service concern
 
+## Seed and migration hygiene
+
+- treat seed or init logic as idempotent; it should be safe to run more than once without duplicating records or clobbering valid data
+- because `settingsStorage` stores strings, keep parse/stringify and validation in one helper layer instead of scattering ad hoc JSON handling through UI code
+- seed missing keys selectively; do not rewrite the whole storage set just because one key is absent
+- prefer independent keys over one giant blob so partial repair is possible when one value is corrupt
+
 ### Watch-local state
 
 Store locally on the watch when values must support instant startup or remain device-local.
@@ -62,6 +69,40 @@ Important `LocalStorage` behavior:
 
 - If the repo imports `@silver-zepp/easy-storage`, read `14-easy-storage-library-patterns` before replacing it with official storage APIs.
 - Treat `@silver-zepp/easy-storage` as a filesystem-based library layer with its own lifecycle rules such as `SaveAndQuit()` and `databaseClose()`, not as a synonym for official `LocalStorage` or `SessionStorage`.
+
+## Domain storage vs UI state storage
+
+- keep sync-relevant domain data in dedicated keys that model actual entities or normalized snapshots
+- keep transient UI state such as `view`, `selectedId`, filters, and editor drafts in separate UI-only keys
+- Side Service sync should ignore UI-only keys unless there is an explicit product reason to mirror them to the watch
+- do not let temporary draft or navigation state leak into the watch-facing payload by default
+
+## Settings CRUD baseline
+
+For larger `setting/` flows, a production-safe baseline is:
+
+- `Tool`: read-only seeded catalog data
+- `RecipeRecord`: full editable record
+- `RecipeSummary`: denormalized list-row payload used by the main index
+- `HistoryEntry`: append-only execution or audit row
+
+Recommended key family:
+
+- `tools_catalog_v1`
+- `recipes_index_v1`
+- `recipe_record:<id>`
+- `history_index_v1`
+- `history_entry:<id>`
+- optional `recipes_ui_state_v1` for draft or routing state that does not participate in sync
+
+Recommended behavior:
+
+- list views read summaries from the index instead of hydrating every full record on first paint
+- editor views read and write one full record at a time
+- history views read append-only history entries
+- deleting a recipe removes its summary and main record but keeps history unless the product explicitly requires cascading delete
+- one `AppSettingsPage(...)` root can safely implement `list -> editor -> history` by switching userland view state rather than pretending the surface is a multi-page web router
+- if the actual settings implementation lives in `setting/index.jsx`, keep a tiny `setting/index.js` shim so Zeus still finds the expected Settings App entry file
 
 ## Sync path
 

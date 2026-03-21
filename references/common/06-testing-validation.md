@@ -60,6 +60,13 @@ Still required when changes depend on:
 - in shared modules imported by Node-based ESM tests, prefer explicit `.js` import specifiers
 - keep runtime-specific codecs or transport adapters separate from pure logic so tests can import normalization and state code without pulling `@zos/*`
 
+## How to make Zepp code testable in Node
+
+- keep entity schemas, validators, serialization helpers, key builders, seed logic, migration logic, and index-update rules in pure modules
+- let runtime shells such as `setting/index.js`, `app-side/index.js`, or device pages be thin adapters over those pure modules
+- test domain rules such as create, update, delete, summary rebuild, and history retention without any Zepp runtime imports
+- treat runtime adapters as the place for `AppSettingsPage`, `messaging.peerSocket`, `hmUI`, or `@zos/*`, not the domain layer itself
+
 ## Practical guardrails
 
 - simulator validation does not replace real-device sensor testing
