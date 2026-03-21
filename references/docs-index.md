@@ -121,13 +121,20 @@ For traceability from each official document into skill files, see [docs-mapping
 
 ## i18n, design, and assets
 
+- Design specifications index: https://docs.zepp.com/docs/designs/
+- Resource downloads: https://docs.zepp.com/docs/designs/download/
+- Designer's self-checklist: https://docs.zepp.com/docs/designs/self-checklist/
 - I18n best practice: https://docs.zepp.com/docs/guides/best-practice/i18n/
 - `getText`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/i18n/getText/
 - Migration guide for `gettext -> getText`: https://docs.zepp.com/docs/v2/guides/version-info/migration-guide/
 - Multilingual Mapping: https://docs.zepp.com/docs/v2/reference/related-resources/language-list/
+- Interface layouts: https://docs.zepp.com/docs/designs/internationalization/interface-layouts/
 - Languages design guide: https://docs.zepp.com/docs/designs/internationalization/languages/
+- Contrast ratio: https://docs.zepp.com/docs/designs/accessibility/contrast-ratio/
+- Safe area: https://docs.zepp.com/docs/designs/specifications/safe-area/
 - App icon design spec: https://docs.zepp.com/docs/designs/visual/icons/
 - Widget design guide: https://docs.zepp.com/docs/designs/customization/widget/
+- Shortcut Cards design guide: https://docs.zepp.com/docs/designs/customization/shortcut-cards/
 - App icon FAQ: https://docs.zepp.com/docs/guides/faq/icon-faq/
 
 ## Testing and code organization

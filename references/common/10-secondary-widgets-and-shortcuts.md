@@ -9,6 +9,8 @@ Load this file when a Zepp task involves:
 - shortcut cards
 - glanceable watch surfaces outside the main Device App page
 
+If the task starts from official Zepp widget or shortcut-card Figma templates, also load `19-design-system-and-figma-patterns`.
+
 ## Core concepts
 
 - `SecondaryWidget` is the constructor for watch widgets.
@@ -26,7 +28,14 @@ Load this file when a Zepp task involves:
 ## UI and interaction constraints
 
 - drawing area is bounded
+- widgets should stay single-purpose and glanceable rather than mimic a full app page
+- widget content should fit inside one screen height; do not design around vertical scrolling or notification/control-center pulls
+- widget tap behavior should be explicit: click through into the main app or perform a direct quick action
 - shortcut-card layout uses coordinates relative to the card origin
+- shortcut cards should prioritize core information or quick actions instead of secondary or marketing content
+- shortcut cards should usually keep the default `color_sys_item_bg` background unless a custom background conveys real meaning
+- shortcut cards should keep a `16px` content safety margin and avoid heights below `120px`
+- tighten localized copy before falling back to ellipsis or scrolling text inside cards
 - swipe, gesture, and key events are not available
 - click events are the main interaction path
 - scroll/sliding/stacking widgets such as `SCROLL_LIST` and `VIEW_CONTAINER` are not allowed here
@@ -66,3 +75,4 @@ Important BLE limitation:
 - Cross-page communications: https://docs.zepp.com/docs/guides/best-practice/cross-page-communications/
 - Device Basic Information: https://docs.zepp.com/docs/reference/related-resources/device-list/
 - Widget design guide: https://docs.zepp.com/docs/designs/customization/widget/
+- Shortcut Cards design guide: https://docs.zepp.com/docs/designs/customization/shortcut-cards/

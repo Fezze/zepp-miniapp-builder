@@ -383,7 +383,7 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
   Notes: interactive notification support.
 
-## Runtime Utilities, Device Info, Storage, I18n, and Testing
+## Runtime Utilities, Device Info, Storage, I18n, Design, and Testing
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/app/getPackageInfo/`
   Mapped into: [docs-index.md](docs-index.md)
@@ -437,17 +437,45 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md)
   Notes: supported locale-key mapping.
 
+- `https://docs.zepp.com/docs/designs/`
+  Mapped into: [docs-index.md](docs-index.md), [common/19-design-system-and-figma-patterns.md](common/19-design-system-and-figma-patterns.md)
+  Notes: design-system landing page and the official entry point for design guidance.
+
+- `https://docs.zepp.com/docs/designs/download/`
+  Mapped into: [docs-index.md](docs-index.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md), [common/19-design-system-and-figma-patterns.md](common/19-design-system-and-figma-patterns.md)
+  Notes: official Figma library links and font-download entry point.
+
+- `https://docs.zepp.com/docs/designs/self-checklist/`
+  Mapped into: [docs-index.md](docs-index.md), [common/19-design-system-and-figma-patterns.md](common/19-design-system-and-figma-patterns.md)
+  Notes: review checklist for system-pattern consistency and design validation.
+
+- `https://docs.zepp.com/docs/designs/internationalization/interface-layouts/`
+  Mapped into: [docs-index.md](docs-index.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md), [common/19-design-system-and-figma-patterns.md](common/19-design-system-and-figma-patterns.md)
+  Notes: multilingual overflow handling, wrapping choices, and RTL mirroring rules.
+
 - `https://docs.zepp.com/docs/designs/internationalization/languages/`
-  Mapped into: [docs-index.md](docs-index.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md)
-  Notes: language-design guidance.
+  Mapped into: [docs-index.md](docs-index.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md), [common/19-design-system-and-figma-patterns.md](common/19-design-system-and-figma-patterns.md)
+  Notes: language fallback, punctuation, unit localization, and text-style guidance.
+
+- `https://docs.zepp.com/docs/designs/accessibility/contrast-ratio/`
+  Mapped into: [docs-index.md](docs-index.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md), [common/19-design-system-and-figma-patterns.md](common/19-design-system-and-figma-patterns.md)
+  Notes: WCAG-based text-contrast checks and accessibility review.
+
+- `https://docs.zepp.com/docs/designs/specifications/safe-area/`
+  Mapped into: [docs-index.md](docs-index.md), [common/19-design-system-and-figma-patterns.md](common/19-design-system-and-figma-patterns.md)
+  Notes: `2px` safe margin and reserved top or bottom display areas.
 
 - `https://docs.zepp.com/docs/designs/customization/widget/`
-  Mapped into: [docs-index.md](docs-index.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md)
-  Notes: widget preview-image requirements, rounded corners on square screens, and edit-mode expectations.
+  Mapped into: [docs-index.md](docs-index.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md), [common/19-design-system-and-figma-patterns.md](common/19-design-system-and-figma-patterns.md)
+  Notes: single-purpose widget behavior, no-scroll expectations, preview-image rules, and official widget templates.
+
+- `https://docs.zepp.com/docs/designs/customization/shortcut-cards/`
+  Mapped into: [docs-index.md](docs-index.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md), [common/19-design-system-and-figma-patterns.md](common/19-design-system-and-figma-patterns.md)
+  Notes: shortcut-card background, spacing, minimum height, copy-tightening, and official templates.
 
 - `https://docs.zepp.com/docs/designs/visual/icons/`
-  Mapped into: [docs-index.md](docs-index.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md)
-  Notes: icon spec and sizing constraints.
+  Mapped into: [docs-index.md](docs-index.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md), [common/19-design-system-and-figma-patterns.md](common/19-design-system-and-figma-patterns.md)
+  Notes: icon spec, sizing constraints, and safe-area expectations.
 
 - `https://docs.zepp.com/docs/guides/faq/icon-faq/`
   Mapped into: [docs-index.md](docs-index.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md)

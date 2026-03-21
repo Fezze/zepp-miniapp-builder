@@ -6,6 +6,7 @@
 - Keep translatable strings in language resources where practical.
 - Prefer English as the design fallback when no language match is available.
 - If the repo uses `@silver-zepp/polyglot`, load `17-polyglot-library-patterns` instead of treating it like plain static `@zos/i18n`; Polyglot adds a generated-assets workflow, runtime switching, and its own storage-backed language state.
+- If the task starts from official Zepp Figma libraries, widget templates, or design-export constraints, also load `19-design-system-and-figma-patterns`.
 
 ## `app.json` i18n
 
@@ -28,6 +29,8 @@ Locale keys must match the documented language mapping for Zepp mini-program con
 - keep static assets in `assets/`
 - when a repo uses Polyglot, generated runtime translations normally live under `assets/raw/polyglot/translations/`
 - validate icon files against the Zepp icon design spec
+- keep localized text layered separately from exported images instead of baking copy into PNG assets
+- when the design depends on official Zepp font assets, prefer the resources linked from the design downloads page over arbitrary desktop substitutions
 - use frame-sequence assets with `IMG_ANIM` for GIF-like animation
 
 ## Icon guidance
@@ -42,6 +45,10 @@ For v3+ app icon design, the official spec describes:
 
 - default font and language fallback choices should not assume one locale
 - localize punctuation, units, and capitalization patterns where relevant
+- reserve enough space for longer localized strings and choose overflow handling deliberately: ellipsis, scrolling, limited wrapping, or full wrapping
+- mirror directional icons and controls for RTL layouts, but do not mirror digits or untranslated text
+- avoid italics and underlines in ordinary UI text
+- check text contrast and avoid using color alone to communicate required status changes
 
 ## Official references
 
@@ -49,7 +56,11 @@ For v3+ app icon design, the official spec describes:
 - `getText`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/i18n/getText/
 - Migration guide: https://docs.zepp.com/docs/v2/guides/version-info/migration-guide/
 - Multilingual Mapping: https://docs.zepp.com/docs/v2/reference/related-resources/language-list/
+- Design specifications index: https://docs.zepp.com/docs/designs/
+- Resource downloads: https://docs.zepp.com/docs/designs/download/
+- Interface layouts: https://docs.zepp.com/docs/designs/internationalization/interface-layouts/
 - Languages design guide: https://docs.zepp.com/docs/designs/internationalization/languages/
+- Contrast ratio: https://docs.zepp.com/docs/designs/accessibility/contrast-ratio/
 - App icon design spec: https://docs.zepp.com/docs/designs/visual/icons/
 - App icon FAQ: https://docs.zepp.com/docs/guides/faq/icon-faq/
 - IMG_ANIM: https://docs.zepp.com/docs/v2/reference/device-app-api/newAPI/ui/widget/IMG_ANIM/

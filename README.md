@@ -9,6 +9,7 @@ It is designed for work on:
 - Settings App surfaces
 - Side Service code
 - App Service workflows
+- official Zepp design-system and Figma template handoff
 - ZML-based wrappers and messaging helpers
 - easy-storage persistence helpers and storage-model tradeoffs
 - visual logger overlays and relay-based debugging
@@ -26,7 +27,7 @@ The skill starts from `app.json`, separates `configVersion` from `runtime.apiVer
 - `v4` for `4.x`
 - `forward` for major versions above `4`
 
-It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, App Service, companion widgets, workout extensions, ZML wrappers, easy-storage patterns, visual logger relay patterns, easy-ble master patterns, polyglot localization workflows, easy-media audio workflows, and version-specific APIs.
+It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, official design-system/Figma handoff, App Service, companion widgets, workout extensions, ZML wrappers, easy-storage patterns, visual logger relay patterns, easy-ble master patterns, polyglot localization workflows, easy-media audio workflows, and version-specific APIs.
 
 ## Repository structure
 
@@ -56,6 +57,8 @@ It then loads targeted references for architecture, Zeus CLI workflow, UI/widget
   Guidance for projects that use `@silver-zepp/polyglot` for generated translation assets, runtime language switching, and the `poly` CLI workflow.
 - `references/common/18-easy-media-library-patterns.md`
   Guidance for projects that use `@silver-zepp/easy-media` for page-level playback, queueing, fail handling, or the thin recorder wrapper.
+- `references/common/19-design-system-and-figma-patterns.md`
+  Guidance for projects that start from official Zepp design-system docs, Figma libraries, widget templates, or shortcut-card templates.
 - `references/v4/`
   `4.x`-specific APIs and workflow notes.
 - `references/legacy/`
@@ -116,3 +119,4 @@ Library-specific guidance can live in topic references without being added to th
 - easy-ble guidance is included as an optional library layer for repos that already depend on `@silver-zepp/easy-ble`.
 - polyglot guidance is included as an optional library layer for repos that already depend on `@silver-zepp/polyglot`.
 - easy-media guidance is included as an optional library layer for repos that already depend on `@silver-zepp/easy-media`.
+- official design-system and Figma guidance is included for repos that start from Zepp design specs or official template handoff.
