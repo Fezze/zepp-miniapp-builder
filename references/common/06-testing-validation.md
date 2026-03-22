@@ -39,6 +39,16 @@ Use `zeus dev` for:
 - rendering branches
 - many lifecycle interactions
 
+Verified simulator workflow:
+
+1. Run pure tests first if the repo has them, then run `zeus build` as the minimum compile gate.
+2. Run `zeus status` to confirm that the simulator is connected before assuming deploy failures come from the app.
+3. Prefer `zeus dev` over bridge `install` for simulator deployment.
+4. If Zeus prompts for a preview target, choose the intended simulator profile explicitly, for example `Amazfit Balance 2`.
+5. If `zeus dev` output stays quiet, confirm deployment by checking `%AppData%\Roaming\simulator\last_app_info.json`, the deployed app folder under `%AppData%\Roaming\simulator\apps\<Project><AppId>`, and fresh `side-service status:opened` lines in `%AppData%\Roaming\simulator\logs\renderer.log`.
+6. If CLI logs are still insufficient, inspect the simulator through the DevTools endpoint from `%AppData%\Roaming\simulator\DevToolsActivePort`, query `/json/list`, then use CDP to capture screenshots or read the simulator Console tab.
+7. Treat simulator findings as runtime smoke validation, not proof of real-device behavior for haptics, audio, anti-sleep, or wake relaunch.
+
 ### Real-device validation
 
 Still required when changes depend on:
@@ -98,3 +108,4 @@ Recommended assertions:
 - Quick Start: https://docs.zepp.com/docs/guides/quick-start/
 - Simulator development/debugging: https://docs.zepp.com/docs/guides/tools/simulator/dev/
 - Code organization best practice: https://docs.zepp.com/docs/v2/guides/best-practice/code-organization/
+

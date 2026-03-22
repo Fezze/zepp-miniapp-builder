@@ -51,8 +51,11 @@ Use this for most iteration on:
 - storage behavior
 - many non-device-specific logic changes
 
-### Simulator install or update
+Verified field note:
 
+- `zeus dev` itself may prompt for explicit preview-device selection when multiple simulator profiles are installed. In one verified Windows workflow, `Amazfit Balance 2` was the correct target for successful deployment.
+
+### Simulator install or update
 When the task involves installing or upgrading the Zepp OS Simulator, check the official download page instead of assuming an older binary set.
 
 As of 2026-03-20, the official docs list Simulator `2.1.0` downloads for:
@@ -111,8 +114,13 @@ Inside the interactive bridge shell, common commands include:
 - `uninstall`
 - `screenshot`
 
-Historically documented behavior:
+Verified field notes:
 
+- In simulator workflows, `zeus dev` may push the current app build more reliably than bridge `install`. If `install` appears to do nothing in the simulator, prefer `zeus dev` for deployment and keep bridge for connection, screenshots, or target-aware debugging.
+- Bridge may prompt for explicit target selection when more than one online device or simulator is visible. Choosing a specific target such as `Balance 2` is expected behavior, not a CLI failure.
+- When `zeus dev` or bridge output is quiet, confirm simulator deployment by checking `last_app_info.json`, the deployed app folder under `AppData\Roaming\simulator\apps\<Project><AppId>`, and recent `side-service status:opened` lines in `renderer.log`.
+
+Historically documented behavior:
 - the `screenshot` command saves to `~/desktop/screenShot.png`
 
 ## Logging and debug surfaces
@@ -122,6 +130,7 @@ Historically documented behavior:
 - use simulator debug panels
 - use `console.log`
 - use sensor mocking where available
+- when CLI output is insufficient, inspect the Electron shell through the DevTools endpoint exposed in `%AppData%\Roaming\simulator\DevToolsActivePort`; this can be used to read the simulator Console tab, inspect DOM state, and capture screenshots through CDP
 
 ### Zepp App developer mode
 
@@ -143,6 +152,10 @@ Historically documented behavior:
 - `zeus bridge`: direct install/debug/device workflow
 - `zeus build`: compile gate before shipping or handoff
 
+Verified field note:
+
+- When the goal is specifically "get the app onto the simulator", favor `zeus dev` first. Use bridge after that when the simulator is already online and the workflow needs `connect`, `screenshot`, or multi-target selection.
+
 ## Official references
 
 - CLI overview: https://docs.zepp.com/docs/guides/tools/cli/overview/
@@ -157,3 +170,7 @@ Historically documented behavior:
 - Developer Bridge Mode FAQ: https://docs.zepp.com/zh-cn/docs/guides/faq/developer-bridge-mode/
 - CLI release notes: https://docs.zepp.com/docs/v2/guides/tools/cli/release-note/
 - Device Basic Information: https://docs.zepp.com/docs/reference/related-resources/device-list/
+
+
+
+
