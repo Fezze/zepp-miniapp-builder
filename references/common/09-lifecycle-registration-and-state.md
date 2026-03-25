@@ -8,6 +8,17 @@
 - `onDestroy` runs when the mini program is destroyed.
 - Use `getApp()` to read or mutate the global app instance.
 
+## Bridge ownership pattern
+
+For watch <-> phone sync, the most stable default ownership is:
+
+- create the device-side bridge in `App.onCreate()`
+- tear it down in `App.onDestroy()`
+- let `AppSideService.onInit()` start the phone-side listener
+- let pages request business actions such as bootstrap or retry, rather than owning the transport lifecycle
+
+This keeps page rebuilds, router transitions, and page-level debugging from accidentally creating multiple competing bridge instances.
+
 ## Device page registration
 
 - Every device page file must call `Page()` exactly once.

@@ -120,6 +120,27 @@ Verified field notes:
 - Bridge may prompt for explicit target selection when more than one online device or simulator is visible. Choosing a specific target such as `Balance 2` is expected behavior, not a CLI failure.
 - When `zeus dev` or bridge output is quiet, confirm simulator deployment by checking `last_app_info.json`, the deployed app folder under `AppData\Roaming\simulator\apps\<Project><AppId>`, and recent `side-service status:opened` lines in `renderer.log`.
 
+## Companion transport reality check
+
+For watch <-> phone mini-app communication, keep the layers distinct:
+
+- `setting/` is the phone-side UI and storage surface
+- `app-side/` is the phone-side sync runtime
+- `messaging.peerSocket` is the phone-side transport
+- watch-side BLE, if present, is a separate device-side transport concern
+
+Verified implementation guidance from official docs and field debugging:
+
+- own the long-lived device bridge in `App.onCreate()` / `App.onDestroy()`, not in one page lifecycle
+- let pages trigger app-level requests such as bootstrap or retry, but do not create or destroy the transport per page
+- `messaging.peerSocket` is binary-oriented, so treat the phone side as transporting payloads rather than device-page lifecycle messages
+- if an initial snapshot is large, add chunking below the app-level sync envelope instead of splitting one logical sync action into ad hoc business fragments
+- a simulator may get into a noisy or stale bridge state after repeated redeploys; if transport logs stop making sense, restart the simulator before over-correcting a bridge that already works on real hardware
+
+Practical validation note:
+
+- a successful real-device bootstrap or sync pass is stronger evidence than a flaky simulator-only failure, though it does not replace follow-up checks for retries, writeback, or reconciliation
+
 Historically documented behavior:
 - the `screenshot` command saves to `~/desktop/screenShot.png`
 

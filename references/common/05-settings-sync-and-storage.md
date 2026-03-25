@@ -116,6 +116,20 @@ Settings App
   -> Device App
 ```
 
+Important separation rules:
+
+- `setting/` is not the bridge; it edits data and persists canonical phone-side state
+- `app-side/` is the main phone-side runtime that should observe `settingsStorage` and talk to the watch
+- `messaging.peerSocket` is the phone-side transport layer, not the Settings App itself
+- if the watch-side design also uses BLE, keep that device-side path separate from the companion sync path even when the same feature uses both
+
+Practical guidance for sync payloads:
+
+- keep app-level message names explicit and versionable
+- keep the sync envelope separate from lower-level transport chunking
+- if a bootstrap snapshot is large, chunk it below the app-level sync envelope rather than turning one logical sync message into partial business payloads with unclear semantics
+- assume large catalogs or snapshots may exceed one transport frame and design the sync path accordingly
+
 If the watch-side design uses BLE integration, that bridge belongs to the device runtime architecture, not to the Settings App directly. Keep the companion sync path and the watch-side BLE path as separate layers even when the same feature uses both.
 
 ## Design guidance
@@ -124,6 +138,7 @@ If the watch-side design uses BLE integration, that bridge belongs to the device
 - Let the watch boot from a local snapshot first, then refresh from the phone-side bridge.
 - Treat bridge sync as refresh, not as the only source of truth for a running watch session.
 - Preserve watch-only state instead of overwriting it blindly with phone snapshots.
+- Keep first paint independent from an immediate successful bridge send. If the current runtime makes watch-side transport temporarily unavailable, the initial page should still render from cache or fallback data while sync remains best-effort.
 
 ## Messaging guidance
 

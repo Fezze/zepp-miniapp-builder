@@ -29,6 +29,7 @@ Locale keys must match the documented language mapping for Zepp mini-program con
 - keep static assets in `assets/`
 - when a repo uses Polyglot, generated runtime translations normally live under `assets/raw/polyglot/translations/`
 - validate icon files against the Zepp icon design spec
+- for small closed catalogs rendered on watch, explicit per-item image assets can be simpler and more maintainable than switching on ids deep in UI code
 - keep localized text layered separately from exported images instead of baking copy into PNG assets
 - when the design depends on official Zepp font assets, prefer the resources linked from the design downloads page over arbitrary desktop substitutions
 - use frame-sequence assets with `IMG_ANIM` for GIF-like animation

@@ -57,6 +57,8 @@ Use when the app depends on angular velocity rather than held tilt angle.
 - for deterministic in-app audio, use `@zos/media` with bundled files
 - if the repo uses `@silver-zepp/easy-media`, load `18-easy-media-library-patterns` instead of assuming the README matches the actual wrapper behavior
 - confirm system-mode and sound-setting interactions during debugging
+- for short watch-side hardware checks, start with direct haptic cues before layering more complex feedback flows
+- when repeating the same haptic or sound cue rapidly, make sure the repo's feedback path stops or resets in-flight playback so repeated taps stay reliable
 
 ## Notifications and background flows
 
