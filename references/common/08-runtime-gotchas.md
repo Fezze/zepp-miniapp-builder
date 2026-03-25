@@ -54,6 +54,9 @@ This file keeps generalized Zepp-specific notes that are broadly reusable. Each 
 - Verified field note: `@silver-zepp/vis-log` can work around missing `setting/` console visibility by writing debug entries through `settingsStorage`, relaying them in `app-side`, and rendering them on a device page overlay. This is a library-specific workaround, not an official Zepp logging surface.
 - Verified field note: `zeus build` may pick up non-hidden test trees as inputs in some setups. Keeping tests under a hidden root such as `.test/` reduces the chance of bundling unsupported test dependencies into the app build.
 - Official doc: Companion widgets and shortcut cards should use `try/catch` in lifecycle handlers during debugging because JS errors can leave the simulator stuck. Source: https://docs.zepp.com/docs/guides/framework/device/secondary-widget/
+- Verified field note: On Linux-local simulator installs, firmware startup errors may be reported as `Permission denied` even when the real blocker is a missing shared library for the bundled QEMU process. Always verify with `ldd` before concluding the file simply needs `chmod +x`.
+- Verified field note: Electron-local simulator installs can inherit hostile environment variables from the parent shell. If the simulator unexpectedly behaves like a Node CLI process, check and unset `ELECTRON_RUN_AS_NODE` before debugging unrelated Zepp runtime code.
+- Verified field note: A simulator app rendering correctly in the app list does not prove the firmware emulator is healthy. The management shell and the device-emulation process can fail independently.
 
 ## Testing posture
 

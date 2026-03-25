@@ -61,6 +61,16 @@ Verified simulator workflow:
    Repo hygiene rule: if repeated fresh-deploy checks still show only shell, framework, or preload scripts, remove simulator V8 coverage from the repo-standard test menu. Keep published test commands limited to meaningful smoke, harness, or module coverage.
 7. Treat simulator findings as runtime smoke validation, not proof of real-device behavior for haptics, audio, anti-sleep, or wake relaunch.
 
+Verified Linux screenshot-debug loop:
+
+1. Keep `zeus dev` running so layout edits hot reload into the simulator.
+2. Find the simulator host window with `xdotool search --name "Zepp OS Simulator"`.
+3. Activate it with `xdotool windowactivate <window-id>`.
+4. Capture a host screenshot with `spectacle -b -n -a -o <output-path>` or an equivalent host screenshot tool.
+5. Compare the captured frame against the intended layout, then repeat after the next hot reload.
+
+When the IDE session is sandboxed, run the host-window and screenshot tools through `flatpak-spawn --host` so they can see the host compositor state.
+
 Practical companion-sync validation ladder:
 
 1. If the watch shows synced content from the phone, the bootstrap path is already validated at a meaningful level.

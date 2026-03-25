@@ -66,6 +66,17 @@ As of 2026-03-20, the official docs list Simulator `2.1.0` downloads for:
 - Linux `amd64`
 - Linux `arm64`
 
+Verified field notes for Linux and Steam Deck style environments:
+
+- When the Linux download is a `.deb` but the host workflow cannot or should not install Debian packages system-wide, a practical fallback is a user-local install by unpacking the `.deb` with `ar` and `tar` into a private directory such as `~/.local/opt/zepp-simulator`, then creating a launcher under `~/.local/bin/`.
+- The unpacked Electron launcher may fail in user-local installs unless `ELECTRON_RUN_AS_NODE` is unset and the app is started with `--no-sandbox`.
+- On Steam Deck or other immutable Linux systems, the simulator firmware layer may fail even after the GUI launches because the bundled QEMU binary expects shared libraries that are present on Debian-like systems but missing on the host.
+- In one verified Steam Deck workflow, the missing QEMU dependencies included `libvte-2.91.so.0`, while the firmware launcher also reported misleading `Permission denied` errors for `qemu-system-arm`.
+- A workable fallback for those missing libraries is a private runtime directory such as `~/.local/opt/zepp-simulator/qemu-lib` plus `LD_LIBRARY_PATH` in the launcher, rather than assuming root package installation is possible.
+- If the host provides most libraries but one package is missing, prefer copying or symlinking only the minimal runtime dependency into that private directory instead of mutating unrelated system paths.
+- When the simulator GUI opens and the app list works but clicking `Emulator` does nothing, inspect the simulator console and firmware startup logs before blaming the app code. The failure may be in the simulator's firmware/QEMU layer rather than in the Zepp app itself.
+- If the simulator is packaged for Debian/Ubuntu assumptions, keep real-device validation as the source of truth for hardware behavior even after a Linux-local simulator workaround is in place.
+
 ### Package build
 
 ```bash
@@ -119,6 +130,13 @@ Verified field notes:
 - In simulator workflows, `zeus dev` may push the current app build more reliably than bridge `install`. If `install` appears to do nothing in the simulator, prefer `zeus dev` for deployment and keep bridge for connection, screenshots, or target-aware debugging.
 - Bridge may prompt for explicit target selection when more than one online device or simulator is visible. Choosing a specific target such as `Balance 2` is expected behavior, not a CLI failure.
 - When `zeus dev` or bridge output is quiet, confirm simulator deployment by checking `last_app_info.json`, the deployed app folder under `AppData\Roaming\simulator\apps\<Project><AppId>`, and recent `side-service status:opened` lines in `renderer.log`.
+- In Flatpak-hosted Linux IDE sessions, host GUI tools and host Chromium may be invisible inside the sandbox. When browser-based tooling or host screenshots are needed, `flatpak-spawn --host` can be the difference between a blocked workflow and a usable one.
+- In Linux simulator UI review, a reliable screenshot loop can be more practical than bridge `screenshot`. A verified host-side flow was:
+  1. locate the simulator window with `xdotool search --name "Zepp OS Simulator"`
+  2. bring it forward with `xdotool windowactivate <window-id>`
+  3. capture the host window with `spectacle -b -n -a -o <output-path>` or another host screenshot tool
+  4. repeat after `zeus dev` hot reloads to inspect layout changes
+- When the IDE itself is sandboxed, prefer running `xdotool` and `spectacle` through `flatpak-spawn --host` so the commands can see the real host window tree.
 
 ## Companion transport reality check
 
