@@ -129,7 +129,12 @@ Verified field notes:
 
 - In simulator workflows, `zeus dev` may push the current app build more reliably than bridge `install`. If `install` appears to do nothing in the simulator, prefer `zeus dev` for deployment and keep bridge for connection, screenshots, or target-aware debugging.
 - Bridge may prompt for explicit target selection when more than one online device or simulator is visible. Choosing a specific target such as `Balance 2` is expected behavior, not a CLI failure.
-- When `zeus dev` or bridge output is quiet, confirm simulator deployment by checking `last_app_info.json`, the deployed app folder under `AppData\Roaming\simulator\apps\<Project><AppId>`, and recent `side-service status:opened` lines in `renderer.log`.
+- When `zeus dev` or bridge output is quiet, confirm simulator deployment by checking `last_app_info.json`, the deployed app folder under the resolved simulator root, and recent `side-service status:opened` lines in `renderer.log`.
+- A practical resolved simulator-root baseline is:
+  - Windows: `%APPDATA%/simulator`
+  - Linux: `${XDG_CONFIG_HOME:-~/.config}/simulator`
+  - explicit override: `ZEPP_SIMULATOR_ROOT`
+- In Flatpak-hosted Linux IDE sessions, `XDG_CONFIG_HOME` may point at the IDE sandbox while the Zepp simulator still writes metadata to host `~/.config/simulator`. If simulator smoke cannot find `last_app_info.json`, prefer host `~/.config/simulator` or set `ZEPP_SIMULATOR_ROOT` explicitly before debugging the app itself.
 - In Flatpak-hosted Linux IDE sessions, host GUI tools and host Chromium may be invisible inside the sandbox. When browser-based tooling or host screenshots are needed, `flatpak-spawn --host` can be the difference between a blocked workflow and a usable one.
 - In Linux simulator UI review, a reliable screenshot loop can be more practical than bridge `screenshot`. A verified host-side flow was:
   1. locate the simulator window with `xdotool search --name "Zepp OS Simulator"`
@@ -194,6 +199,11 @@ Historically documented behavior:
 Verified field note:
 
 - When the goal is specifically "get the app onto the simulator", favor `zeus dev` first. Use bridge after that when the simulator is already online and the workflow needs `connect`, `screenshot`, or multi-target selection.
+- When the goal is specifically "run simulator smoke", a robust order is:
+  1. start or confirm the simulator
+  2. deploy with `zeus dev`
+  3. verify `last_app_info.json` points at the current repo and that the deployed app is fresh
+  4. only then run the smoke command
 
 ## Official references
 

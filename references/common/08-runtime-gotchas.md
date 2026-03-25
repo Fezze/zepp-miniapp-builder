@@ -57,6 +57,7 @@ This file keeps generalized Zepp-specific notes that are broadly reusable. Each 
 - Verified field note: On Linux-local simulator installs, firmware startup errors may be reported as `Permission denied` even when the real blocker is a missing shared library for the bundled QEMU process. Always verify with `ldd` before concluding the file simply needs `chmod +x`.
 - Verified field note: Electron-local simulator installs can inherit hostile environment variables from the parent shell. If the simulator unexpectedly behaves like a Node CLI process, check and unset `ELECTRON_RUN_AS_NODE` before debugging unrelated Zepp runtime code.
 - Verified field note: A simulator app rendering correctly in the app list does not prove the firmware emulator is healthy. The management shell and the device-emulation process can fail independently.
+- Verified field note: In Flatpak-hosted Linux IDE sessions, `XDG_CONFIG_HOME` may describe the IDE sandbox rather than the host location used by the Zepp simulator. If simulator tooling cannot find `last_app_info.json` or `DevToolsActivePort`, verify whether the real files live under host `~/.config/simulator` and use an explicit override such as `ZEPP_SIMULATOR_ROOT` before assuming the simulator failed to deploy.
 
 ## Testing posture
 

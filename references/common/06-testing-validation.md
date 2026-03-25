@@ -53,9 +53,14 @@ Verified simulator workflow:
 2. Run `zeus status` to confirm that the simulator is connected before assuming deploy failures come from the app.
 3. Prefer `zeus dev` over bridge `install` for simulator deployment.
 4. If Zeus prompts for a preview target, choose the intended simulator profile explicitly, for example `Amazfit Balance 2`.
-5. If `zeus dev` output stays quiet, confirm deployment by checking `%AppData%\Roaming\simulator\last_app_info.json`, the deployed app folder under `%AppData%\Roaming\simulator\apps\<Project><AppId>`, and fresh `side-service status:opened` lines in `%AppData%\Roaming\simulator\logs\renderer.log`.
+5. If `zeus dev` output stays quiet, confirm deployment by checking `last_app_info.json`, the deployed app folder under the resolved simulator root, and fresh `side-service status:opened` lines in `renderer.log`.
    Treat that verification as part of the test contract, not a purely optional check. If the deployed simulator app is older than the latest app-facing source files, redeploy with `zeus dev` before trusting smoke or coverage results.
-6. If CLI logs are still insufficient, inspect the simulator through the DevTools endpoint from `%AppData%\Roaming\simulator\DevToolsActivePort`, query `/json/list`, then use CDP to capture screenshots or read the simulator Console tab.
+   Practical simulator-root baseline:
+   - Windows: `%APPDATA%/simulator`
+   - Linux: `${XDG_CONFIG_HOME:-~/.config}/simulator`
+   - explicit override: `ZEPP_SIMULATOR_ROOT`
+   Verified Flatpak/Linux note: if `XDG_CONFIG_HOME` points at the IDE sandbox but the simulator writes to host `~/.config/simulator`, prefer the host path or set `ZEPP_SIMULATOR_ROOT` explicitly.
+6. If CLI logs are still insufficient, inspect the simulator through the DevTools endpoint from `DevToolsActivePort` under that resolved simulator root, query `/json/list`, then use CDP to capture screenshots or read the simulator Console tab.
    Verified limitation: the DevTools endpoint may expose only the Electron shell page and not the Zepp app runtime itself. In that state, Playwright or raw CDP can still smoke-check that the shell is alive, but they cannot collect real app-code V8 coverage from the simulator renderer.
    Additional limitation from field debugging: even after a fresh deploy, the current simulator coverage path may still expose only framework or preload scripts. Treat simulator V8 coverage as best-effort tooling, not as guaranteed coverage of the app's own JS files.
    Repo hygiene rule: if repeated fresh-deploy checks still show only shell, framework, or preload scripts, remove simulator V8 coverage from the repo-standard test menu. Keep published test commands limited to meaningful smoke, harness, or module coverage.
@@ -88,6 +93,7 @@ Simulator caution from field debugging:
 - repeated narrow or stale simulator logs are not enough, by themselves, to prove the bridge is broken
 - a simulator can regress while the real watch still syncs correctly
 - when simulator and hardware disagree, trust the real watch first for transport truth and treat the simulator as a secondary debugging surface
+- a simulator smoke failure that says deployment metadata is missing is often a tooling-path problem, not an app failure; first check the resolved simulator root and the freshness of `last_app_info.json`
 
 ### Real-device validation
 
