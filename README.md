@@ -27,52 +27,21 @@ The skill starts from `app.json`, separates `configVersion` from `runtime.apiVer
 - `v4` for `4.x`
 - `forward` for major versions above `4`
 
-It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, official design-system/Figma handoff, App Service, companion widgets, workout extensions, ZML wrappers, easy-storage patterns, visual logger relay patterns, easy-ble master patterns, polyglot localization workflows, easy-media audio workflows, and version-specific APIs.
+It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, design handoff, optional library layers, and version-specific APIs.
 
-## Recent practical improvements
-
-The skill has been tightened based on real project work and repeated Zepp delivery pain points:
-
-- stronger toolchain guidance for `API 4.0` scaffolding, target-based icons, `setting/index.js` shims, Zeus build gotchas, and using `zeus create` templates as a secondary source of truth
-- stronger Settings App guidance for larger CRUD flows, `settingsStorage` string-only hygiene, idempotent seeds, `domain storage` versus `UI state storage`, and Node-testable pure-domain modules
-- stronger phone-watch bridge guidance, clearer `peerSocket` phone-side boundaries, practical `REQUEST_BOOTSTRAP` / `PUSH_*` / `UPSERT_HISTORY_ENTRY` / `ACK_HISTORY_ENTRY` baseline patterns, sync storage baselines, and `hmUI` refresh caveats
+For the actual routing rules and reference map, see [SKILL.md](SKILL.md).
 
 ## Repository structure
 
-- `SKILL.md`
-  The skill entrypoint and routing rules.
-- `agents/openai.yaml`
-  UI-facing skill metadata.
-- `references/00-version-routing.md`
-  Required first read for version detection.
-- `references/docs-index.md`
-  Grouped index of official Zepp documentation links.
-- `references/docs-mapping-register.md`
-  Traceability register showing which official Zepp docs were mapped into which skill files.
-- `references/common/`
-  Reusable guidance shared by all version profiles.
-- `references/common/12-workout-extension.md`
-  Workout Extension guidance for `data-widget`, `DataWidget`, and `SPORT_DATA`.
-- `references/common/13-zml-library-patterns.md`
-  Guidance for ZML-based projects that use `@zeppos/zml` wrappers, side-assisted transport, settings hooks, and file-transfer helpers.
-- `references/common/14-easy-storage-library-patterns.md`
-  Guidance for projects that use `@silver-zepp/easy-storage` for filesystem-backed storage, async persistence, or time-series data.
-- `references/common/15-visual-logger-library-patterns.md`
-  Guidance for projects that use `@silver-zepp/vis-log` for on-device debug overlays, AppSide relay logging, or Settings App visibility on hardware.
-- `references/common/16-easy-ble-library-patterns.md`
-  Guidance for projects that use `@silver-zepp/easy-ble` for watch-side BLE scanning, connection, profile setup, and queued read or write flows.
-- `references/common/17-polyglot-library-patterns.md`
-  Guidance for projects that use `@silver-zepp/polyglot` for generated translation assets, runtime language switching, and the `poly` CLI workflow.
-- `references/common/18-easy-media-library-patterns.md`
-  Guidance for projects that use `@silver-zepp/easy-media` for page-level playback, queueing, fail handling, or the thin recorder wrapper.
-- `references/common/19-design-system-and-figma-patterns.md`
-  Guidance for projects that start from official Zepp design-system docs, Figma libraries, widget templates, or shortcut-card templates.
-- `references/v4/`
-  `4.x`-specific APIs and workflow notes.
-- `references/legacy/`
-  Compatibility and migration notes for older Zepp API levels.
-- `references/forward/`
-  Rules for working with API levels newer than the skill currently knows well.
+- `SKILL.md`: skill entrypoint, routing rules, and reference-loading map.
+- `references/00-version-routing.md`: required first read for version detection.
+- `references/common/`: shared guidance for architecture, tooling, UI, storage, testing, i18n, and optional library layers.
+- `references/v4/`: `4.x`-specific APIs and workflow notes.
+- `references/legacy/`: compatibility and migration notes for older Zepp API levels.
+- `references/forward/`: workflow for API levels newer than the skill currently knows well.
+- `references/docs-index.md`: grouped index of official Zepp docs used by the skill.
+- `references/docs-mapping-register.md`: traceability register from official docs into skill files.
+- `references/common/11-skill-maintenance-and-update.md`: maintenance workflow for doc refreshes and new verified discoveries.
 
 ## Installation
 
@@ -93,38 +62,12 @@ When you add new knowledge from official Zepp docs:
 3. Update the specific reference files that depend on the new source.
 4. Keep `SKILL.md` focused on routing and lightweight guidance, not full documentation dumps.
 
-For skill self-maintenance and refresh behavior, see `references/common/11-skill-maintenance-and-update.md`.
-
-## Updating the skill
-
-The skill supports a maintenance workflow for prompts such as:
-
-- `update`
-- `refresh`
-- `sync docs`
-- `add this discovery to the skill`
-
-When triggered, the intended behavior is:
-
-1. review the relevant official Zepp docs first
-2. patch the smallest affected reference files
-3. update `references/docs-index.md`
-4. update `references/docs-mapping-register.md`
-5. update `SKILL.md` only if routing or trigger behavior changed
-
-If a normal Zepp task uncovers new verified information that materially improves the skill, the skill should update itself before finishing whenever the skill repo or installed copy is writable.
-
-Library-specific guidance can live in topic references without being added to the official Zepp docs index, as long as the official-doc traceability files stay reserved for actual Zepp documentation.
+For maintenance prompts and self-update behavior, see `references/common/11-skill-maintenance-and-update.md`.
 
 ## Notes
 
 - The skill is English-first for better reuse across projects.
 - The current baseline is Zepp API `4.x`, but the routing is version-aware.
 - Official Zepp docs are the preferred source for capability checks and version-sensitive behavior.
-- ZML guidance is included as an optional library layer for repos that already depend on `@zeppos/zml`.
-- easy-storage guidance is included as an optional library layer for repos that already depend on `@silver-zepp/easy-storage`.
-- visual logger guidance is included as an optional library layer for repos that already depend on `@silver-zepp/vis-log`.
-- easy-ble guidance is included as an optional library layer for repos that already depend on `@silver-zepp/easy-ble`.
-- polyglot guidance is included as an optional library layer for repos that already depend on `@silver-zepp/polyglot`.
-- easy-media guidance is included as an optional library layer for repos that already depend on `@silver-zepp/easy-media`.
-- official design-system and Figma guidance is included for repos that start from Zepp design specs or official template handoff.
+- Optional library-layer guidance is included for repos that already depend on ZML, easy-storage, visual logger, easy-ble, polyglot, or easy-media.
+- Official design-system and Figma guidance is included for repos that start from Zepp design specs or official template handoff.

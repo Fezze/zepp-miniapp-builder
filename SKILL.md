@@ -88,13 +88,16 @@ Load these files directly as needed.
 - [references/common/10-secondary-widgets-and-shortcuts.md](references/common/10-secondary-widgets-and-shortcuts.md): `SecondaryWidget`, `AppWidget`, widget/card constraints, and cross-surface communication
 - [references/common/11-skill-maintenance-and-update.md](references/common/11-skill-maintenance-and-update.md): self-update workflow for docs refresh and newly discovered Zepp information
 - [references/common/12-workout-extension.md](references/common/12-workout-extension.md): `data-widget`, `DataWidget`, `SPORT_DATA`, and workout-extension constraints
-- [references/common/13-zml-library-patterns.md](references/common/13-zml-library-patterns.md): `@zeppos/zml` wrappers, plugin-composed transport, settings and file-transfer helpers, and doc-quality caveats
-- [references/common/14-easy-storage-library-patterns.md](references/common/14-easy-storage-library-patterns.md): `@silver-zepp/easy-storage` model selection, lifecycle guardrails, and source-level cautions
-- [references/common/15-visual-logger-library-patterns.md](references/common/15-visual-logger-library-patterns.md): `@silver-zepp/vis-log` overlays, AppSide and AppSettings relay wiring, and placement caveats
-- [references/common/16-easy-ble-library-patterns.md](references/common/16-easy-ble-library-patterns.md): `@silver-zepp/easy-ble` master-flow routing, queue contracts, permission hygiene, and backend caveats
-- [references/common/17-polyglot-library-patterns.md](references/common/17-polyglot-library-patterns.md): `@silver-zepp/polyglot` CLI workflow, runtime localization behavior, widget/page usage, and source-level caveats
-- [references/common/18-easy-media-library-patterns.md](references/common/18-easy-media-library-patterns.md): `@silver-zepp/easy-media` playback and recorder wrappers, queue behavior, fail detection, and source-level caveats
-- [references/common/19-design-system-and-figma-patterns.md](references/common/19-design-system-and-figma-patterns.md): official Zepp design-system routing, Figma library selection, widget/card design constraints, and design-to-code guardrails
+
+### Optional Library and Design Layers
+
+- [references/common/13-zml-library-patterns.md](references/common/13-zml-library-patterns.md): `@zeppos/zml` wrappers and transport helpers
+- [references/common/14-easy-storage-library-patterns.md](references/common/14-easy-storage-library-patterns.md): `@silver-zepp/easy-storage` model selection and lifecycle guardrails
+- [references/common/15-visual-logger-library-patterns.md](references/common/15-visual-logger-library-patterns.md): `@silver-zepp/vis-log` relay logging and overlay patterns
+- [references/common/16-easy-ble-library-patterns.md](references/common/16-easy-ble-library-patterns.md): `@silver-zepp/easy-ble` routing, queue contracts, and backend caveats
+- [references/common/17-polyglot-library-patterns.md](references/common/17-polyglot-library-patterns.md): `@silver-zepp/polyglot` CLI and runtime localization behavior
+- [references/common/18-easy-media-library-patterns.md](references/common/18-easy-media-library-patterns.md): `@silver-zepp/easy-media` playback and recorder wrappers
+- [references/common/19-design-system-and-figma-patterns.md](references/common/19-design-system-and-figma-patterns.md): official Zepp design-system and Figma handoff guidance
 
 ### V4 Profile
 
