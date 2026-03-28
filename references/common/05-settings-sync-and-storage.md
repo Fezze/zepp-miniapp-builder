@@ -38,6 +38,8 @@ Important `settingsStorage` behavior:
 - treat seed or init logic as idempotent; it should be safe to run more than once without duplicating records or clobbering valid data
 - because `settingsStorage` stores strings, keep parse/stringify and validation in one helper layer instead of scattering ad hoc JSON handling through UI code
 - seed missing keys selectively; do not rewrite the whole storage set just because one key is absent
+- when a seed catalog grows over time, track a seed-library version separately from ordinary sync revisions and add only newly introduced seed records during migration
+- additive seed migrations must not resurrect older seed records that the user already deleted on purpose
 - prefer independent keys over one giant blob so partial repair is possible when one value is corrupt
 
 ### Watch-local state

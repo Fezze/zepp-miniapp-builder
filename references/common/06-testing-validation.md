@@ -60,6 +60,7 @@ Verified simulator workflow:
    - Linux: `${XDG_CONFIG_HOME:-~/.config}/simulator`
    - explicit override: `ZEPP_SIMULATOR_ROOT`
    Verified Flatpak/Linux note: if `XDG_CONFIG_HOME` points at the IDE sandbox but the simulator writes to host `~/.config/simulator`, prefer the host path or set `ZEPP_SIMULATOR_ROOT` explicitly.
+   Cross-platform helper note: when simulator helpers inspect Linux or Flatpak config paths from a non-Linux host, detect both `/` and `\\` path separators instead of relying only on the host OS separator.
 6. If CLI logs are still insufficient, inspect the simulator through the DevTools endpoint from `DevToolsActivePort` under that resolved simulator root, query `/json/list`, then use CDP to capture screenshots or read the simulator Console tab.
    Verified limitation: the DevTools endpoint may expose only the Electron shell page and not the Zepp app runtime itself. In that state, Playwright or raw CDP can still smoke-check that the shell is alive, but they cannot collect real app-code V8 coverage from the simulator renderer.
    Additional limitation from field debugging: even after a fresh deploy, the current simulator coverage path may still expose only framework or preload scripts. Treat simulator V8 coverage as best-effort tooling, not as guaranteed coverage of the app's own JS files.

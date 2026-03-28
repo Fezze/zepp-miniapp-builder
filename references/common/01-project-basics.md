@@ -94,6 +94,7 @@ Use `zeus build` as the minimum compile gate before handoff.
 - Do not make hardware-specific controls mandatory unless the project guarantees the hardware.
 - Read `targets` and screen metadata before assuming round vs square layout, resolution, or input capabilities.
 - For device-specific UI behavior, combine manifest targeting, runtime device info, and actual simulator/device validation.
+- Verified field note: official device lists and simulator-reported API levels may disagree on the same hardware family. If the official list says a device is `3.7` but the simulator currently reports `3.6`, a temporary repo floor of `3.6` can be the safer compatibility path until real-device validation proves a tighter floor is safe.
 
 ## Minimal `4.0` scaffold mental model
 

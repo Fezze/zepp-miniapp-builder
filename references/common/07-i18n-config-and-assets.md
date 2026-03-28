@@ -23,6 +23,13 @@ Locale keys must match the documented language mapping for Zepp mini-program con
 - do not invent variants
 - note that the documented mapping still uses `iw-IL` for Hebrew
 
+## Localization architecture pattern
+
+- keep browser-safe or Node-safe phone locale helpers separate from Zepp-only watch locale helpers
+- if shared storage, seed, or normalization helpers must run in Node tests or a browser harness, do not let them import Zepp-only locale modules transitively
+- for localized starter content, prefer separate per-locale modules plus a small composition layer instead of one giant multi-language seed file
+- if starter content is localized on the phone side, persist the chosen starter-content locale in sync metadata so later additive seed migrations stay consistent for existing installs
+
 ## Asset guidance
 
 - keep app names localized in `app.json`

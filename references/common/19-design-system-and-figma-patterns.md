@@ -116,6 +116,10 @@ The official circular library also shows repeatable sizing rhythm for list-like 
 
 Treat these values as good starting points for circular layouts, not as universal constants. Adjust only when the content, device shape, or component family clearly requires it.
 
+For detail-summary pages on round screens, prefer static stacked rows when the content fits cleanly. Fall back to a scrollable list only when the metadata genuinely overflows the safe area; otherwise native scroll behavior can feel like blank overscroll past the end of the content.
+
+For active-flow pages that need two side-by-side actions, keep the dock visually simple: one rounded base surface plus two rounded pill actions is usually more Zepp-like than extra masks, dividers, or stacked filler rectangles. Prefer a clearer primary action on the right and a quieter secondary action on the left unless the product flow has a strong reason to invert that emphasis.
+
 ## Design-to-code guardrails
 
 - Keep text separate from images; do not bake localized copy into PNG assets unless the asset is inherently graphical.
