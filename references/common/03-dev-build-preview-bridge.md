@@ -54,6 +54,9 @@ Use this for most iteration on:
 Verified field note:
 
 - `zeus dev` itself may prompt for explicit preview-device selection when multiple simulator profiles are installed. In one verified Windows workflow, `Amazfit Balance 2` was the correct target for successful deployment.
+- On Windows, agent-driven shells may expose the cwd as a namespaced path such as `\\?\C:\...`, even when a normal VS Code terminal stays on `C:\...`. Zeus `dev` and `preview` do not reliably handle that path form, so repo-local wrapper scripts should normalize the app root before launching Zeus in those environments.
+- If a repo keeps the actual app under a subtree such as `zepp-app/`, run `zeus dev`, `zeus preview`, and `zeus build` from that subtree or through root-level wrappers that explicitly change into the app root first.
+- In that repo shape, keep docs, tests, scripts, and coverage output at repo root so Zeus watches only app-facing files.
 
 ### Simulator install or update
 When the task involves installing or upgrading the Zepp OS Simulator, check the official download page instead of assuming an older binary set.

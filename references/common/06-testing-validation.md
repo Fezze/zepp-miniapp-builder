@@ -6,6 +6,16 @@ Zepp apps are not normal browser apps. Split validation by layer.
 
 ## Recommended layers
 
+### Coverage guidance
+
+Keep coverage aligned with the Zepp app's actual JS or TS test surface.
+
+Practical rule:
+
+- use Vitest coverage, c8, or Istanbul for JavaScript or TypeScript
+- keep browser-harness or Playwright coverage separate from unit coverage
+- merge reports only if the repo actually needs one dashboard
+
 ### Pure JavaScript tests
 
 Use a standard JS test runner for logic that does not depend on Zepp runtime APIs.
@@ -18,6 +28,24 @@ Good targets:
 - game logic
 - storage normalization
 - message encode/decode
+
+### Browser automation and Playwright
+
+Use Playwright for browser or Electron-level automation, not as the first tool for pure watch runtime logic.
+
+Good targets:
+
+- browser-safe shared modules through a harness page
+- smoke checks that a simulator shell or companion surface is alive
+- screenshot capture for visual regressions with a stable baseline
+- repetitive UI flows that are slow or error-prone to validate manually
+
+Practical rule:
+
+- start with unit and contract tests
+- add mocked runtime tests for Zepp page behavior
+- add Playwright when the project needs browser-level automation, screenshot checks, or a browser harness for shared modules
+- keep Playwright complementary to the rest of the suite instead of trying to force all validation through one browser runner
 
 ### Mocked runtime tests
 

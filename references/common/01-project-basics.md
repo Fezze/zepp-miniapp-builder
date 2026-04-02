@@ -50,6 +50,16 @@ Important interpretation:
 - In `targets.*.platforms`, the screen-shape shorthand is `st: "r"` for round, `st: "s"` for square, and `st: "b"` for band.
 - Official multi-device adaptation examples place `icon.png` inside each target asset directory, so verify `assets/<target>/icon.png` before assuming a root-only icon layout is enough for target-based builds.
 
+## Repo split pattern
+
+Verified field note:
+
+- For larger Zepp repos, it can be cleaner to keep the actual mini-app package in a dedicated subtree such as `zepp-app/`, while repo root keeps docs, tests, scripts, editor tasks, and generated `coverage/` output.
+- In that pattern, Zeus should watch and build only the app subtree, not the whole repo.
+- Root-level helper scripts may still live outside the app subtree, but they should resolve the app root explicitly and then execute Zeus from there.
+- This split is especially useful when Zeus hot reload reacts to non-app artifacts such as coverage reports or tooling output.
+- If a repo uses this pattern, treat the app subtree as the Zeus working root and the repo root as the tooling or documentation root.
+
 ## Registration and lifecycle basics
 
 - `App()` must be called exactly once in `app.js`.
