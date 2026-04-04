@@ -37,6 +37,11 @@ For traceability from each official document into skill files, see [docs-mapping
 - CLI release notes: https://docs.zepp.com/docs/v2/guides/tools/cli/release-note/
 - Device Basic Information: https://docs.zepp.com/docs/reference/related-resources/device-list/
 
+## Distribution and store submission
+
+- App submission: https://docs.zepp.com/docs/distribute/
+- App submission (Chinese page with service categories): https://docs.zepp.com/zh-cn/docs/distribute/
+
 ## Architecture and app surfaces
 
 - Overall architecture / communication: https://docs.zepp.com/docs/guides/architecture/arc/

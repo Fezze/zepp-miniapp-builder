@@ -54,9 +54,12 @@ Use this for most iteration on:
 Verified field note:
 
 - `zeus dev` itself may prompt for explicit preview-device selection when multiple simulator profiles are installed. In one verified Windows workflow, `Amazfit Balance 2` was the correct target for successful deployment.
+- In Windows PowerShell, `npx` may resolve to `npx.ps1`, which can fail under restricted execution policy. Prefer `cmd /c npx ...` in repo scripts and automation.
 - On Windows, agent-driven shells may expose the cwd as a namespaced path such as `\\?\C:\...`, even when a normal VS Code terminal stays on `C:\...`. Zeus `dev` and `preview` do not reliably handle that path form, so repo-local wrapper scripts should normalize the app root before launching Zeus in those environments.
 - If a repo keeps the actual app under a subtree such as `zepp-app/`, run `zeus dev`, `zeus preview`, and `zeus build` from that subtree or through root-level wrappers that explicitly change into the app root first.
 - In that repo shape, keep docs, tests, scripts, and coverage output at repo root so Zeus watches only app-facing files.
+- When the main task is composition review rather than runtime behavior, a repo-local browser preview harness over mocked `@zos/*` plus Playwright screenshots can be a faster iteration loop than repeated simulator captures. Use it for layout review, then confirm risky behavior in the simulator or on hardware.
+- In Windows repos, prefer `.cmd` hooks for repo-local automation such as version bumping. `#!/bin/sh` hooks can fail even when Git and Node otherwise work.
 
 ### Simulator install or update
 When the task involves installing or upgrading the Zepp OS Simulator, check the official download page instead of assuming an older binary set.
@@ -106,12 +109,33 @@ zeus config set <key>=<value>
 
 Use this when the task involves CLI environment setup rather than app code.
 
+## Runtime performance loop
+
+When working on watch games, animations, or canvas-heavy screens, use an explicit performance pass instead of checking only correctness.
+
+Practical loop:
+
+1. identify hot paths in update, collision, spawn, and render separately
+2. remove obvious full-list scans before tuning math details
+3. reuse geometry and temporary arrays across a frame
+4. reduce redundant canvas work such as repeated clears or repeated static drawing
+5. rerun unit tests, then build, then confirm on real hardware
+
+Typical wins in Zepp mini-apps:
+
+- spatial partitioning before exact collision checks
+- limiting candidate slices or buckets to the forward travel corridor
+- querying the same spatial structure for spawn placement instead of scanning all entities
+- reducing per-frame object churn in update and render code
+- turning off debug logging in hot input callbacks
+
 ## Zeus build gotchas
 
 Current `@zeppos/zpm` error strings surface a few practical toolchain assumptions:
 
 - `The icon in app.json is empty or the image does not exist`: re-check `app.icon`, file existence, and target asset layout under `assets/<target>/icon.png` before debugging unrelated UI code.
 - `setting/index.js does not exist`: verify the configured Settings App entry path resolves to a real JS file. If the implementation is authored in `index.jsx`, add a tiny `index.js` shim or point the manifest at the actual entry file.
+- If `app.json` uses multiple explicit targets such as `round-480`, `round-466`, or `square-390x450`, make sure every target has its own asset folder under `assets/<target>/`.
 
 ## Bridge workflow
 

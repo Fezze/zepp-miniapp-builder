@@ -1,6 +1,6 @@
 ---
 name: zepp-miniapp-builder
-description: Build, debug, and evolve version-aware Zepp OS mini-apps, including Device App pages, Workout Extension surfaces, Settings App surfaces, Side Service code, App Service workflows, official design-system/Figma handoff, ZML-based wrappers, easy-storage persistence models, visual logger relay patterns, easy-ble master patterns, polyglot localization workflows, easy-media audio workflows, sensor-driven apps, and games. Use this skill when a task involves Zepp app.json/runtime compatibility, `data-widget` or workout extension work, official Zepp Figma libraries or template handoff, `@zeppos/zml` wrapper patterns, `@silver-zepp/easy-storage` persistence choices, `@silver-zepp/vis-log` debugging overlays, `@silver-zepp/easy-ble` BLE-master flows, `@silver-zepp/polyglot` localization workflows, `@silver-zepp/easy-media` playback or recording helpers, @zos APIs, hmUI widgets, Zeus CLI workflow, watch/phone data flow, simulator or real-device debugging, or adapting code to legacy, v4, or future API_LEVEL targets.
+description: Build, debug, evolve, and publish version-aware Zepp OS mini-apps, including Device App pages, Workout Extension surfaces, Settings App surfaces, Side Service code, App Service workflows, Zepp Developer Console store submission, official design-system/Figma handoff, ZML-based wrappers, easy-storage persistence models, visual logger relay patterns, easy-ble master patterns, polyglot localization workflows, easy-media audio workflows, sensor-driven apps, and games. Use this skill when a task involves Zepp app.json/runtime compatibility, `data-widget` or workout extension work, store-release readiness, Zepp Console submission fields, official Zepp Figma libraries or template handoff, `@zeppos/zml` wrapper patterns, `@silver-zepp/easy-storage` persistence choices, `@silver-zepp/vis-log` debugging overlays, `@silver-zepp/easy-ble` BLE-master flows, `@silver-zepp/polyglot` localization workflows, `@silver-zepp/easy-media` playback or recording helpers, @zos APIs, hmUI widgets, Zeus CLI workflow, watch/phone data flow, simulator or real-device debugging, or adapting code to legacy, v4, or future API_LEVEL targets.
 ---
 
 # Zepp Miniapp Builder
@@ -20,6 +20,7 @@ Use this skill for Zepp OS mini-app work that touches:
 - `@silver-zepp/easy-media` playback or recording wrappers over `@zos/media`
 - `@zos/*` modules, `hmUI`, widgets, sensors, or device interactions
 - Zeus CLI workflow, simulator, preview, bridge, build, and device validation
+- Zepp Developer Console release, store listing assets, privacy statement, and submission readiness
 - i18n, storage, phone-to-watch sync, or version-aware feature selection
 
 Prefer official Zepp docs for capability checks and use this skill's references as the routing layer.
@@ -98,6 +99,7 @@ Load these files directly as needed.
 - [references/common/17-polyglot-library-patterns.md](references/common/17-polyglot-library-patterns.md): `@silver-zepp/polyglot` CLI and runtime localization behavior
 - [references/common/18-easy-media-library-patterns.md](references/common/18-easy-media-library-patterns.md): `@silver-zepp/easy-media` playback and recorder wrappers
 - [references/common/19-design-system-and-figma-patterns.md](references/common/19-design-system-and-figma-patterns.md): official Zepp design-system and Figma handoff guidance
+- [references/common/20-store-release-and-submission.md](references/common/20-store-release-and-submission.md): Zepp Console release fields, store assets, privacy statement, and review workflow
 
 ### V4 Profile
 
@@ -126,6 +128,9 @@ Load these files directly as needed.
   Read `02-device-phone-architecture` and `05-settings-sync-and-storage`.
 - Testing or debugging:
   Read `03-dev-build-preview-bridge`, `06-testing-validation`, and `08-runtime-gotchas`.
+  If the task is mainly visual review, also use a preview screenshot matrix before touching layout code.
+- Store release, publish, app-store checklist, or submission readiness:
+  Read `20-store-release-and-submission`, then compare the repo against `app.json`, assets, languages, screenshots, privacy text, permissions, and device coverage.
 - i18n or app metadata:
   Read `07-i18n-config-and-assets`.
 - App, page, service lifecycle, or state-sharing work:
@@ -163,5 +168,6 @@ When using this skill, prefer output that:
 - states the detected API profile explicitly
 - names any APIs that require `4.0+` or newer support
 - distinguishes simulator-only verification from real-device verification
+- distinguishes browser preview-harness screenshots from simulator or real-device evidence
 - includes official doc links for risky or version-sensitive behavior
 - records assumptions when `app.json` or target hardware details are missing

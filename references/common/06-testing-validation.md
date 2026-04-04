@@ -47,6 +47,16 @@ Practical rule:
 - add Playwright when the project needs browser-level automation, screenshot checks, or a browser harness for shared modules
 - keep Playwright complementary to the rest of the suite instead of trying to force all validation through one browser runner
 
+Practical Zepp page-preview pattern:
+
+- build a repo-local browser harness that imports the real page module, captures `Page(...)`, and renders mocked `@zos/*` widgets into a reviewable browser shell
+- drive that harness with Playwright scenarios for round and square screens, empty and populated states, first and last pagination states, and any high-risk control mode or session variant
+- if the manifest supports more than one real resolution family per shape, add scenarios for each supported resolution family instead of assuming one round and one square size cover everything
+- save one screenshot per scenario and review them in sequence before changing layout code
+- after fixes, rerun the same screenshot matrix instead of spot-checking only one screen
+- keep preview-harness screenshots clearly labeled as browser-mock evidence, not simulator or watch-runtime proof
+- a practical output structure is `output/playwright/screenshots/<locale>/<shape>/<resolution>/...`
+
 ### Mocked runtime tests
 
 Mock `@zos/*` and `hmUI` to exercise:
@@ -64,6 +74,8 @@ Practical page-shell pattern:
 - mock page-local loaders or layout modules per page when the repo structure requires them
 - capture `Page(...)` definitions from the runtime shim instead of trying to inspect DOM output
 - assert widget creation, row actions, empty-state controls, and refresh behavior such as `replace(...)` before leaning on the simulator
+- for layout regressions, assert concrete widget coordinates or row separation such as pager-vs-footer spacing, action-row placement, and round-vs-square branches
+- keep those assertions narrow and scenario-specific so they fail only when the reviewed composition breaks again
 
 ### Simulator validation
 
@@ -139,6 +151,51 @@ Still required when changes depend on:
 - keep reusable Zepp mocks in shared helpers instead of ad hoc per-test stubs
 - keep visual and semantic snapshot layers separate if the project uses rendering-heavy output
 - run `zeus build` even when tests pass
+
+## Visual review loop for screen-heavy repos
+
+Use this order when UI composition is the main risk:
+
+1. Generate or update a deterministic preview scenario matrix.
+2. Capture screenshots for each scenario with Playwright or an equivalent browser runner.
+3. Review the screenshots one by one and write down concrete issues such as overlap, clipping, weak hierarchy, or empty composition.
+4. Fix the highest-signal layout problems first.
+5. Add or adjust targeted mocked-runtime tests for the specific spacing or alignment bug.
+6. Rerun `zeus build`, tests, and the screenshot matrix.
+
+For game or canvas screens:
+
+- seed a deterministic frame after build so the screenshot contains representative entities
+- prefer a readable composition sample over a random live frame when the goal is UI review
+
+Artifact separation rule:
+
+- keep development preview screenshots under a repo-local output tree such as `output/playwright/`
+- keep store-submission screenshots under a separate `submission/` pack
+- do not regenerate submission screenshots during normal development unless the task is explicitly about release assets
+
+## Performance validation for watch games and canvas-heavy pages
+
+Treat watch performance as a separate validation concern from correctness.
+
+Recommended checks:
+
+- keep broad-phase and narrow-phase logic under direct tests instead of only testing final HP changes
+- assert that candidate collection looks only at the intended spatial region, especially only in front of the player when the game has one-way travel
+- add tests for catch-up or backlog behavior so timers do not create burst walls after one delayed frame
+- add edge-case geometry tests for circle-vs-rect or other exact-hit logic to avoid paying for more math while still keeping false positives low
+
+Practical optimization heuristics:
+
+- prefer one spatial index that serves both collision broad-phase and spawn-lane queries
+- cache or reuse per-frame arrays such as collision candidates instead of allocating new ones every tick
+- compute ship or player geometry once per frame and pass it through update, collision, and render stages
+- avoid double work in canvas code such as clear plus full-screen fill unless both are actually needed
+- prefer simple indexed loops over callback-based iteration in hot paths
+- cache or separate static HUD layers from dynamic ones when the runtime or renderer cost makes that worthwhile
+- disable noisy debug logging in hot input or frame loops by default
+
+Use real-device checks for final confidence when the main risk is frame pacing, sensor feel, or cumulative runtime pressure.
 
 ## Practical Node and shared-module guardrails
 

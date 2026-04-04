@@ -125,6 +125,16 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/03-dev-build-preview-bridge.md](common/03-dev-build-preview-bridge.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md)
   Notes: hardware support and device capability checks.
 
+## Distribution and Store Submission
+
+- `https://docs.zepp.com/docs/distribute/`
+  Mapped into: [docs-index.md](docs-index.md), [common/20-store-release-and-submission.md](common/20-store-release-and-submission.md)
+  Notes: Zepp Console release fields, screenshot and icon requirements, privacy statement, SDK disclosure, and review timing.
+
+- `https://docs.zepp.com/zh-cn/docs/distribute/`
+  Mapped into: [docs-index.md](docs-index.md), [common/20-store-release-and-submission.md](common/20-store-release-and-submission.md)
+  Notes: Chinese submission page currently documents service categories and attachment requirements for regulated categories.
+
 ## Architecture, Registration, Services, and Communication
 
 - `https://docs.zepp.com/docs/guides/architecture/arc/`
