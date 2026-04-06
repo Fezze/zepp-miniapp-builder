@@ -80,15 +80,47 @@ For traceability from each official document into skill files, see [docs-mapping
 ## UI, layout, and navigation
 
 - UI createWidget overview: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/createWidget/
-- BUTTON: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/createWidget/widget/BUTTON/
+- TEXT: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/TEXT/
+- IMG: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/IMG/
+- BUTTON: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/BUTTON/
 - FILL_RECT: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/FILL_RECT/
+- STROKE_RECT: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/STROKE_RECT/
+- CIRCLE: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CIRCLE/
 - ARC: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/ARC/
+- QRCODE: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/QRCODE/
+- DIALOG: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/DIALOG/
+- HISTOGRAM: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/HISTOGRAM/
+- GRADIENT_POLYLINE: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/GRADIENT_POLYLINE/
 - CANVAS: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CANVAS/
+- PAGE_INDICATOR: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/PAGE_INDICATOR/
+- PAGE_SCROLLBAR: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/PAGE_SCROLLBAR/
+- GROUP: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/GROUP/
+- SCROLL_LIST: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SCROLL_LIST/
+- VIEW_CONTAINER: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/VIEW_CONTAINER/
+- CYCLE_LIST: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CYCLE_LIST/
+- CYCLE_IMAGE_TEXT_LIST: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CYCLE_IMAGE_TEXT_LIST/
 - KEYBOARD: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/KEYBOARD/
+- RADIO_GROUP: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/RADIO_GROUP/
+- CHECKBOX_GROUP: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CHECKBOX_GROUP/
+- SLIDE_SWITCH: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SLIDE_SWITCH/
+- PICK_DATE: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/PICK_DATE/
+- PICKER: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/PICKER/
+- TIME_PICKER: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/TIME_PICKER/
 - SPORT_DATA: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SPORT_DATA/
 - SYSTEM_KEYBOARD (`createKeyboard`): https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SYSTEM_KEYBOARD/
 - Keyboard API (`keyboard`): https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/keyboard/
 - Custom Keyboard intro: https://docs.zepp.com/docs/guides/keyboard/intro/
+- getTextLayout: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/getTextLayout/
+- getImageInfo: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/getImageInfo/
+- redraw: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/redraw/
+- setEnable: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/setEnable/
+- getType: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/getType/
+- getProperty: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/getProperty/
+- setProperty: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/setProperty/
+- setStatusBarVisible: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/setStatusBarVisible/
+- updateStatusBarTitle: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/updateStatusBarTitle/
+- getRtlLayout: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/getRtlLayout/
+- relayoutRtl: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/relayoutRtl/
 - Screen adaptation Specification: https://docs.zepp.com/docs/guides/framework/device/screen-adaption/
 - VIRTUAL_CONTAINER: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/VIRTUAL_CONTAINER/
 - Widget layout properties for Flex layout: https://docs.zepp.com/docs/guides/framework/device/layout/
@@ -101,6 +133,7 @@ For traceability from each official document into skill files, see [docs-mapping
 - Router `replace`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/router/replace/
 - Gesture interaction: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/onGesture/
 - Digital crown interaction: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/onDigitalCrown/
+- createModal: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/createModal/
 - IMG_ANIM: https://docs.zepp.com/docs/v2/reference/device-app-api/newAPI/ui/widget/IMG_ANIM/
 
 ## Sensors, display, media, and notifications

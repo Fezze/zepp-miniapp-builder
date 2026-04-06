@@ -100,6 +100,7 @@ Load these files directly as needed.
 - [references/common/18-easy-media-library-patterns.md](references/common/18-easy-media-library-patterns.md): `@silver-zepp/easy-media` playback and recorder wrappers
 - [references/common/19-design-system-and-figma-patterns.md](references/common/19-design-system-and-figma-patterns.md): official Zepp design-system and Figma handoff guidance
 - [references/common/20-store-release-and-submission.md](references/common/20-store-release-and-submission.md): Zepp Console release fields, store assets, privacy statement, and review workflow
+- [references/common/21-ui-widget-catalog-and-methods.md](references/common/21-ui-widget-catalog-and-methods.md): detailed widget families, form controls, layout widgets, and low-level `@zos/ui` methods
 
 ### V4 Profile
 
@@ -121,7 +122,7 @@ Load these files directly as needed.
 - New mini-app scaffold or repo review:
   Read `00-version-routing`, `01-project-basics`, and `02-device-phone-architecture`.
 - UI/widget work:
-  Read `04-ui-sensors-interactions`; add `v4/02-v4-ui-and-layout` when API level is `4.x`.
+  Read `04-ui-sensors-interactions`; add `21-ui-widget-catalog-and-methods` for detailed widget or low-level UI API selection; add `v4/02-v4-ui-and-layout` when API level is `4.x`.
 - Sensor or game controls:
   Read `04-ui-sensors-interactions` and `08-runtime-gotchas`.
 - Settings, side service, or sync:

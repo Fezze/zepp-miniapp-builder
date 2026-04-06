@@ -5,18 +5,18 @@
 Zepp device pages are widget-driven, not DOM-driven.
 
 - Build UI with `hmUI.createWidget(...)` or `@zos/ui`.
+- For detailed widget-family selection and low-level UI methods, also load `21-ui-widget-catalog-and-methods`.
 - Size and position for watch screens.
 - Use `px(...)` from `@zos/utils` when the project relies on design-width scaling.
 - If the task starts from official Zepp Figma libraries, match the nearest system family first; for circular list pages that often means roughly `104px` compact rows, `121px` multiline rows, `184px` title or footer shells, and about `8px` between stacked list items.
 
-## Useful widgets and drawing primitives
+## UI implementation guidance
 
-- `BUTTON` for tap actions
-- `FILL_RECT` for simple shapes and lightweight motion
-- `ARC` for curved watch-native geometry
-- `CANVAS` for custom drawing when widget primitives are not enough
-- `KEYBOARD` for legacy-era in-page text input starting at `3.0`
-- `IMG_ANIM` for frame-sequence animation instead of assuming GIF playback
+- Prefer the simplest widget mix that matches the screen: text/image/button primitives first, custom drawing only when necessary.
+- Reach for list or container widgets only when the page truly needs scrolling or repeated item composition.
+- Measure text and image assets before freezing layout assumptions for localized or multi-device screens.
+- In pre-`4.0` compatibility work, prefer `getProperty(...)` and `setProperty(...)` for dynamic widget updates.
+- Use built-in RTL support where available instead of manually mirroring coordinates.
 
 ## Navigation and interactions
 
@@ -75,12 +75,7 @@ Use when the app depends on angular velocity rather than held tilt angle.
 ## Official references
 
 - UI createWidget: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/createWidget/
-- BUTTON: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/createWidget/widget/BUTTON/
-- FILL_RECT: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/FILL_RECT/
-- ARC: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/ARC/
-- CANVAS: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CANVAS/
-- KEYBOARD: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/KEYBOARD/
-- IMG_ANIM: https://docs.zepp.com/docs/v2/reference/device-app-api/newAPI/ui/widget/IMG_ANIM/
+- UI widget and method catalog: [21-ui-widget-catalog-and-methods.md](21-ui-widget-catalog-and-methods.md)
 - Buzzer: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/Buzzer/
 - SystemSounds: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/SystemSounds/
 - Screen adaptation Specification: https://docs.zepp.com/docs/guides/framework/device/screen-adaption/

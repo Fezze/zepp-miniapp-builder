@@ -279,25 +279,129 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
   Notes: widget-based UI model.
 
-- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/createWidget/widget/BUTTON/`
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/TEXT/`
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
+  Notes: text rendering, alignment, wrapping, and i18n-facing widget behavior.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/IMG/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
+  Notes: static image widget behavior and sizing expectations.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/BUTTON/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
   Notes: canonical button widget reference.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/FILL_RECT/`
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
   Notes: simple geometry and lightweight motion primitives.
 
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/STROKE_RECT/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
+  Notes: outline-style rectangle widget for framed or bordered states.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CIRCLE/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: simple circular geometry without custom canvas drawing.
+
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/ARC/`
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
   Notes: curved geometry and round-screen support.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/QRCODE/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
+  Notes: device-rendered QR presentation without custom canvas drawing.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/DIALOG/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: built-in dialog UI surface.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/HISTOGRAM/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: bar-style chart widget.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/GRADIENT_POLYLINE/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: gradient polyline/path drawing widget.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CANVAS/`
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
   Notes: advanced drawing path plus runtime caveats.
 
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/PAGE_INDICATOR/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: built-in page index indicator widget.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/PAGE_SCROLLBAR/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: built-in page-position scrollbar indicator.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/GROUP/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: grouped widget operations and the no-nesting or widget-surface limitations.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SCROLL_LIST/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: list-widget path with scrolling and item composition, plus its restrictions on widget/card surfaces.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/VIEW_CONTAINER/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: scrollable container behavior and its surface restrictions outside normal pages.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CYCLE_LIST/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: cyclic list-selection widget.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CYCLE_IMAGE_TEXT_LIST/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: cyclic image-plus-text list-selection widget.
+
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/VIRTUAL_CONTAINER/`
-  Mapped into: [docs-index.md](docs-index.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md)
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md)
   Notes: Flex-layout root container.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/getTextLayout/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: text measurement for multiline layout and localized copy fitting.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/getImageInfo/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: image-dimension inspection for asset-aware layout decisions.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/redraw/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: force-refresh helper for stubborn repaint cases.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/setEnable/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: enables or disables interaction so lower layers can receive events when needed.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/getType/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: widget-type introspection for dynamic UI debugging.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/getProperty/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md)
+  Notes: pre-`4.0` accessor-style widget state reads.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/setProperty/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md)
+  Notes: pre-`4.0` accessor-style widget state writes.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/setStatusBarVisible/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: square-screen status-bar visibility control.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/updateStatusBarTitle/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: square-screen status-bar title updates.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/getRtlLayout/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md)
+  Notes: RTL layout-state detection.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/relayoutRtl/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md)
+  Notes: page-level RTL flipping behavior and timing caveat.
 
 - `https://docs.zepp.com/docs/guides/framework/device/layout/`
   Mapped into: [docs-index.md](docs-index.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md)
@@ -331,12 +435,40 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
   Notes: optional non-touch input surface.
 
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/createModal/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: current modal/dialog path recommended over discontinued `DIALOG` for new work.
+
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/KEYBOARD/`
-  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md)
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md)
   Notes: classic in-page keyboard widget starting at `3.0`, distinct from system keyboard APIs.
 
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/RADIO_GROUP/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: single-select group widget built around `STATE_BUTTON` items.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CHECKBOX_GROUP/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: multi-select group widget built around `STATE_BUTTON` items.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SLIDE_SWITCH/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: binary on/off switch widget.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/PICK_DATE/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: older date-picker widget kept mainly for legacy compatibility.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/PICKER/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: multi-column picker for generic value selection.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/TIME_PICKER/`
+  Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
+  Notes: `3.6+` date/time picker path that supersedes `PICK_DATE` for newer targets.
+
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SPORT_DATA/`
-  Mapped into: [docs-index.md](docs-index.md), [common/12-workout-extension.md](common/12-workout-extension.md)
+  Mapped into: [docs-index.md](docs-index.md), [common/12-workout-extension.md](common/12-workout-extension.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
   Notes: purpose-built `3.6+` workout-data widget for Workout Extension UIs.
 
 - `https://docs.zepp.com/docs/guides/framework/device/screen-adaption/`
