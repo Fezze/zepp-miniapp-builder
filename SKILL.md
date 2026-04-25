@@ -1,6 +1,6 @@
 ---
 name: zepp-miniapp-builder
-description: Build, debug, evolve, and publish version-aware Zepp OS mini-apps, including Device App pages, Workout Extension surfaces, Settings App surfaces, Side Service code, App Service workflows, Zepp Developer Console store submission, official design-system/Figma handoff, ZML-based wrappers, easy-storage persistence models, visual logger relay patterns, easy-ble master patterns, polyglot localization workflows, easy-media audio workflows, sensor-driven apps, and games. Use this skill when a task involves Zepp app.json/runtime compatibility, `data-widget` or workout extension work, store-release readiness, Zepp Console submission fields, official Zepp Figma libraries or template handoff, `@zeppos/zml` wrapper patterns, `@silver-zepp/easy-storage` persistence choices, `@silver-zepp/vis-log` debugging overlays, `@silver-zepp/easy-ble` BLE-master flows, `@silver-zepp/polyglot` localization workflows, `@silver-zepp/easy-media` playback or recording helpers, @zos APIs, hmUI widgets, Zeus CLI workflow, watch/phone data flow, simulator or real-device debugging, or adapting code to legacy, v4, or future API_LEVEL targets.
+description: Build, debug, evolve, update docs for, and publish version-aware Zepp OS mini-apps, including Device App pages, Workout Extension surfaces, Settings App surfaces, Side Service code, App Service workflows, Zepp Developer Console store submission, official design-system/Figma handoff, ZML-based wrappers, easy-storage persistence models, visual logger relay patterns, easy-ble master patterns, polyglot localization workflows, easy-media audio workflows, sensor-driven apps, and games. Use this skill when a task involves Zepp app.json/runtime compatibility, `data-widget` or workout extension work, store-release readiness, Zepp Console submission fields, official Zepp Figma libraries or template handoff, `@zeppos/zml` wrapper patterns, `@silver-zepp/easy-storage` persistence choices, `@silver-zepp/vis-log` debugging overlays, `@silver-zepp/easy-ble` BLE-master flows, `@silver-zepp/polyglot` localization workflows, `@silver-zepp/easy-media` playback or recording helpers, @zos APIs, hmUI widgets, Zeus CLI workflow, watch/phone data flow, simulator or real-device debugging, adapting code to legacy, v4, or future API_LEVEL targets, or maintaining this skill after commands such as `update docs`, `refresh skill`, `sync docs`, or `check repo changes and update skill`.
 ---
 
 # Zepp Miniapp Builder
@@ -22,6 +22,7 @@ Use this skill for Zepp OS mini-app work that touches:
 - Zeus CLI workflow, simulator, preview, bridge, build, and device validation
 - Zepp Developer Console release, store listing assets, privacy statement, and submission readiness
 - i18n, storage, phone-to-watch sync, or version-aware feature selection
+- skill-maintenance work that reviews sibling repos and updates only this skill repo
 
 Prefer official Zepp docs for capability checks and use this skill's references as the routing layer.
 
@@ -65,7 +66,10 @@ Read [references/00-version-routing.md](references/00-version-routing.md) first 
 - Treat simulator validation, `zeus build`, and real-device checks as separate layers, not substitutes.
 - Do not assume digital crown availability unless the target hardware guarantees it.
 - When adding or remapping knowledge from official Zepp docs, update both `references/docs-index.md` and `references/docs-mapping-register.md`.
-- If the user says `update`, `refresh`, `sync docs`, or asks to incorporate newly discovered Zepp information, run the skill-maintenance workflow in [references/common/11-skill-maintenance-and-update.md](references/common/11-skill-maintenance-and-update.md).
+- If the user says `update`, `update docs`, `refresh skill`, `refresh`, `sync docs`, or asks to incorporate newly discovered Zepp information, run the skill-maintenance workflow in [references/common/11-skill-maintenance-and-update.md](references/common/11-skill-maintenance-and-update.md).
+- For that workflow, read [maintenance-state.json](maintenance-state.json) before comparing sibling repos so the last reviewed remote hashes are treated as the baseline rather than assuming the skill is already current.
+- Default to checking remote `origin` state for sibling repos. Use local clone state only as a clearly labeled fallback when remote inspection is unavailable.
+- Treat sibling repos in the workspace as read-only evidence sources during skill maintenance. Update and commit only this `zepp-miniapp-builder` repo.
 - If a Zepp task reveals new verified information that changes the skill guidance, update the skill before finishing when the skill repo or installed copy is writable.
 
 ## Reference Map
@@ -156,7 +160,7 @@ Load these files directly as needed.
   Read `19-design-system-and-figma-patterns`; add `10-secondary-widgets-and-shortcuts` for widget/card surfaces and `07-i18n-config-and-assets` for text, icon, and asset-export rules.
   If a live design connector is available, inspect only the specific design page or node that matters to the task instead of crawling the whole library.
 - Skill maintenance, docs refresh, or newly discovered Zepp behavior:
-  Read `11-skill-maintenance-and-update`, then update the affected reference files, `docs-index.md`, and `docs-mapping-register.md`.
+  Read `11-skill-maintenance-and-update` and `maintenance-state.json`, then update the affected reference files, `docs-index.md`, and `docs-mapping-register.md`.
 - Legacy support:
   Read `legacy/01-legacy-compatibility` and `legacy/02-migration-notes`.
 - Future API level:
@@ -172,3 +176,4 @@ When using this skill, prefer output that:
 - distinguishes browser preview-harness screenshots from simulator or real-device evidence
 - includes official doc links for risky or version-sensitive behavior
 - records assumptions when `app.json` or target hardware details are missing
+- for `update docs` work, reports which sibling repos were reviewed, what baseline hashes were used, what changed in this skill repo, and whether the installed copy also needs syncing

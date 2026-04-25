@@ -5,6 +5,8 @@
 Load this file when:
 
 - the user says `update`
+- the user says `update docs`
+- the user says `refresh skill`
 - the user asks to refresh the skill from current Zepp docs
 - the user asks to sync or extend the skill after documentation research
 - a Zepp task reveals new verified information that should become part of the skill
@@ -14,6 +16,8 @@ Load this file when:
 Treat all of these as skill-maintenance triggers:
 
 - `update`
+- `update docs`
+- `refresh skill`
 - `refresh`
 - `sync docs`
 - `update the skill`
@@ -22,17 +26,32 @@ Treat all of these as skill-maintenance triggers:
 
 ## Default maintenance workflow
 
-1. Identify the changed or newly relevant Zepp topic.
-2. Check the official Zepp docs for that topic first.
-3. Determine whether the information is:
+1. Read [../../maintenance-state.json](../../maintenance-state.json) and treat it as the portable source of truth for last-reviewed hashes.
+2. Review the tracked sibling repos as read-only sources. Do not modify or commit them as part of this workflow.
+3. Check remote `origin` state first and compare it to the recorded baseline. Treat remote inspection as the default path.
+4. Only if remote inspection is unavailable, use local clone state as a labeled fallback. Do not imply remote parity from a local-only fallback run.
+5. Identify the changed or newly relevant Zepp topic since the recorded baseline.
+6. Check the official Zepp docs for that topic first.
+7. Determine whether the information is:
    - official documented behavior
    - verified field note from real behavior or project verification
-4. Update the smallest set of affected files:
+8. Update the smallest set of affected files:
    - topic-specific reference file under `references/common/`, `references/v4/`, `references/legacy/`, or `references/forward/`
    - [../docs-index.md](../docs-index.md)
    - [../docs-mapping-register.md](../docs-mapping-register.md)
-5. If the new information changes routing or trigger behavior, update [../../SKILL.md](../../SKILL.md).
-6. If the skill is maintained as its own repo, update `README.md` when installation, maintenance, or structure guidance changes.
+9. If the new information changes routing or trigger behavior, update [../../SKILL.md](../../SKILL.md).
+10. If the skill is maintained as its own repo, update `README.md` when installation, maintenance, or structure guidance changes.
+11. After the review is complete, refresh `maintenance-state.json` so the next `update docs` task starts from the new baseline.
+
+## Maintenance state rules
+
+- `maintenance-state.json` is versioned in this repo so the review baseline travels across machines.
+- Seed the initial state from the last known skill-update commit, but do not treat that seed as proof that sibling repos are current.
+- Use a status such as `baseline-known-but-not-currently-verified` until a full review has been completed against the tracked repos.
+- Prefer tracking both the last reviewed hash and the last hash whose changes were incorporated into this skill when they differ.
+- Keep all tracked sibling repos marked as read-only sources.
+- Record remote verification separately from local verification. Remote `origin` is the default source of truth; a local-only review is only a fallback.
+- Record the default branch used for each tracked sibling repo so future remote reviews compare against the same branch explicitly.
 
 ## Auto-update rule during normal work
 
@@ -94,10 +113,18 @@ If you are editing the source repo:
 
 - prefer syncing the installed copy after the update so other projects use the refreshed skill
 
+## Repo ownership rule
+
+- Commit only in the skill source repo.
+- Never commit or patch sibling source repos as part of `update docs`.
+- Use sibling repos only to gather evidence, hashes, examples, and docs changes.
+
 ## Minimum expected output after an update task
 
 After running a maintenance update, report:
 
 - which Zepp docs or verified discoveries were incorporated
+- which sibling repos and baseline hashes were reviewed
+- whether the run compared against remote `origin`, and if not, why it had to fall back to local clones
 - which skill files changed
 - whether the installed copy also needs syncing

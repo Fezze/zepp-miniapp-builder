@@ -34,6 +34,7 @@ For the actual routing rules and reference map, see [SKILL.md](SKILL.md).
 ## Repository structure
 
 - `SKILL.md`: skill entrypoint, routing rules, and reference-loading map.
+- `maintenance-state.json`: versioned baseline of last-reviewed hashes for sibling source repos.
 - `references/00-version-routing.md`: required first read for version detection.
 - `references/common/`: shared guidance for architecture, tooling, UI, storage, testing, i18n, and optional library layers.
 - `references/v4/`: `4.x`-specific APIs and workflow notes.
@@ -55,6 +56,17 @@ If you keep this repo separately from your app repos, treat it as the source of 
 
 ## Maintenance
 
+This repo is the only write target for the maintenance workflow. Sibling repos in the workspace are read-only evidence sources even when they are used to decide whether the skill needs an update.
+
+When you use an AI-driven command such as `update docs`, `refresh skill`, or `sync docs`, the expected flow is:
+
+1. Read `maintenance-state.json` to get the last reviewed baseline hashes.
+2. Check remote `origin` state for the configured sibling repos and compare it to the recorded baseline.
+3. Use local clone state only if remote inspection is unavailable, and record that fallback explicitly.
+4. Decide whether those changes affect this skill's routing or guidance.
+5. Update only files in this repo.
+6. Refresh `maintenance-state.json` after the review is complete so the next machine has the same baseline.
+
 When you add new knowledge from official Zepp docs:
 
 1. Update `references/docs-index.md`.
@@ -63,6 +75,16 @@ When you add new knowledge from official Zepp docs:
 4. Keep `SKILL.md` focused on routing and lightweight guidance, not full documentation dumps.
 
 For maintenance prompts and self-update behavior, see `references/common/11-skill-maintenance-and-update.md`.
+
+## Baseline state
+
+`maintenance-state.json` stores the portable maintenance baseline for this skill. It is intentionally versioned in git so moving to another computer does not reset the review point.
+
+- The current baseline starts from the last known skill update on `main`.
+- That baseline is not proof that sibling repos are current until remote `origin` has been checked.
+- The first full `update docs` review after cloning or syncing should treat the baseline as historical and only mark repos as verified after review.
+- A local-only review is only a fallback and should stay marked as such in `maintenance-state.json`.
+- For each tracked sibling repo, store the current default branch together with the reviewed remote commit.
 
 ## Notes
 
