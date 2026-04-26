@@ -54,8 +54,7 @@ function parseScalar(rawValue) {
   return rawValue;
 }
 
-function parseSimpleYaml(filePath) {
-  const source = readText(filePath);
+function parseSimpleYamlString(source, sourceName) {
   const root = {};
   const stack = [{ indent: -1, value: root }];
   const lines = source.split(/\r?\n/);
@@ -69,12 +68,12 @@ function parseSimpleYaml(filePath) {
 
     const indent = line.length - line.trimStart().length;
     if (indent % 2 !== 0) {
-      throw new Error(`${path.relative(repoRoot, filePath)}:${index + 1} uses odd indentation; expected multiples of two spaces`);
+      throw new Error(`${sourceName}:${index + 1} uses odd indentation; expected multiples of two spaces`);
     }
 
     const match = trimmed.match(/^([A-Za-z0-9_]+):(.*)$/);
     if (!match) {
-      throw new Error(`${path.relative(repoRoot, filePath)}:${index + 1} is not valid simple YAML mapping syntax`);
+      throw new Error(`${sourceName}:${index + 1} is not valid simple YAML mapping syntax`);
     }
 
     const key = match[1];
@@ -126,6 +125,10 @@ function parseSimpleYaml(filePath) {
   return root;
 }
 
+function parseSimpleYaml(filePath) {
+  return parseSimpleYamlString(readText(filePath), path.relative(repoRoot, filePath));
+}
+
 function parseFrontmatter(filePath) {
   if (!fs.existsSync(filePath)) {
     throw new Error(`missing file ${path.relative(repoRoot, filePath)}`);
@@ -151,16 +154,7 @@ function parseFrontmatter(filePath) {
   }
 
   const frontmatter = lines.slice(1, closingIndex).join('\n');
-  const tempPath = path.join(repoRoot, '.skill-frontmatter.validation.tmp.yaml');
-
-  try {
-    fs.writeFileSync(tempPath, frontmatter, 'utf8');
-    return parseSimpleYaml(tempPath);
-  } finally {
-    if (fs.existsSync(tempPath)) {
-      fs.unlinkSync(tempPath);
-    }
-  }
+  return parseSimpleYamlString(frontmatter, 'SKILL.md frontmatter');
 }
 
 function slugifyHeading(heading) {

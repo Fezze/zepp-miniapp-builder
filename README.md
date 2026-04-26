@@ -34,6 +34,7 @@ For the actual routing rules and reference map, see [SKILL.md](SKILL.md).
 ## Repository structure
 
 - `SKILL.md`: skill entrypoint, routing rules, and reference-loading map.
+- `agents/openai.yaml`: skill metadata used by Codex/OpenAI tooling.
 - `maintenance-state.json`: versioned baseline of last-reviewed hashes for sibling source repos.
 - `references/00-version-routing.md`: required first read for version detection.
 - `references/common/`: shared guidance for architecture, tooling, UI, storage, testing, i18n, and optional library layers.
@@ -42,7 +43,9 @@ For the actual routing rules and reference map, see [SKILL.md](SKILL.md).
 - `references/forward/`: workflow for API levels newer than the skill currently knows well.
 - `references/docs-index.md`: grouped index of official Zepp docs used by the skill.
 - `references/docs-mapping-register.md`: traceability register from official docs into skill files.
+- `references/vendor-library-confidence.md`: confidence and approval rules for official vs community npm helper packages.
 - `references/common/11-skill-maintenance-and-update.md`: maintenance workflow for doc refreshes and new verified discoveries.
+- `scripts/validate-skill.js`: lightweight repository validator for skill metadata, links, and docs mapping consistency.
 
 ## Installation
 
@@ -53,6 +56,22 @@ $CODEX_HOME/skills/zepp-miniapp-builder
 ```
 
 If you keep this repo separately from your app repos, treat it as the source of truth and sync the installed copy from here.
+
+## Validation
+
+Run this before committing skill changes:
+
+```bash
+node scripts/validate-skill.js
+```
+
+The validator checks:
+
+- `SKILL.md` frontmatter
+- `agents/openai.yaml`
+- absence of duplicate root `openai.yaml`
+- internal Markdown links
+- drift between `references/docs-index.md` and `references/docs-mapping-register.md`
 
 ## Maintenance
 
@@ -74,7 +93,7 @@ When you add new knowledge from official Zepp docs:
 3. Update the specific reference files that depend on the new source.
 4. Keep `SKILL.md` focused on routing and lightweight guidance, not full documentation dumps.
 
-For maintenance prompts and self-update behavior, see `references/common/11-skill-maintenance-and-update.md`.
+For maintenance prompts and the explicit maintenance workflow, see `references/common/11-skill-maintenance-and-update.md`.
 
 ## Baseline state
 
