@@ -1,6 +1,6 @@
 # Easy Media Library Patterns
 
-## When to use this file
+## Use this file when
 
 Load this file when:
 
@@ -8,6 +8,26 @@ Load this file when:
 - code creates `new SoundPlayer()` or `new SoundRecorder(...)`
 - the user asks about page-local audio playback, sound-effect queues, speaker detection, or watch-side recording
 - the repo wraps `@zos/media` instead of calling the raw player or recorder APIs directly
+
+## Do not use this file when
+
+- the repo does not depend on `@silver-zepp/easy-media` and the user has not approved adding a community package
+- the task is about raw `@zos/media` usage with no wrapper decision
+- the task needs production-grade recording guarantees that the local repo does not already prove
+
+## Decision table
+
+| Situation | Use this file? | Next file |
+|---|---|---|
+| Repo already depends on `@silver-zepp/easy-media` | Yes | `04-ui-sensors-interactions` |
+| User wants a playback helper for a `3.0+` app | Yes, but read `../vendor-library-confidence.md` first | `08-runtime-gotchas` for device capability caveats |
+| Task is raw `@zos/media` API selection only | No | `04-ui-sensors-interactions` |
+
+## Required checks
+
+- Confirm whether `@silver-zepp/easy-media` is already installed in the repo.
+- Verify the installed typings and bundled source before promising constructor options or helper return shapes.
+- Treat speaker availability and recording behavior as real-device validation topics.
 
 ## Source trust order
 
@@ -88,3 +108,9 @@ Load this file when:
 - Treat queue playback as the default behavior unless the repo explicitly disables it.
 - Prefer `onComplete(...)` and `onFail(...)` over polling status helpers when sequencing playback.
 - Treat `SoundRecorder` as a thin convenience wrapper and validate recording flows with the actual target device and official media docs before making stronger promises.
+
+## Official sources
+
+- [../vendor-library-confidence.md](../vendor-library-confidence.md)
+- https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/
+- https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/player/setSource/

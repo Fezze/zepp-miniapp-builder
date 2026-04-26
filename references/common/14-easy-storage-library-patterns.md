@@ -1,6 +1,6 @@
 # Easy Storage Library Patterns
 
-## When to use this file
+## Use this file when
 
 Load this file when:
 
@@ -8,6 +8,26 @@ Load this file when:
 - code uses `Storage`, `AsyncStorage`, `EasyStorage`, `EasyStorageAsync`, `EasyFlashStorage`, `EasyTempStorage`, or `EasyTSDB`
 - the user asks about storage-related UI stutter, large JSON writes, file-backed caches, or time-series storage on the watch
 - the project is already built around `@zos/fs`-style persistence rather than official `LocalStorage` or `SessionStorage`
+
+## Do not use this file when
+
+- the repo only uses official `LocalStorage` or `SessionStorage` and no community-library decision is in scope
+- the task is about phone-owned `settingsStorage` or companion sync rather than watch-local filesystem persistence
+- the user has not approved adding a community storage package to a repo that does not already use one
+
+## Decision table
+
+| Situation | Use this file? | Next file |
+|---|---|---|
+| Repo already depends on `@silver-zepp/easy-storage` | Yes | `05-settings-sync-and-storage` when storage ownership matters |
+| User wants a new storage dependency | Yes, but read `../vendor-library-confidence.md` first | `05-settings-sync-and-storage` |
+| Task is about official Zepp storage only | No | `05-settings-sync-and-storage` |
+
+## Required checks
+
+- Confirm whether the repo already depends on `@silver-zepp/easy-storage`.
+- Verify the installed package version, local typings, and actual storage model before recommending migrations.
+- Separate simulator performance checks from real-device validation when write latency matters.
 
 ## Source trust order
 
@@ -92,3 +112,9 @@ Load this file when:
 - Prefer `EasyFlashStorage` when a single-blob store is becoming too large or too rewrite-heavy.
 - Prefer `EasyTSDB` for append-heavy sensor history, but keep backup, restore, and exact time-range guidance conservative unless validated.
 - Separate simulator verification from real-device verification when making performance claims about storage behavior.
+
+## Official sources
+
+- [../vendor-library-confidence.md](../vendor-library-confidence.md)
+- https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/localStorage/
+- https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/sessionStorage/

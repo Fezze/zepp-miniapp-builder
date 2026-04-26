@@ -9,7 +9,8 @@ Whenever a new official Zepp doc is used to add, revise, or clarify skill guidan
 1. Add or update the link in [docs-index.md](docs-index.md).
 2. Add or update the mapping entry in this file.
 3. Point the entry to the exact skill reference files that now depend on that source.
-4. Keep notes brief and behavior-focused.
+4. Add a `Last verified: YYYY-MM-DD` note when practical, especially for version-sensitive or recently updated sources.
+5. Keep notes brief and behavior-focused.
 
 This file is for traceability, not for repeating the full content of the documentation.
 

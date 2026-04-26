@@ -4,6 +4,11 @@ This index groups the main official Zepp OS references used by the skill. Prefer
 
 For traceability from each official document into skill files, see [docs-mapping-register.md](docs-mapping-register.md).
 
+## Freshness guidance
+
+- For new or updated source entries, record a `Last verified` date where practical in the surrounding maintenance notes or mapping register instead of retrofitting every historical bullet in this file.
+- Prefer adding explicit freshness notes for version-sensitive pages, recently changed docs, and any source that drives routing or compatibility guidance.
+
 ## Core platform and configuration
 
 - Intro: https://docs.zepp.com/docs/intro/

@@ -1,6 +1,6 @@
 # Store Release and Submission
 
-## When to use
+## Use this file when
 
 Use this reference when the task is about:
 
@@ -9,6 +9,26 @@ Use this reference when the task is about:
 - checking what is missing before first submission
 - mapping a repo to Zepp Console submission fields
 - preparing store icon, screenshots, privacy text, or release metadata
+
+## Do not use this file when
+
+- the task is about runtime debugging, widget layout, or watch-side API compatibility
+- the user only wants to build or preview the app locally
+- the task is about design implementation details rather than store or release artifacts
+
+## Decision table
+
+| Situation | Use this file? | Next file |
+|---|---|---|
+| Release-readiness audit or first submission | Yes | `01-project-basics` to confirm manifest facts |
+| Store assets or privacy statement mapping | Yes | `07-i18n-config-and-assets` when localized assets matter |
+| Runtime bugfix or simulator-only work | No | `03-dev-build-preview-bridge` or `04-ui-sensors-interactions` |
+
+## Required checks
+
+- Read `app.json` before mapping anything to Zepp Console fields.
+- Separate runtime icons and screenshots from store-upload assets.
+- Keep human-confirmation items explicit when the repo cannot prove a Console setting.
 
 ## Core submission workflow
 
@@ -131,7 +151,7 @@ Prefer output that includes:
 - direct mapping from repo facts to Console fields
 - a clear next action list in submission order
 
-## Official references
+## Official sources
 
 - App submission: https://docs.zepp.com/docs/distribute/
 - App submission (Chinese page with service categories): https://docs.zepp.com/zh-cn/docs/distribute/

@@ -1,6 +1,6 @@
 # ZML Library Patterns
 
-## When to use this file
+## Use this file when
 
 Load this file when:
 
@@ -8,6 +8,26 @@ Load this file when:
 - code wraps entrypoints with `BaseApp`, `BasePage`, or `BaseSideService`
 - the user asks about `httpRequest`, `request`, `call`, `onRequest`, or `onCall`
 - the project structure looks ZML-based rather than raw `messaging.peerSocket` or older MessageBuilder usage
+
+## Do not use this file when
+
+- the repo does not import `@zeppos/zml` and the user did not ask to evaluate ZML explicitly
+- the task is about baseline Zepp app structure, widgets, or manifest routing without a ZML dependency question
+- the repo already works with raw Zepp messaging and no migration decision is being made
+
+## Decision table
+
+| Situation | Use this file? | Next file |
+|---|---|---|
+| Repo already imports `@zeppos/zml` | Yes | `02-device-phone-architecture` when side-service ownership matters |
+| User wants to add ZML to a repo that does not use it yet | Yes, but read `../vendor-library-confidence.md` first | `02-device-phone-architecture` |
+| Task is ordinary Zepp page or widget work with no ZML usage | No | `04-ui-sensors-interactions` or `09-lifecycle-registration-and-state` |
+
+## Required checks
+
+- Confirm whether `@zeppos/zml` is already installed in the repo.
+- Verify the installed package version, local typings, and bundled source before promising method availability.
+- Keep API-level claims conservative when package docs, typings, and examples disagree.
 
 ## Source trust order
 
@@ -107,3 +127,9 @@ Keep normal Zepp rules in place:
 - Assume `app-side/` participation is required when a ZML flow depends on phone communication.
 - Prefer the built-in base wrappers first; mention plugin extensions only if the existing repo is already using them.
 - Do not recommend copying the sample manifest values blindly; normalize real project `runtime.apiVersion` fields to the validated floor you actually need.
+
+## Official sources
+
+- [../vendor-library-confidence.md](../vendor-library-confidence.md)
+- https://docs.zepp.com/docs/guides/framework/device/app/
+- https://docs.zepp.com/docs/guides/framework/side-service/register/

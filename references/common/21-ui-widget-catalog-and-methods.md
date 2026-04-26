@@ -1,8 +1,29 @@
 # UI Widget Catalog and Methods
 
-## When to load this file
+## Use this file when
 
 Use this file when the task needs detailed widget selection, widget-family comparison, or low-level `@zos/ui` method guidance beyond the higher-level notes in `04-ui-sensors-interactions`.
+
+## Do not use this file when
+
+- the task can be answered from high-level UI guidance alone in `04-ui-sensors-interactions`
+- the main problem is app architecture, sync ownership, or store submission rather than widget choice
+- the question is only about `4.x` Flex layout internals and is better handled in `v4/02-v4-ui-and-layout`
+
+## Decision table
+
+| Situation | Use this file? | Next file |
+|---|---|---|
+| Choosing between widget families or low-level UI methods | Yes | `04-ui-sensors-interactions` |
+| `4.x` Flex layout or `SYSTEM_KEYBOARD` specifics | Yes | `v4/02-v4-ui-and-layout` |
+| Workout Extension widget choice | Yes | `12-workout-extension` |
+| Non-UI routing problem | No | task-specific core reference |
+
+## Required checks
+
+- Confirm the target API level before recommending `4.0+` widgets or layout utilities.
+- Check surface restrictions before proposing widgets for `SecondaryWidget`, `AppWidget`, or Workout Extension flows.
+- Validate text and asset sizing with `getTextLayout(...)` or `getImageInfo(...)` when layout fit is version- or locale-sensitive.
 
 ## Basic widgets
 
@@ -96,7 +117,7 @@ Surface restrictions:
 - For widget/card surfaces, also load `10-secondary-widgets-and-shortcuts`.
 - For Workout Extension UI, also load `12-workout-extension`.
 
-## Official references
+## Official sources
 
 - UI createWidget: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/createWidget/
 - TEXT: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/TEXT/

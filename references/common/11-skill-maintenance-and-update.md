@@ -9,7 +9,8 @@ Load this file when:
 - the user says `refresh skill`
 - the user asks to refresh the skill from current Zepp docs
 - the user asks to sync or extend the skill after documentation research
-- a Zepp task reveals new verified information that should become part of the skill
+- the user says `update skill`
+- the user explicitly asks to add a newly verified Zepp finding into this skill
 
 ## Update triggers
 
@@ -39,9 +40,10 @@ Treat all of these as skill-maintenance triggers:
    - topic-specific reference file under `references/common/`, `references/v4/`, `references/legacy/`, or `references/forward/`
    - [../docs-index.md](../docs-index.md)
    - [../docs-mapping-register.md](../docs-mapping-register.md)
-9. If the new information changes routing or trigger behavior, update [../../SKILL.md](../../SKILL.md).
-10. If the skill is maintained as its own repo, update `README.md` when installation, maintenance, or structure guidance changes.
-11. After the review is complete, refresh `maintenance-state.json` so the next `update docs` task starts from the new baseline.
+9. Record `Last verified` dates where practical for newly added or updated sources; treat this as mandatory for community-package entries in [../vendor-library-confidence.md](../vendor-library-confidence.md).
+10. If the new information changes routing or trigger behavior, update [../../SKILL.md](../../SKILL.md).
+11. If the skill is maintained as its own repo, update `README.md` when installation, maintenance, or structure guidance changes.
+12. After the review is complete, refresh `maintenance-state.json` so the next `update docs` task starts from the new baseline.
 
 ## Maintenance state rules
 
@@ -53,14 +55,14 @@ Treat all of these as skill-maintenance triggers:
 - Record remote verification separately from local verification. Remote `origin` is the default source of truth; a local-only review is only a fallback.
 - Record the default branch used for each tracked sibling repo so future remote reviews compare against the same branch explicitly.
 
-## Auto-update rule during normal work
+## Normal-work discovery rule
 
 If a Zepp task uncovers new verified information that materially improves the skill:
 
-- do not leave it only in the answer
-- patch the skill before finishing, when the skill repo or installed copy is writable
-- keep the update scoped to the affected topic
-- add traceability in `docs-mapping-register.md`
+- do not modify the skill automatically during normal app work
+- mention that a follow-up skill update patch can be prepared
+- run this maintenance workflow only when the user explicitly asks for `update`, `refresh`, `sync docs`, `update skill`, or equivalent skill-maintenance intent
+- when the user opts in, keep the update scoped to the affected topic and add traceability in `docs-mapping-register.md`
 
 Examples:
 

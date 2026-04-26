@@ -86,10 +86,13 @@ npm -v
 zeus --version
 zeus status
 zeus dev
+zeus preview
 zeus build
 ```
 
 Use `zeus build` as the minimum compile gate before handoff.
+
+Treat simulator validation through `zeus dev`, preview on a real watch through `zeus preview`, and package validation through `zeus build` as separate checks. Real-device behavior after installation is still its own validation layer.
 
 ## Coding defaults
 

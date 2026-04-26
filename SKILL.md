@@ -1,6 +1,9 @@
----
 name: zepp-miniapp-builder
-description: Build, debug, evolve, update docs for, and publish version-aware Zepp OS mini-apps, including Device App pages, Workout Extension surfaces, Settings App surfaces, Side Service code, App Service workflows, Zepp Developer Console store submission, official design-system/Figma handoff, ZML-based wrappers, easy-storage persistence models, visual logger relay patterns, easy-ble master patterns, polyglot localization workflows, easy-media audio workflows, sensor-driven apps, and games. Use this skill when a task involves Zepp app.json/runtime compatibility, `data-widget` or workout extension work, store-release readiness, Zepp Console submission fields, official Zepp Figma libraries or template handoff, `@zeppos/zml` wrapper patterns, `@silver-zepp/easy-storage` persistence choices, `@silver-zepp/vis-log` debugging overlays, `@silver-zepp/easy-ble` BLE-master flows, `@silver-zepp/polyglot` localization workflows, `@silver-zepp/easy-media` playback or recording helpers, @zos APIs, hmUI widgets, Zeus CLI workflow, watch/phone data flow, simulator or real-device debugging, adapting code to legacy, v4, or future API_LEVEL targets, or maintaining this skill after commands such as `update docs`, `refresh skill`, `sync docs`, or `check repo changes and update skill`.
+description: >
+  Use for Zepp OS mini-app development when working with app.json,
+  API_LEVEL compatibility, @zos APIs, hmUI widgets, Zeus CLI,
+  app-side/settings/app-service/data-widget surfaces, store submission,
+  or version-aware migration/debugging.
 ---
 
 # Zepp Miniapp Builder
@@ -51,6 +54,10 @@ Read [references/00-version-routing.md](references/00-version-routing.md) first 
 
 - Use Zepp APIs, not browser DOM APIs.
 - Prefer explicit widget-based UI through `hmUI.createWidget(...)` or `@zos/ui` helpers.
+- If a task involves `@zeppos/zml` or any `@silver-zepp/*` package, read [references/vendor-library-confidence.md](references/vendor-library-confidence.md) before proposing installation, migration, or new dependency usage.
+- If the repo already depends on `@zeppos/zml` or a `@silver-zepp/*` package, it is safe to inspect and use that dependency in-place.
+- If the repo does not already depend on `@zeppos/zml` or a `@silver-zepp/*` package, do not add it without explicit user approval.
+- Always verify the installed package version plus local docs, typings, or bundled source when those files are available.
 - When a repo uses `@zeppos/zml`, treat it as a wrapper over normal Zepp surfaces rather than a separate runtime model.
 - When a repo uses `@silver-zepp/easy-storage`, treat it as a library over `@zos/fs`; keep storage-model choice, lifecycle flushes, and `device:os.local_storage` requirements explicit.
 - When a repo uses `@silver-zepp/vis-log`, treat it as a debug overlay and relay helper, not as an official logging surface; keep `page`, `app-side`, and `setting` wiring explicit.
@@ -66,11 +73,11 @@ Read [references/00-version-routing.md](references/00-version-routing.md) first 
 - Treat simulator validation, `zeus build`, and real-device checks as separate layers, not substitutes.
 - Do not assume digital crown availability unless the target hardware guarantees it.
 - When adding or remapping knowledge from official Zepp docs, update both `references/docs-index.md` and `references/docs-mapping-register.md`.
-- If the user says `update`, `update docs`, `refresh skill`, `refresh`, `sync docs`, or asks to incorporate newly discovered Zepp information, run the skill-maintenance workflow in [references/common/11-skill-maintenance-and-update.md](references/common/11-skill-maintenance-and-update.md).
+- If the user explicitly says `update`, `update docs`, `refresh skill`, `refresh`, `sync docs`, `update skill`, or otherwise directly asks to maintain this skill, run the skill-maintenance workflow in [references/common/11-skill-maintenance-and-update.md](references/common/11-skill-maintenance-and-update.md).
 - For that workflow, read [maintenance-state.json](maintenance-state.json) before comparing sibling repos so the last reviewed remote hashes are treated as the baseline rather than assuming the skill is already current.
 - Default to checking remote `origin` state for sibling repos. Use local clone state only as a clearly labeled fallback when remote inspection is unavailable.
 - Treat sibling repos in the workspace as read-only evidence sources during skill maintenance. Update and commit only this `zepp-miniapp-builder` repo.
-- If a Zepp task reveals new verified information that changes the skill guidance, update the skill before finishing when the skill repo or installed copy is writable.
+- If normal Zepp app work reveals new verified information that would improve the skill, mention that a follow-up skill update patch can be prepared, but do not modify the skill unless the user explicitly asks for that maintenance work.
 
 ## Reference Map
 
@@ -96,6 +103,7 @@ Load these files directly as needed.
 
 ### Optional Library and Design Layers
 
+- [references/vendor-library-confidence.md](references/vendor-library-confidence.md): official-versus-community library confidence, freshness, and dependency-approval guardrails
 - [references/common/13-zml-library-patterns.md](references/common/13-zml-library-patterns.md): `@zeppos/zml` wrappers and transport helpers
 - [references/common/14-easy-storage-library-patterns.md](references/common/14-easy-storage-library-patterns.md): `@silver-zepp/easy-storage` model selection and lifecycle guardrails
 - [references/common/15-visual-logger-library-patterns.md](references/common/15-visual-logger-library-patterns.md): `@silver-zepp/vis-log` relay logging and overlay patterns
@@ -144,6 +152,8 @@ Load these files directly as needed.
   Read `10-secondary-widgets-and-shortcuts` before proposing UI or BLE behavior.
 - Workout Extension or `data-widget` work:
   Read `12-workout-extension`; add `05-settings-sync-and-storage` when `app-side` sync is involved.
+- `@zeppos/zml` or any `@silver-zepp/*` dependency decision:
+  Read `references/vendor-library-confidence.md` before proposing installation, migration, or new dependency usage.
 - ZML-based app structure or messaging helpers:
   Read `13-zml-library-patterns`; add `02-device-phone-architecture` when phone or side-service responsibilities matter.
 - `@silver-zepp/easy-storage` or storage-model selection work:

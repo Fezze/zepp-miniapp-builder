@@ -1,6 +1,6 @@
 # Polyglot Library Patterns
 
-## When to use this file
+## Use this file when
 
 Load this file when:
 
@@ -8,6 +8,26 @@ Load this file when:
 - the project contains a `polyglot/` folder with `translations.xlsx`, backups, or generated translation assets
 - code creates `new Polyglot()` or calls `poly init`, `poly gen`, or `poly parse`
 - the user wants runtime language switching, generated translation JSON assets, or migration from older `.po`-based `i18n`
+
+## Do not use this file when
+
+- the repo only uses official Zepp `i18n` and the task does not involve runtime language switching or generation tooling
+- the repo does not depend on `@silver-zepp/polyglot` and the user has not approved adding a community package
+- the task is about `app.json` locale metadata only
+
+## Decision table
+
+| Situation | Use this file? | Next file |
+|---|---|---|
+| Repo already depends on `@silver-zepp/polyglot` | Yes | `07-i18n-config-and-assets` |
+| User wants runtime language switching or `poly gen` | Yes, but read `../vendor-library-confidence.md` first | `07-i18n-config-and-assets` |
+| Task is static manifest localization only | No | `07-i18n-config-and-assets` |
+
+## Required checks
+
+- Confirm whether `@silver-zepp/polyglot` is already installed and whether generated assets already exist.
+- Verify the installed runtime API plus the CLI workflow before recommending generation or migration steps.
+- Keep App Side guidance out unless the repo has its own transport, because the library itself does not support App Side translations.
 
 ## Source trust order
 
@@ -104,3 +124,9 @@ Load this file when:
 - Keep App Side out of Polyglot guidance unless the repo has its own custom transport, because the library itself does not support App Side translations.
 - For page UIs, prefer `onLanguageChange(...)` when widgets can be updated in place and `restart_app: true` when the screen is expensive to patch correctly.
 - For widgets and cards, treat Polyglot mainly as a text source, not as a place to add the page-style language bubble UI.
+
+## Official sources
+
+- [../vendor-library-confidence.md](../vendor-library-confidence.md)
+- https://docs.zepp.com/docs/guides/best-practice/i18n/
+- https://docs.zepp.com/docs/reference/device-app-api/newAPI/i18n/getText/

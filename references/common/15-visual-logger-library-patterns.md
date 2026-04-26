@@ -1,6 +1,6 @@
 # Visual Logger Library Patterns
 
-## When to use this file
+## Use this file when
 
 Load this file when:
 
@@ -8,6 +8,26 @@ Load this file when:
 - code creates `new VisLog()`, `new VisLogAppSide()`, or `new VisLogAppSettings()`
 - the user needs on-device debug overlays or wants `app-side` / `setting` logs visible on hardware
 - the project already uses ZML wrappers to coordinate page and side-service messaging
+
+## Do not use this file when
+
+- the task is about ordinary console logging or official Zepp debug tools with no overlay requirement
+- the repo does not use `@silver-zepp/vis-log` and the user has not approved a community dependency
+- the main problem is a general page-layout bug rather than log transport visibility
+
+## Decision table
+
+| Situation | Use this file? | Next file |
+|---|---|---|
+| Repo already uses `@silver-zepp/vis-log` | Yes | `08-runtime-gotchas` for device-only debugging caveats |
+| User wants `setting/` logs visible on hardware | Yes, but read `../vendor-library-confidence.md` first | `02-device-phone-architecture` |
+| Task is about normal Zepp logs only | No | `03-dev-build-preview-bridge` |
+
+## Required checks
+
+- Confirm whether `@silver-zepp/vis-log` and any required `@zeppos/zml` wiring are already installed.
+- Verify the local API surface and relay path before promising `setting/` or `app-side` visibility.
+- Treat overlay placement and text fit as real-device-sensitive behavior.
 
 ## Source trust order
 
@@ -77,3 +97,9 @@ Load this file when:
 - If a repo needs `setting/` logs on hardware, VisLog is a credible workaround, but it still needs explicit page, side-service, and settings wiring.
 - Treat `app.js` support as console visibility only unless the repo already proves a page-bound relay path.
 - Keep simulator verification separate from device verification; overlay placement and text fit are device-sensitive.
+
+## Official sources
+
+- [../vendor-library-confidence.md](../vendor-library-confidence.md)
+- https://docs.zepp.com/docs/guides/framework/app-settings/register/
+- https://docs.zepp.com/docs/guides/framework/side-service/register/

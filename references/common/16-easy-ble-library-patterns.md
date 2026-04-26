@@ -1,6 +1,6 @@
 # Easy BLE Library Patterns
 
-## When to use this file
+## Use this file when
 
 Load this file when:
 
@@ -8,6 +8,26 @@ Load this file when:
 - code creates `new BLEMaster()` or uses `ble.read`, `ble.write`, `ble.on`, `ble.off`, or `ble.get`
 - the watch acts as a BLE central or master for scanning, connecting, reading, writing, or subscribing to notifications
 - the user asks about custom GATT profiles, MAC-driven device selection, notification setup, or BLE queue timeouts
+
+## Do not use this file when
+
+- the repo does not use `@silver-zepp/easy-ble` and the user has not approved adding a community BLE wrapper
+- the task is about phone-side BLE ownership rather than watch-side central or master behavior
+- the task only needs official raw BLE APIs with no wrapper decision or existing dependency
+
+## Decision table
+
+| Situation | Use this file? | Next file |
+|---|---|---|
+| Repo already depends on `@silver-zepp/easy-ble` | Yes | `04-ui-sensors-interactions` |
+| User wants to add a BLE wrapper | Yes, but read `../vendor-library-confidence.md` first | `10-secondary-widgets-and-shortcuts` before promising widget BLE behavior |
+| Task is raw `@zos/ble` usage only | No | `04-ui-sensors-interactions` |
+
+## Required checks
+
+- Confirm whether the repo already depends on `@silver-zepp/easy-ble`.
+- Verify local typings, bundled source, and callback registration requirements before recommending queue-backed operations.
+- Separate simulator assumptions from real-device BLE validation.
 
 ## Source trust order
 
@@ -88,3 +108,9 @@ Load this file when:
 - Keep sample-only extras such as `vis-log`, `autogui`, anti-sleep display calls, and demo permissions out of baseline recommendations.
 - Treat `PERMISSIONS.ALL` and custom permission overrides as advanced paths for tricky profiles, encrypted characteristics, or descriptor-heavy devices.
 - Separate simulator expectations from real-device validation; BLE reliability and notification timing are hardware-sensitive.
+
+## Official sources
+
+- [../vendor-library-confidence.md](../vendor-library-confidence.md)
+- https://docs.zepp.com/docs/reference/device-app-api/newAPI/ble/
+- https://docs.zepp.com/docs/reference/device-app-api/newAPI/ble/createConnect/
