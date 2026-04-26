@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const repoRoot = path.resolve(__dirname, '..');
+const skillPath = path.join(repoRoot, 'SKILL.md');
 const docsIndexPath = path.join(repoRoot, 'references', 'docs-index.md');
 const docsMappingPath = path.join(repoRoot, 'references', 'docs-mapping-register.md');
 const agentsYamlPath = path.join(repoRoot, 'agents', 'openai.yaml');
@@ -57,11 +58,13 @@ function parseSimpleYaml(filePath) {
   const source = readText(filePath);
   const root = {};
   const stack = [{ indent: -1, value: root }];
+  const lines = source.split(/\r?\n/);
 
-  source.split(/\r?\n/).forEach((line, index) => {
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
     const trimmed = line.trim();
     if (!trimmed || trimmed.startsWith('#')) {
-      return;
+      continue;
     }
 
     const indent = line.length - line.trimStart().length;
@@ -82,16 +85,82 @@ function parseSimpleYaml(filePath) {
     }
 
     const current = stack[stack.length - 1];
+    if (valueText === '>' || valueText === '|') {
+      const blockLines = [];
+      const blockIndent = indent + 2;
+
+      for (let nextIndex = index + 1; nextIndex < lines.length; nextIndex += 1) {
+        const nextLine = lines[nextIndex];
+        const nextTrimmed = nextLine.trim();
+        const nextIndent = nextLine.length - nextLine.trimStart().length;
+
+        if (!nextTrimmed) {
+          blockLines.push('');
+          index = nextIndex;
+          continue;
+        }
+
+        if (nextIndent < blockIndent) {
+          break;
+        }
+
+        blockLines.push(nextLine.slice(blockIndent));
+        index = nextIndex;
+      }
+
+      current.value[key] = valueText === '>'
+        ? blockLines.map((blockLine) => blockLine.trim()).join(' ').trim()
+        : blockLines.join('\n');
+      continue;
+    }
+
     if (valueText === '') {
       current.value[key] = {};
       stack.push({ indent, value: current.value[key] });
-      return;
+      continue;
     }
 
     current.value[key] = parseScalar(valueText);
-  });
+  }
 
   return root;
+}
+
+function parseFrontmatter(filePath) {
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`missing file ${path.relative(repoRoot, filePath)}`);
+  }
+
+  const source = readText(filePath);
+  if (!source.startsWith('---\n') && !source.startsWith('---\r\n')) {
+    throw new Error('missing opening frontmatter delimiter ---');
+  }
+
+  const lines = source.split(/\r?\n/);
+  let closingIndex = -1;
+
+  for (let index = 1; index < lines.length; index += 1) {
+    if (lines[index] === '---') {
+      closingIndex = index;
+      break;
+    }
+  }
+
+  if (closingIndex === -1) {
+    throw new Error('missing closing frontmatter delimiter ---');
+  }
+
+  const frontmatter = lines.slice(1, closingIndex).join('\n');
+  const tempPath = path.join(repoRoot, '.skill-frontmatter.validation.tmp.yaml');
+
+  try {
+    fs.writeFileSync(tempPath, frontmatter, 'utf8');
+    return parseSimpleYaml(tempPath);
+  } finally {
+    if (fs.existsSync(tempPath)) {
+      fs.unlinkSync(tempPath);
+    }
+  }
 }
 
 function slugifyHeading(heading) {
@@ -179,6 +248,33 @@ function validateAgentsYaml(errors) {
   }
 }
 
+function validateSkillFrontmatter(errors) {
+  if (!fs.existsSync(skillPath)) {
+    errors.push('Invalid SKILL.md: missing file');
+    return;
+  }
+
+  let parsed;
+  try {
+    parsed = parseFrontmatter(skillPath);
+  } catch (error) {
+    errors.push(`Invalid SKILL.md: ${error.message}`);
+    return;
+  }
+
+  if (!Object.prototype.hasOwnProperty.call(parsed, 'name')) {
+    errors.push('Invalid SKILL.md: missing required name');
+  } else if (parsed.name !== 'zepp-miniapp-builder') {
+    errors.push('Invalid SKILL.md: expected name to be zepp-miniapp-builder');
+  }
+
+  if (typeof parsed.description !== 'string' || !parsed.description.trim()) {
+    errors.push('Invalid SKILL.md: missing non-empty description');
+  } else if (parsed.description.length > 1024) {
+    errors.push('Invalid SKILL.md: description exceeds 1024 characters');
+  }
+}
+
 function validateMarkdownLinks(errors) {
   const markdownFiles = walkFiles(repoRoot, (filePath) => filePath.endsWith('.md'));
   const anchorCache = new Map();
@@ -258,6 +354,7 @@ function validateDocsMapping(errors) {
 function main() {
   const errors = [];
 
+  validateSkillFrontmatter(errors);
   validateAgentsYaml(errors);
   validateMarkdownLinks(errors);
   validateDocsMapping(errors);

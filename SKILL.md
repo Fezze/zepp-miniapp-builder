@@ -1,3 +1,4 @@
+---
 name: zepp-miniapp-builder
 description: >
   Use for Zepp OS mini-app development when working with app.json,
