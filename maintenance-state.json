@@ -6,10 +6,10 @@
     "baselineCommit": "27f8396615fe368f40bedc82d577c81a6767d3c2",
     "baselineCommitDate": "2026-04-06T16:41:55+01:00",
     "baselineCommitMessage": "Refine Zepp UI documentation structure",
-    "lastReviewedAt": "2026-04-25T21:29:30+01:00",
-    "verificationStatus": "verified-against-remote-origin",
-    "remoteVerificationStatus": "completed-up-to-date-with-origin-default-branches",
-    "notes": "Remote origin verification completed on 2026-04-25. For every tracked sibling repo, the local HEAD matched the current origin default-branch HEAD. No skill reference updates were required from this remote review."
+    "lastReviewedAt": "2026-09-08T19:56:27+01:00",
+    "verificationStatus": "partial-review-zeppos-docs-incorporated",
+    "remoteVerificationStatus": "completed-for-zeppos-docs-only",
+    "notes": "Reviewed zeppos-docs origin/main through c08725b2cfa3398d9e4da9379a2d83abaf3475a6 against the recorded 9f9fbddb5a174c390db84a148621c70334d91c91 baseline. Incorporated relevant official changes for storage, crypto, media, simulator/environment setup, VIEW_CONTAINER, launch/toast APIs, sensor result fields, typography, LLM documentation exports, and Bip Max adaptation. Other tracked sibling repositories were not re-reviewed in this run."
   },
   "trackedRepositories": [
     {
@@ -83,11 +83,11 @@
       "workspaceRelativePath": "../zeppos-docs",
       "defaultBranch": "main",
       "readOnlySource": true,
-      "lastCheckedCommit": "9f9fbddb5a174c390db84a148621c70334d91c91",
-      "lastAppliedCommit": "9f9fbddb5a174c390db84a148621c70334d91c91",
-      "lastReviewedAt": "2026-04-25T21:29:30+01:00",
-      "status": "verified-up-to-date-with-origin-default-branch",
-      "remoteStatus": "up-to-date-with-origin-default-branch"
+      "lastCheckedCommit": "c08725b2cfa3398d9e4da9379a2d83abaf3475a6",
+      "lastAppliedCommit": "c08725b2cfa3398d9e4da9379a2d83abaf3475a6",
+      "lastReviewedAt": "2026-09-08T19:56:27+01:00",
+      "status": "verified-changes-incorporated-from-origin-default-branch",
+      "remoteStatus": "changes-reviewed-and-incorporated"
     },
     {
       "name": "zeppos-samples",

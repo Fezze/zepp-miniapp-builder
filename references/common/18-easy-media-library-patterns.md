@@ -112,5 +112,6 @@ Load this file when:
 ## Official sources
 
 - [../vendor-library-confidence.md](../vendor-library-confidence.md)
-- https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/
-- https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/player/setSource/
+- https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/create/
+- https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/Player/
+- https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/Recorder/

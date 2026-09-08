@@ -19,7 +19,7 @@ That makes migration planning easier:
 The official migration guide gives several high-value patterns:
 
 - `hmUI` and `hmBle` are often reference-style migrations first: add ESM imports and keep the core call shape
-- common method renames include `hmApp.gotoPage -> push`, `hmApp.goBack -> back`, `hmUI.showToast -> showToast`, and `hmUI.createDialog -> createModal`
+- common method renames include `hmApp.gotoPage -> push`, `hmApp.goBack -> back`, `hmUI.showToast -> showToast` from `@zos/interaction`, and `hmUI.createDialog -> createModal`
 - `px` and `assets` move under `@zos/utils`
 - the old `hmTimer` module is deprecated; use standard JS timer APIs instead
 - `hmFS.seek` cases are usually better rewritten around newer file APIs or `LocalStorage` instead of trying to preserve the old flow exactly
@@ -57,6 +57,8 @@ The official migration guide gives several high-value patterns:
 - note each v4-only dependency explicitly
 
 ## Official references
+
+- showToast: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/showToast/
 
 - Zepp OS 1.0 Device App intro: https://docs.zepp.com/docs/1.0/guides/framework/device/intro/
 - 2.0 API Introduction: https://docs.zepp.com/docs/guides/version-info/new-api/

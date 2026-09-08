@@ -65,7 +65,7 @@ Key caveats:
 
 - `GROUP`: group widgets for unified show/hide and event registration. Child widgets use positions relative to the group. `GROUP` cannot be nested.
 - `SCROLL_LIST`: list surface with sliding support and per-item image/text composition.
-- `VIEW_CONTAINER`: general scrollable container when the page needs a scrollable widget tree rather than a list-specific control.
+- `VIEW_CONTAINER`: general scrollable container when the page needs a scrollable widget tree rather than a list-specific control. Its `modal` option starts at `2.0`, defaults to enabled, and can block the base layer from scrolling when the container is used as an overlay/dialog.
 - `CYCLE_LIST`: cyclic list-style layout when repeated looped selection is the core interaction.
 - `CYCLE_IMAGE_TEXT_LIST`: cyclic list variant for image-plus-text list items.
 - `VIRTUAL_CONTAINER`: `4.0+` Flex-layout container; keep detailed usage in `v4/02-v4-ui-and-layout`.
@@ -162,3 +162,4 @@ Surface restrictions:
 - getRtlLayout: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/getRtlLayout/
 - relayoutRtl: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/relayoutRtl/
 - createModal: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/createModal/
+- showToast: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/showToast/

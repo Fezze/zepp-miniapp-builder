@@ -16,6 +16,8 @@ It is designed for work on:
 - easy-ble master-flow helpers for watch-side BLE communication
 - polyglot localization workflows and generated translation assets
 - easy-media playback and recorder wrappers over @zos/media
+- official watch-local, typed, and cross-application storage APIs
+- `@zos/crypto` digests, checksums, encryption, and signature APIs
 - sensor-driven apps and games
 - Zepp API compatibility across `legacy`, `v4`, and `forward` profiles
 
@@ -30,6 +32,26 @@ The skill starts from `app.json`, separates `configVersion` from `runtime.apiVer
 It then loads targeted references for architecture, Zeus CLI workflow, UI/widgets, sensors, storage, testing, i18n, design handoff, optional library layers, and version-specific APIs.
 
 For the actual routing rules and reference map, see [SKILL.md](SKILL.md).
+
+## Use it in Codex
+
+Ask Codex to work on a Zepp mini-app and include the relevant app surface or
+problem, for example:
+
+```text
+Review app.json and add a settings screen that syncs a preference to the watch.
+```
+
+The skill reads `app.json` first, identifies the effective API profile, and
+then loads only the references needed for the task. `configVersion` describes
+the manifest and package format; `runtime.apiVersion` determines which Zepp
+APIs the app can use. A `configVersion` of `v3` can therefore legitimately
+target API level `4.0` or `4.2`.
+
+For version-sensitive or newly introduced APIs, the skill verifies support
+against the [official Zepp documentation](https://docs.zepp.com/docs/intro/).
+It treats simulator, browser preview harness, and real-device results as
+separate kinds of evidence.
 
 ## Repository structure
 
@@ -94,6 +116,18 @@ When you add new knowledge from official Zepp docs:
 4. Keep `SKILL.md` focused on routing and lightweight guidance, not full documentation dumps.
 
 For maintenance prompts and the explicit maintenance workflow, see `references/common/11-skill-maintenance-and-update.md`.
+
+### What an update-docs run covers
+
+An `update docs` request is a maintenance run, not merely a README edit. It
+uses the versioned baseline to review the configured sibling repositories as
+read-only evidence, checks their remote `origin` branches where available, and
+incorporates only verified changes that affect this skill. Updates to official
+Zepp sources are recorded in both the documentation index and mapping register.
+
+If the sibling clones are unavailable, the run records that remote comparison
+could not be performed rather than treating the local skill repository as
+evidence that its references are current.
 
 ## Baseline state
 

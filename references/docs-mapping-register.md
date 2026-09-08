@@ -20,9 +20,21 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [forward/01-forward-compatibility-workflow.md](forward/01-forward-compatibility-workflow.md)
   Notes: platform overview and discovery path for newer-than-known API levels.
 
+- `https://docs.zepp.com/llms.txt`
+  Mapped into: [docs-index.md](docs-index.md), [common/11-skill-maintenance-and-update.md](common/11-skill-maintenance-and-update.md)
+  Notes: official machine-readable discovery index for guides and module-specific API exports. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/llms-full.txt`
+  Mapped into: [docs-index.md](docs-index.md)
+  Notes: official full machine-readable documentation export; prefer targeted pages for final behavior checks. Last verified: 2026-09-08.
+
 - `https://docs.zepp.com/docs/guides/quick-start/`
   Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/06-testing-validation.md](common/06-testing-validation.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
   Notes: baseline development workflow and non-DOM runtime posture.
+
+- `https://docs.zepp.com/docs/guides/quick-start/environment/`
+  Mapped into: [docs-index.md](docs-index.md), [common/03-dev-build-preview-bridge.md](common/03-dev-build-preview-bridge.md)
+  Notes: current Node.js LTS recommendation and Zeus CLI installation check. Last verified: 2026-09-08.
 
 - `https://docs.zepp.com/docs/guides/architecture/folder-structure/`
   Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/03-dev-build-preview-bridge.md](common/03-dev-build-preview-bridge.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
@@ -96,7 +108,11 @@ This file is for traceability, not for repeating the full content of the documen
 
 - `https://docs.zepp.com/docs/guides/tools/simulator/download/`
   Mapped into: [docs-index.md](docs-index.md), [common/03-dev-build-preview-bridge.md](common/03-dev-build-preview-bridge.md)
-  Notes: simulator download matrix and current binary availability; docs updated on 2026-03-20 with `2.1.0` builds.
+  Notes: simulator download matrix and current binary availability; docs list `2.1.2` for macOS, Windows, Linux amd64, and Linux arm64. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/guides/faq/simulator-faq/`
+  Mapped into: [docs-index.md](docs-index.md), [common/03-dev-build-preview-bridge.md](common/03-dev-build-preview-bridge.md)
+  Notes: version-specific Ubuntu simulator dependencies and compatibility-link setup. Last verified: 2026-09-08.
 
 - `https://docs.zepp.com/docs/guides/tools/simulator/dev/`
   Mapped into: [docs-index.md](docs-index.md), [common/03-dev-build-preview-bridge.md](common/03-dev-build-preview-bridge.md), [common/06-testing-validation.md](common/06-testing-validation.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md), [v4/03-v4-debugging-and-performance.md](v4/03-v4-debugging-and-performance.md)
@@ -177,6 +193,10 @@ This file is for traceability, not for repeating the full content of the documen
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/router/replace/`
   Mapped into: [docs-index.md](docs-index.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
   Notes: full page replacement as an explicit rebuild path for non-reactive page flows.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/router/launchApp/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
+  Notes: cross-app launch options; `native` defaults to `false` and system-app launches require `3.0+`. Last verified: 2026-09-08.
 
 - `https://docs.zepp.com/docs/guides/framework/device/app-service/`
   Mapped into: [docs-index.md](docs-index.md), [common/02-device-phone-architecture.md](common/02-device-phone-architecture.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
@@ -346,7 +366,7 @@ This file is for traceability, not for repeating the full content of the documen
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/VIEW_CONTAINER/`
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md), [common/10-secondary-widgets-and-shortcuts.md](common/10-secondary-widgets-and-shortcuts.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
-  Notes: scrollable container behavior and its surface restrictions outside normal pages.
+  Notes: scrollable container behavior, the `2.0+` modal-layer option, and surface restrictions outside normal pages. Last verified: 2026-09-08.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/CYCLE_LIST/`
   Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
@@ -440,6 +460,10 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md)
   Notes: current modal/dialog path recommended over discontinued `DIALOG` for new work.
 
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/showToast/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md), [legacy/02-migration-notes.md](legacy/02-migration-notes.md)
+  Notes: canonical `@zos/interaction` toast API after removal of the duplicate `@zos/ui` reference page. Last verified: 2026-09-08.
+
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/KEYBOARD/`
   Mapped into: [docs-index.md](docs-index.md), [common/21-ui-widget-catalog-and-methods.md](common/21-ui-widget-catalog-and-methods.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md)
   Notes: classic in-page keyboard widget starting at `3.0`, distinct from system keyboard APIs.
@@ -474,7 +498,7 @@ This file is for traceability, not for repeating the full content of the documen
 
 - `https://docs.zepp.com/docs/guides/framework/device/screen-adaption/`
   Mapped into: [docs-index.md](docs-index.md), [common/01-project-basics.md](common/01-project-basics.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md)
-  Notes: `3.0` screen-type adaptation flow, `st` shorthand such as `r`/`s`/`b`, and its `app.json v3+` requirement.
+  Notes: `3.0` screen-type adaptation flow, `st` shorthand, the `app.json v3+` requirement, and the dedicated Amazfit Bip Max adaptation. Last verified: 2026-09-08.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SYSTEM_KEYBOARD/`
   Mapped into: [docs-index.md](docs-index.md), [00-version-routing.md](00-version-routing.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md), [v4/02-v4-ui-and-layout.md](v4/02-v4-ui-and-layout.md), [legacy/01-legacy-compatibility.md](legacy/01-legacy-compatibility.md)
@@ -506,6 +530,14 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
   Notes: angular velocity and sensor differentiation.
 
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/BodyTemperature/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
+  Notes: `3.0+` body-surface temperature data; `getCurrent()` now documents `current` and `time`. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/Workout/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md)
+  Notes: workout state/history and the `4.2+` track-navigation `update` flag. Last verified: 2026-09-08.
+
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/Buzzer/`
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
   Notes: buzzer capability and settings caveats.
@@ -526,17 +558,17 @@ This file is for traceability, not for repeating the full content of the documen
   Mapped into: [docs-index.md](docs-index.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
   Notes: DND/sleep/theater checks during audio debugging.
 
-- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/`
-  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md)
-  Notes: deterministic in-app audio/media playback.
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/create/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/18-easy-media-library-patterns.md](common/18-easy-media-library-patterns.md)
+  Notes: `3.0+` factory for Player and Recorder controllers. Last verified: 2026-09-08.
 
-- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/player/getDuration/`
-  Mapped into: [docs-index.md](docs-index.md)
-  Notes: media duration validation.
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/Player/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/08-runtime-gotchas.md](common/08-runtime-gotchas.md), [common/18-easy-media-library-patterns.md](common/18-easy-media-library-patterns.md), [v4/01-api-level-4-basics.md](v4/01-api-level-4-basics.md)
+  Notes: player lifecycle, asset and data paths, `seek()` at `4.2`, and `seekTo()` at `4.3`. Last verified: 2026-09-08.
 
-- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/player/setSource/`
-  Mapped into: [docs-index.md](docs-index.md)
-  Notes: file-source media configuration.
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/Recorder/`
+  Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md), [common/18-easy-media-library-patterns.md](common/18-easy-media-library-patterns.md)
+  Notes: `3.0+` OPUS recorder and `data://` output path. Last verified: 2026-09-08.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/notification/notify/`
   Mapped into: [docs-index.md](docs-index.md), [common/04-ui-sensors-interactions.md](common/04-ui-sensors-interactions.md)
@@ -574,11 +606,65 @@ This file is for traceability, not for repeating the full content of the documen
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/localStorage/`
   Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
-  Notes: persistent watch-local storage.
+  Notes: `3.0+` class-based persistent watch-local storage with an optional file path and in-memory loaded data. Last verified: 2026-09-08.
 
 - `https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/sessionStorage/`
   Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md), [common/09-lifecycle-registration-and-state.md](common/09-lifecycle-registration-and-state.md)
-  Notes: session-scoped watch-local state.
+  Notes: class-based session storage with isolated in-memory state per instance. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/localStorage-instance/`
+  Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
+  Notes: `2.0+` persistent `localStorage` singleton. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/sessionStorage-instance/`
+  Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
+  Notes: `2.0+` temporary `sessionStorage` singleton. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/TypedStorage/`
+  Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
+  Notes: `3.0+` scoped primitive storage backed by system properties. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/ShareLocalStorage/`
+  Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
+  Notes: `3.0+` JSON publisher for cross-application storage. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/ShareTypedStorage/`
+  Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
+  Notes: `3.0+` typed-value publisher for cross-application storage. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/share-storage/FileSystem/`
+  Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
+  Notes: read-only access to known files belonging to a provider app identified by `appId`. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/share-storage/LocalStorage/`
+  Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
+  Notes: read-only cross-app JSON consumer using provider `appId` and an optional matching storage path. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/share-storage/TypedStorage/`
+  Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
+  Notes: read-only cross-app primitive consumer using provider `appId` and an optional matching scope. Last verified: 2026-09-08.
+
+## Cryptography
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/AESCrypto/`
+  Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
+  Notes: `3.0+` AES-CBC controller, 128-bit key configuration, and block-size constraints. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/CRCCrypto/`
+  Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
+  Notes: `3.0+` CRC16/CRC32 checksums returned in little-endian form. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/DigestCrypto/`
+  Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
+  Notes: `3.0+` one-shot and streaming MD5, SHA, and HMAC digests. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/ECDSACrypto/`
+  Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
+  Notes: `3.0+` K1-curve key generation, signing, and signature verification with documented digest constraints. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/encryptKey/`
+  Mapped into: [docs-index.md](docs-index.md), [common/05-settings-sync-and-storage.md](common/05-settings-sync-and-storage.md)
+  Notes: `3.0+` PUF hardware-backed AES key encryption with 16-byte block constraints. Last verified: 2026-09-08.
 
 - `https://docs.zepp.com/docs/v2/guides/framework/device/permission/`
   Mapped into: [docs-index.md](docs-index.md)
@@ -602,7 +688,11 @@ This file is for traceability, not for repeating the full content of the documen
 
 - `https://docs.zepp.com/docs/designs/download/`
   Mapped into: [docs-index.md](docs-index.md), [common/07-i18n-config-and-assets.md](common/07-i18n-config-and-assets.md), [common/19-design-system-and-figma-patterns.md](common/19-design-system-and-figma-patterns.md)
-  Notes: official Figma library links and font-download entry point.
+  Notes: official Figma library links and font downloads, including bold Zepp OS Number variants. Last verified: 2026-09-08.
+
+- `https://docs.zepp.com/docs/designs/visual/font/`
+  Mapped into: [docs-index.md](docs-index.md), [common/19-design-system-and-figma-patterns.md](common/19-design-system-and-figma-patterns.md)
+  Notes: Noto Sans and Zepp OS numeric font roles plus multilingual line-height categories. Last verified: 2026-09-08.
 
 - `https://docs.zepp.com/docs/designs/self-checklist/`
   Mapped into: [docs-index.md](docs-index.md), [common/19-design-system-and-figma-patterns.md](common/19-design-system-and-figma-patterns.md)

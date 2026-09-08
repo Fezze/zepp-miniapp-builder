@@ -12,7 +12,10 @@ For traceability from each official document into skill files, see [docs-mapping
 ## Core platform and configuration
 
 - Intro: https://docs.zepp.com/docs/intro/
+- Official LLM documentation index: https://docs.zepp.com/llms.txt
+- Official full LLM documentation export: https://docs.zepp.com/llms-full.txt
 - Quick Start: https://docs.zepp.com/docs/guides/quick-start/
+- Environment preparation: https://docs.zepp.com/docs/guides/quick-start/environment/
 - Folder Structure: https://docs.zepp.com/docs/guides/architecture/folder-structure/
 - Zepp OS 1.0 Device App intro: https://docs.zepp.com/docs/1.0/guides/framework/device/intro/
 - Zepp OS 1.0 Mini Program Configuration: https://docs.zepp.com/docs/1.0/reference/app-json/
@@ -35,6 +38,7 @@ For traceability from each official document into skill files, see [docs-mapping
 - Zeus CLI commands: https://docs.zepp.com/docs/guides/tools/cli/
 - Simulator downloads: https://docs.zepp.com/docs/guides/tools/simulator/download/
 - Simulator development/debugging: https://docs.zepp.com/docs/guides/tools/simulator/dev/
+- Simulator FAQ: https://docs.zepp.com/docs/guides/faq/simulator-faq/
 - Quick Start simulator run: https://docs.zepp.com/docs/guides/quick-start/simulator-dev/
 - Preview on a watch: https://docs.zepp.com/docs/guides/quick-start/preview/
 - Zepp App developer mode: https://docs.zepp.com/docs/guides/tools/zepp-app/
@@ -136,9 +140,11 @@ For traceability from each official document into skill files, see [docs-mapping
 - openInspector: https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/openInspector/
 - Router `push`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/router/push/
 - Router `replace`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/router/replace/
+- Router `launchApp`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/router/launchApp/
 - Gesture interaction: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/onGesture/
 - Digital crown interaction: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/onDigitalCrown/
 - createModal: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/createModal/
+- showToast: https://docs.zepp.com/docs/reference/device-app-api/newAPI/interaction/showToast/
 - IMG_ANIM: https://docs.zepp.com/docs/v2/reference/device-app-api/newAPI/ui/widget/IMG_ANIM/
 
 ## Sensors, display, media, and notifications
@@ -146,14 +152,16 @@ For traceability from each official document into skill files, see [docs-mapping
 - Sensor module: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/
 - Accelerometer: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/Accelerometer/
 - Gyroscope: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/Gyroscope/
+- BodyTemperature: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/BodyTemperature/
+- Workout: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/Workout/
 - Buzzer: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/Buzzer/
 - SystemSounds: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/SystemSounds/
 - Permission APIs: https://docs.zepp.com/docs/reference/device-app-api/newAPI/app/queryPermission/
 - Display anti-sleep APIs: https://docs.zepp.com/docs/reference/device-app-api/newAPI/display/setPageBrightTime/
 - `getSystemMode`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/settings/getSystemMode/
-- Media player: https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/
-- `player.getDuration`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/player/getDuration/
-- `player.setSource`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/player/setSource/
+- Media controller creation: https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/create/
+- Media Player: https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/Player/
+- Media Recorder: https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/Recorder/
 - Notification API: https://docs.zepp.com/docs/reference/device-app-api/newAPI/notification/notify/
 
 ## App/runtime utilities
@@ -180,6 +188,7 @@ For traceability from each official document into skill files, see [docs-mapping
 - Contrast ratio: https://docs.zepp.com/docs/designs/accessibility/contrast-ratio/
 - Safe area: https://docs.zepp.com/docs/designs/specifications/safe-area/
 - App icon design spec: https://docs.zepp.com/docs/designs/visual/icons/
+- Font design guide: https://docs.zepp.com/docs/designs/visual/font/
 - Widget design guide: https://docs.zepp.com/docs/designs/customization/widget/
 - Shortcut Cards design guide: https://docs.zepp.com/docs/designs/customization/shortcut-cards/
 - App icon FAQ: https://docs.zepp.com/docs/guides/faq/icon-faq/
@@ -192,4 +201,20 @@ For traceability from each official document into skill files, see [docs-mapping
 
 - LocalStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/localStorage/
 - SessionStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/sessionStorage/
+- localStorage singleton: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/localStorage-instance/
+- sessionStorage singleton: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/sessionStorage-instance/
+- TypedStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/TypedStorage/
+- ShareLocalStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/ShareLocalStorage/
+- ShareTypedStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/ShareTypedStorage/
+- Cross-app FileSystem: https://docs.zepp.com/docs/reference/device-app-api/newAPI/share-storage/FileSystem/
+- Cross-app LocalStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/share-storage/LocalStorage/
+- Cross-app TypedStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/share-storage/TypedStorage/
 - API Permission Control: https://docs.zepp.com/docs/v2/guides/framework/device/permission/
+
+## Cryptography
+
+- AES-CBC: https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/AESCrypto/
+- CRC16 and CRC32: https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/CRCCrypto/
+- MD5, SHA, and HMAC digests: https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/DigestCrypto/
+- ECDSA: https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/ECDSACrypto/
+- PUF hardware-key encryption: https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/encryptKey/

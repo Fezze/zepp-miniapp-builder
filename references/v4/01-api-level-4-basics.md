@@ -49,8 +49,13 @@ The official `4.2` new-features page currently highlights:
 - media `seek()` updates and new events
 - workout additions
 - a `uuid` return value on `getDeviceInfo()`
+- an `update` flag in `Workout.getWorkoutTrackNavInfo()` for track-navigation refresh state
 
 Treat custom keyboard work as `4.2+`. The current system-keyboard docs expose `inputType.JSKB`, and the dedicated `keyboard` API plus custom-keyboard guide cover switching, settings integration, and enablement flow.
+
+`4.3` remains inside the `v4` profile. The current `@zos/media` Player docs add
+`seekTo(seconds)` at `4.3`; keep using percentage-based `seek(...)` when the
+target is `4.2`.
 
 ## Official references
 
@@ -63,3 +68,5 @@ Treat custom keyboard work as `4.2+`. The current system-keyboard docs expose `i
 - stringToBuffer: https://docs.zepp.com/docs/reference/device-app-api/newAPI/utils/stringToBuffer/
 - bufferToString: https://docs.zepp.com/docs/reference/device-app-api/newAPI/utils/bufferToString/
 - App Service `start`: https://docs.zepp.com/docs/reference/device-app-api/newAPI/app-service/start/
+- Media Player: https://docs.zepp.com/docs/reference/device-app-api/newAPI/media/Player/
+- Workout sensor: https://docs.zepp.com/docs/reference/device-app-api/newAPI/sensor/Workout/

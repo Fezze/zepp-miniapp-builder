@@ -64,8 +64,48 @@ Use `LocalStorage` when the data should survive app restarts and be cleared only
 Important `LocalStorage` behavior:
 
 - requires `device:os.local_storage`
-- is available in modern class form as `new LocalStorage()`
+- the singleton `localStorage` form starts at `2.0`
+- the `3.0+` class form `new LocalStorage(storagePath?)` keeps loaded data in memory for repeated access and can use a custom storage file
 - stores key-value pairs locally on the watch
+
+`SessionStorage` and the `sessionStorage` singleton keep data only until the
+mini-program exits. Separate `SessionStorage` instances have independent
+in-memory state, which is useful when temporary domains should stay isolated.
+
+### Typed and cross-application storage (`3.0+`)
+
+Use `TypedStorage` from `@zos/storage` for primitive booleans, integers,
+64-bit integers, doubles, and strings backed by system properties. An optional
+scope isolates key groups.
+
+Cross-application storage has deliberately asymmetric roles:
+
+- the provider writes JSON through `ShareLocalStorage` or primitive values through `ShareTypedStorage`, both from `@zos/storage`
+- the consumer supplies the provider's `appId` and reads through the read-only `LocalStorage` or `TypedStorage` classes from `@zos/share-storage`
+- custom JSON storage paths and typed-storage scopes must match on both sides
+- `FileSystem` from `@zos/share-storage` can inspect and read known files belonging to another app, but exposes no write methods
+- shared JSON storage still requires `device:os.local_storage`; verify permissions for the concrete producer API in the target manifest
+
+Do not use shared storage as an implicit mutable database between apps. Keep
+one writer/owner, version the published schema, validate all values at the
+consumer boundary, and handle missing provider data through `isExisted()` or
+file-stat checks.
+
+### Watch-side crypto (`3.0+`)
+
+The official `@zos/crypto` module documents these device-side operations:
+
+- AES-CBC through `createCrypto(alg.AES_CBC, ...)`; plaintext length must be a multiple of 16 bytes and the documented key size is 128 bits
+- CRC16 and CRC32 checksums, returned in little-endian form
+- one-shot and streaming MD5, SHA-1, SHA-256, and corresponding HMAC digests
+- ECDSA key generation, signing, and verification for the documented K1 curves
+- `encryptKey(...)` for PUF hardware-backed AES key encryption; input must be a multiple of 16 bytes
+
+Treat these as exact firmware APIs, not Web Crypto equivalents. Check local
+types and the official page for the selected algorithm, especially the unusual
+documented ECDSA digest constraints and `undefined` failure results. Encryption
+does not by itself define authentication, key rotation, secure transport, or a
+safe long-lived credential design.
 
 ### Library-level storage layers
 
@@ -195,5 +235,18 @@ If the app needs downloadable assets or content packs, consider the transfer-fil
 - Overall architecture: https://docs.zepp.com/docs/guides/architecture/arc/
 - LocalStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/localStorage/
 - SessionStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/sessionStorage/
+- localStorage singleton: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/localStorage-instance/
+- sessionStorage singleton: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/sessionStorage-instance/
+- TypedStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/TypedStorage/
+- ShareLocalStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/ShareLocalStorage/
+- ShareTypedStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/storage/ShareTypedStorage/
+- Cross-app FileSystem: https://docs.zepp.com/docs/reference/device-app-api/newAPI/share-storage/FileSystem/
+- Cross-app LocalStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/share-storage/LocalStorage/
+- Cross-app TypedStorage: https://docs.zepp.com/docs/reference/device-app-api/newAPI/share-storage/TypedStorage/
+- AES-CBC: https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/AESCrypto/
+- CRC checksums: https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/CRCCrypto/
+- Digests and HMAC: https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/DigestCrypto/
+- ECDSA: https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/ECDSACrypto/
+- Hardware-key encryption: https://docs.zepp.com/docs/reference/device-app-api/newAPI/crypto/encryptKey/
 - stringToBuffer: https://docs.zepp.com/docs/reference/device-app-api/newAPI/utils/stringToBuffer/
 - bufferToString: https://docs.zepp.com/docs/reference/device-app-api/newAPI/utils/bufferToString/

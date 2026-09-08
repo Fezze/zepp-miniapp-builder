@@ -33,6 +33,7 @@ Treat all of these as skill-maintenance triggers:
 4. Only if remote inspection is unavailable, use local clone state as a labeled fallback. Do not imply remote parity from a local-only fallback run.
 5. Identify the changed or newly relevant Zepp topic since the recorded baseline.
 6. Check the official Zepp docs for that topic first.
+   Use `https://docs.zepp.com/llms.txt` as a discovery index when useful, then verify behavior against the targeted official page or fetched docs source before writing guidance.
 7. Determine whether the information is:
    - official documented behavior
    - verified field note from real behavior or project verification

@@ -108,6 +108,7 @@ Treat simulator validation through `zeus dev`, preview on a real watch through `
 - Read `targets` and screen metadata before assuming round vs square layout, resolution, or input capabilities.
 - For device-specific UI behavior, combine manifest targeting, runtime device info, and actual simulator/device validation.
 - Verified field note: official device lists and simulator-reported API levels may disagree on the same hardware family. If the official list says a device is `3.7` but the simulator currently reports `3.6`, a temporary repo floor of `3.6` can be the safer compatibility path until real-device validation proves a tighter floor is safe.
+- Official special case: Amazfit Bip Max reports and draws as `390 x 450` by default. A dedicated adaptation uses `app._pikeCompatibled: 1`, a square `w432` target with `dw: 432`, matching `*.w432-s.layout.js` files, and the resource qualifier documented as `w450-s`; after that configuration, `getDeviceInfo()` reports the physical `432 x 514` size. Preserve those exact qualifiers and validate on the target device because they intentionally differ.
 
 ## Minimal `4.0` scaffold mental model
 

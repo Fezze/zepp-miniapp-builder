@@ -2,7 +2,7 @@
 name: zepp-miniapp-builder
 description: >
   Use for Zepp OS mini-app development when working with app.json,
-  API_LEVEL compatibility, @zos APIs, hmUI widgets, Zeus CLI,
+  API_LEVEL compatibility, @zos APIs, storage, crypto, hmUI widgets, Zeus CLI,
   app-side/settings/app-service/data-widget surfaces, store submission,
   or version-aware migration/debugging.
 ---
@@ -22,6 +22,7 @@ Use this skill for Zepp OS mini-app work that touches:
 - `@silver-zepp/easy-ble` wrappers around watch-side BLE master flows
 - `@silver-zepp/polyglot` runtime localization and translation-generation workflow
 - `@silver-zepp/easy-media` playback or recording wrappers over `@zos/media`
+- official `@zos/storage`, `@zos/share-storage`, and `@zos/crypto` APIs
 - `@zos/*` modules, `hmUI`, widgets, sensors, or device interactions
 - Zeus CLI workflow, simulator, preview, bridge, build, and device validation
 - Zepp Developer Console release, store listing assets, privacy statement, and submission readiness
@@ -65,6 +66,8 @@ Read [references/00-version-routing.md](references/00-version-routing.md) first 
 - When a repo uses `@silver-zepp/easy-ble`, treat it as a wrapper over `@zos/ble`; keep `device:os.ble`, callback-backed queue behavior, and teardown via `quit()` explicit.
 - When a repo uses `@silver-zepp/polyglot`, treat it as a combined CLI-plus-runtime localization layer; keep generated asset paths, `device:os.local_storage`, and the no-App-Side limitation explicit.
 - When a repo uses `@silver-zepp/easy-media`, treat it as a wrapper over `@zos/media`; keep `3.0+` targeting, full asset paths, page teardown, and source-level API drift explicit.
+- For cross-application storage, keep publisher and consumer roles explicit: the provider writes with `ShareLocalStorage` or `ShareTypedStorage` from `@zos/storage`, while another app reads by provider `appId` through read-only classes from `@zos/share-storage`.
+- Treat the documented `@zos/crypto` algorithms as `3.0+`; preserve each algorithm's input-size, key, curve, and digest constraints rather than treating the module as a generic Web Crypto replacement.
 - When a task starts from official Zepp Figma libraries or templates, treat them as official design-system input; keep screen shape, safe area, text overflow, and accessibility rules explicit instead of copying static mockup coordinates blindly.
 - When a task includes a design URL and the environment offers a design connector, MCP server, or similar design-inspection tool, use it for targeted inspection of the relevant page or node before falling back to stored guidance alone.
 - Do not block on one specific design tool. If no connector is available, continue with the stored design guidance, exported screenshots, copied measurements, or user-provided details.
@@ -93,7 +96,7 @@ Load these files directly as needed.
 - [references/common/02-device-phone-architecture.md](references/common/02-device-phone-architecture.md): Device App, Settings App, Side Service, App Service roles
 - [references/common/03-dev-build-preview-bridge.md](references/common/03-dev-build-preview-bridge.md): Zeus CLI flow, simulator, preview, bridge, logs, screenshots
 - [references/common/04-ui-sensors-interactions.md](references/common/04-ui-sensors-interactions.md): widgets, sensors, gestures, router, media, notifications
-- [references/common/05-settings-sync-and-storage.md](references/common/05-settings-sync-and-storage.md): storage ownership and phone-to-watch sync patterns
+- [references/common/05-settings-sync-and-storage.md](references/common/05-settings-sync-and-storage.md): storage ownership, cross-application sharing, crypto, and phone-to-watch sync patterns
 - [references/common/06-testing-validation.md](references/common/06-testing-validation.md): tests, mocks, simulator, device validation
 - [references/common/07-i18n-config-and-assets.md](references/common/07-i18n-config-and-assets.md): i18n, locales, icons, assets
 - [references/common/08-runtime-gotchas.md](references/common/08-runtime-gotchas.md): official warnings and verified field notes
@@ -153,6 +156,8 @@ Load these files directly as needed.
   Read `10-secondary-widgets-and-shortcuts` before proposing UI or BLE behavior.
 - Workout Extension or `data-widget` work:
   Read `12-workout-extension`; add `05-settings-sync-and-storage` when `app-side` sync is involved.
+- Official watch storage, cross-application sharing, or `@zos/crypto` work:
+  Read `05-settings-sync-and-storage`; confirm the effective runtime is `3.0+` before using typed/shared storage or crypto.
 - `@zeppos/zml` or any `@silver-zepp/*` dependency decision:
   Read `references/vendor-library-confidence.md` before proposing installation, migration, or new dependency usage.
 - ZML-based app structure or messaging helpers:

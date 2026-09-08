@@ -11,7 +11,9 @@ zeus --version
 zeus status
 ```
 
-The official Zeus CLI docs currently state a baseline dependency of Node.js `>= 14.0.0`.
+The official environment guide now recommends an active Node.js LTS release,
+while the Zeus CLI overview still states a minimum of Node.js `>= 14.0.0`.
+Prefer an active LTS release unless the repository pins a compatible version.
 
 ## Project creation and account setup
 
@@ -64,13 +66,19 @@ Verified field note:
 ### Simulator install or update
 When the task involves installing or upgrading the Zepp OS Simulator, check the official download page instead of assuming an older binary set.
 
-As of 2026-03-20, the official docs list Simulator `2.1.0` downloads for:
+As of 2026-07-17, the official docs list Simulator `2.1.2` downloads for:
 
 - macOS `arm64`
 - macOS `x64`
 - Windows `x64`
 - Linux `amd64`
 - Linux `arm64`
+
+The official Simulator FAQ also has distro-specific setup notes. Ubuntu `24.04`
+and `26.04` require different Capstone packages and compatibility links, so use
+the instructions for the exact host version instead of applying the commands
+from one release to another. These steps modify system libraries and may need
+administrator access.
 
 Verified field notes for Linux and Steam Deck style environments:
 

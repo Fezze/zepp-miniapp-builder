@@ -29,6 +29,15 @@ Direct official Figma resources currently linked from Zepp docs:
 - Widget templates: https://www.figma.com/community/file/1372844899307211702
 - Shortcut Cards templates: https://www.figma.com/community/file/1372844485569677237
 
+## Typography
+
+- Use Noto Sans Regular or Medium for general system, feature, and information text.
+- Use Zepp OS Number Regular or Bold to emphasize important fitness or health values.
+- Use Zepp OS Number Condensed Regular or Bold for dense workout metrics such as pace and distance.
+- The official multilingual line-height guidance is `116%` for English-like languages (including Polish), `132%` for Arabic, Hindi, Thai, and Vietnamese, and `125%` for Chinese, Japanese, and Korean.
+- Zepp OS Number and Zepp OS Number Condensed use a recommended `100%` line height.
+- Prefer the official font files from the resource-download page, which now includes bold variants of both Zepp OS number families.
+
 ## Optional live design access
 
 If the environment offers a design connector, MCP server, or similar live design-inspection path, it is worth using for design-specific tasks.
@@ -189,3 +198,4 @@ When reviewing a Zepp UI against the official design system, check:
 - Widget design guide: https://docs.zepp.com/docs/designs/customization/widget/
 - Shortcut Cards design guide: https://docs.zepp.com/docs/designs/customization/shortcut-cards/
 - App icon design spec: https://docs.zepp.com/docs/designs/visual/icons/
+- Font design guide: https://docs.zepp.com/docs/designs/visual/font/
